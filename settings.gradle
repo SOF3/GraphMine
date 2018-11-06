@@ -1,0 +1,3 @@
+rootProject.name = 'graphmine'
+
+include("graphmine-core")
