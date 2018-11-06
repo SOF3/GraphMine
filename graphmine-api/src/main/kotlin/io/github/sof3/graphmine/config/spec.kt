@@ -1,4 +1,6 @@
-package io.github.sof3.graphmine
+package io.github.sof3.graphmine.config
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 /*
  * GraphMine
@@ -18,6 +20,7 @@ package io.github.sof3.graphmine
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-fun main(args: Array<String>) {
-    println("Hello world")
-}
+@JsonIgnoreProperties(ignoreUnknown = true)
+data class Config(
+		val port: Int
+)

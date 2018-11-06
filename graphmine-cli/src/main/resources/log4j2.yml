@@ -1,0 +1,35 @@
+---
+Configuration:
+  name: GraphMineLogger
+  status: WARN
+  appenders:
+    Console:
+      name: stdout
+      PatternLayout:
+        Pattern: "%d{MMM dd HH:mm:ss} [%thread] %level %logger - %msg%n"
+    RollingFile:
+      name: file
+      fileName: logs/server.log
+      filePattern: "logs/archive/server.%{yyyy-MM-dd-HH-mm}.gz"
+      PatternLayout:
+        Pattern: "%d{MMM dd HH:mm:ss} [%thread] %level %logger - %msg%n"
+      Filters:
+        ThresholdFilter:
+          level: info
+      Policies:
+        SizeBasedTriggeringPolicy:
+          size: 16 KB
+      DefaultRollOverStrategy:
+        max: 64
+  Loggers:
+    Logger:
+    - name: io.github.sof3.graphmine.Server
+      level: trace
+      AppenderRef:
+      - ref: stdout
+      - ref: file
+    Root:
+      level: trace
+      AppenderRef:
+      - ref: stdout
+...

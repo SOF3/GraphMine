@@ -21,19 +21,22 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	java
 	kotlin("jvm") version "1.3.0"
+	application
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
 dependencies {
-	compile(project(":graphmine-api"))
+	compile(project(":graphmine-core"))
 	compile(kotlin("stdlib-jdk8"))
-	compile("org.apache.logging.log4j", "log4j-core", "2.11.1")
-	compile("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.7")
-	compile("com.fasterxml.jackson.dataformat", "jackson-dataformat-yaml", "2.9.7")
-	compile("com.fasterxml.jackson.core", "jackson-databind", "2.9.4")
+	compile("commons-cli", "commons-cli", "1.4")
+	compile("commons-io", "commons-io", "2.6")
 	testCompile("io.kotlintest", "kotlintest-runner-junit5", "3.1.8")
+}
+
+application {
+	mainClassName = "io.github.sof3.graphmine.cli.MainKt"
 }
 
 configure<JavaPluginConvention> {

@@ -1,3 +1,5 @@
+/graphmine-cli/data/
+/graphmine-cli/logs/
 .idea/*
 !.idea/fileTemplates
 !.idea/inspectionProfiles
@@ -52,6 +54,7 @@ $RECYCLE.BIN/
 *.lnk
 .gradle
 /build/
+/*/build/
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
