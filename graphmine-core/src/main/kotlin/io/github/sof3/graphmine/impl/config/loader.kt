@@ -1,7 +1,11 @@
-package io.github.sof3.graphmine
+package io.github.sof3.graphmine.impl.config
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
+import com.fasterxml.jackson.module.kotlin.readValue
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.sof3.graphmine.config.Config
-import org.apache.logging.log4j.Logger
+import java.io.File
 
 /*
  * GraphMine
@@ -21,7 +25,4 @@ import org.apache.logging.log4j.Logger
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface Server {
-	val config: Config
-	val logger: Logger
-}
+fun loadConfig(file: File) = ObjectMapper(YAMLFactory()).registerKotlinModule().readValue<Config>(file)

@@ -1,7 +1,7 @@
-package io.github.sof3.graphmine
+package io.github.sof3.graphmine.world
 
-import io.github.sof3.graphmine.config.Config
-import org.apache.logging.log4j.Logger
+import io.github.sof3.graphmine.feature.FeatureNode
+import io.github.sof3.graphmine.feature.FeatureNodeInstance
 
 /*
  * GraphMine
@@ -21,7 +21,13 @@ import org.apache.logging.log4j.Logger
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface Server {
-	val config: Config
-	val logger: Logger
+object Blocks {
+	val AIR = Block(0)
+	// TODO generate more block types
+}
+
+data class Block(val id: Int) : FeatureNode<Block, BlockInstance>
+
+data class BlockInstance(val block: Block, val location: BlockLocation) : FeatureNodeInstance<BlockInstance, Block> {
+	override val node get() = block
 }

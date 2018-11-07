@@ -28,6 +28,7 @@ version = "1.0.0-SNAPSHOT"
 
 dependencies {
 	compile(project(":graphmine-api"))
+	compile(project(":graphmine-util"))
 	compile(kotlin("stdlib-jdk8"))
 	compile("org.apache.logging.log4j", "log4j-core", "2.11.1")
 	compile("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.7")
@@ -39,6 +40,14 @@ dependencies {
 configure<JavaPluginConvention> {
 	sourceCompatibility = JavaVersion.VERSION_1_8
 }
+
+tasks.withType<KotlinCompile> {
+	kotlinOptions {
+		jvmTarget = "1.8"
+//		freeCompilerArgs += "-XXLanguage:+InlineClasses"
+	}
+}
+
 tasks.withType<KotlinCompile> {
 	kotlinOptions.jvmTarget = "1.8"
 }

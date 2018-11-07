@@ -1,7 +1,4 @@
-package io.github.sof3.graphmine
-
-import io.github.sof3.graphmine.config.Config
-import org.apache.logging.log4j.Logger
+package io.github.sof3.graphmine.feature
 
 /*
  * GraphMine
@@ -21,7 +18,9 @@ import org.apache.logging.log4j.Logger
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface Server {
-	val config: Config
-	val logger: Logger
+interface FeatureGraph {
+	fun addNode(node: FeatureNode<*, *>)
+
+	fun <Inst : FeatureNodeInstance<Inst, *>> dispatch(inst: Inst, event: FeatureEvent)
+	fun <Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>> dispatch(inst1: Inst1, inst2: Inst2, event: FeatureEvent)
 }

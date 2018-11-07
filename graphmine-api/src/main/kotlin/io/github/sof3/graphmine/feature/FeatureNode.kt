@@ -1,7 +1,4 @@
-package io.github.sof3.graphmine
-
-import io.github.sof3.graphmine.config.Config
-import org.apache.logging.log4j.LogManager
+package io.github.sof3.graphmine.feature
 
 /*
  * GraphMine
@@ -21,12 +18,4 @@ import org.apache.logging.log4j.LogManager
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class ServerImpl(
-		val config: Config
-) : Server {
-	override val logger = LogManager.getLogger(Server::class.java)!!
-
-	init {
-		logger.info("Starting server ${config.port}")
-	}
-}
+interface FeatureNode<Self: FeatureNode<Self, Instance>, Instance: FeatureNodeInstance<Instance, Self>>

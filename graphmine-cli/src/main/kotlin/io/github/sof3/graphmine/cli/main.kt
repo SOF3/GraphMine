@@ -1,8 +1,8 @@
 package io.github.sof3.graphmine.cli
 
-import io.github.sof3.graphmine.ServerImpl
 import io.github.sof3.graphmine.VersionInfo
-import io.github.sof3.graphmine.config.loadConfig
+import io.github.sof3.graphmine.impl.Server
+import io.github.sof3.graphmine.impl.config.loadConfig
 import org.apache.commons.cli.DefaultParser
 import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
 		return
 	}
 
-	if(cmd.hasOption("v")){
+	if (cmd.hasOption("v")) {
 		println("GraphMine v${VersionInfo.VERSION}, built on ${DateFormat.getDateTimeInstance().format(VersionInfo.BUILD_DATE)}")
 	}
 
@@ -52,7 +52,7 @@ fun main(args: Array<String>) {
 		FileOutputStream(configFile).use { IOUtils.copy(default, it) }
 	}
 
-	ServerImpl(
+	Server(
 			loadConfig(configFile)
 	)
 }

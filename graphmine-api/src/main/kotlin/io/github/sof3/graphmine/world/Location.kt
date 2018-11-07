@@ -1,12 +1,4 @@
-package io.github.sof3.graphmine.config
-
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.sun.org.apache.xml.internal.security.Init
-import java.io.File
+package io.github.sof3.graphmine.world
 
 /*
  * GraphMine
@@ -25,11 +17,6 @@ import java.io.File
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-//
-//private object Init {
-//	init {
-//		jacksonObjectMapper()
-//	}
-//}
 
-fun loadConfig(file: File) = ObjectMapper(YAMLFactory()).registerKotlinModule().readValue<Config>(file)
+interface Location {
+}

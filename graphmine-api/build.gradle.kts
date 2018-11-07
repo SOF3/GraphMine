@@ -34,15 +34,19 @@ version = "1.0.0-SNAPSHOT"
 dependencies {
 	compile("org.apache.logging.log4j", "log4j-api", "2.11.1")
 	compile(kotlin("stdlib-jdk8"))
-	compile("com.fasterxml.jackson.core", "jackson-annotations", "2.9.4")
+	compile("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
 	testCompile("junit", "junit", "4.12")
 }
 
 configure<JavaPluginConvention> {
 	sourceCompatibility = JavaVersion.VERSION_1_8
 }
+
 tasks.withType<KotlinCompile> {
-	kotlinOptions.jvmTarget = "1.8"
+	kotlinOptions {
+		jvmTarget = "1.8"
+//		freeCompilerArgs += "-XXLanguage:+InlineClasses"
+	}
 }
 
 open class CreateVersionProperties : DefaultTask() {

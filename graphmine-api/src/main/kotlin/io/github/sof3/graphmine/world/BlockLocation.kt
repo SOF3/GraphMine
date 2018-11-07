@@ -1,7 +1,6 @@
-package io.github.sof3.graphmine
+package io.github.sof3.graphmine.world
 
-import io.github.sof3.graphmine.config.Config
-import org.apache.logging.log4j.Logger
+import io.github.sof3.graphmine.math.IntVector3
 
 /*
  * GraphMine
@@ -21,7 +20,4 @@ import org.apache.logging.log4j.Logger
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface Server {
-	val config: Config
-	val logger: Logger
-}
+data class BlockLocation(val vector: IntVector3, val world: World)
