@@ -24,4 +24,6 @@ import org.apache.logging.log4j.Logger
 interface Server {
 	val config: Config
 	val logger: Logger
+
+	val scope: Scope
 }

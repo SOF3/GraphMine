@@ -1,6 +1,6 @@
 package io.github.sof3.graphmine.world
 
-import io.github.sof3.graphmine.math.IntVector3
+import io.github.sof3.graphmine.util.math.IntVector3
 
 /*
  * GraphMine

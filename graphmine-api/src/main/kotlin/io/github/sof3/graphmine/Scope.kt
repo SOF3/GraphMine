@@ -1,10 +1,4 @@
-package io.github.sof3.graphmine.impl
-
-import io.github.sof3.graphmine.Server
-import io.github.sof3.graphmine.VersionInfo
-import io.github.sof3.graphmine.config.Config
-import io.github.sof3.graphmine.BaseScope
-import org.apache.logging.log4j.LogManager
+package io.github.sof3.graphmine
 
 /*
  * GraphMine
@@ -24,20 +18,11 @@ import org.apache.logging.log4j.LogManager
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class Server(
-		override val config: Config
-) : Server {
-	override val logger = LogManager.getLogger(Server::class.java)!!
-	private val myScope = BaseScope()
-	override val scope by myScope
+/**
+ * A Scope represents some period of persistence. Features may be enabled only during the period where a context is valid, e.g. during a plugin is enabled, during a player is online, during a period, etc.
+ */
+interface Scope {
+	val disposed: Boolean
 
-	init {
-
-		logger.info("Starting GraphMine v${VersionInfo.VERSION} on ${config.port}")
-	}
-
-	fun shutdown(){
-		// finally...
-		myScope.dispose()
-	}
+	fun addOnDispose(fn: () -> Unit)
 }

@@ -1,5 +1,7 @@
 package io.github.sof3.graphmine.world
 
+import io.github.sof3.graphmine.util.math.Vector3
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,5 +20,4 @@ package io.github.sof3.graphmine.world
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface Location {
-}
+data class Location (val vector: Vector3, val world: World)

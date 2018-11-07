@@ -32,7 +32,7 @@ dependencies {
 	compile(kotlin("stdlib-jdk8"))
 	compile("commons-cli", "commons-cli", "1.4")
 	compile("commons-io", "commons-io", "2.6")
-	testCompile("io.kotlintest", "kotlintest-runner-junit5", "3.1.8")
+	testCompile("junit", "junit", "4.12")
 }
 
 application {
