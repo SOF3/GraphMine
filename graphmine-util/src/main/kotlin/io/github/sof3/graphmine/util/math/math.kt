@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.math
+package io.github.sof3.graphmine.util.math
 
 /*
  * GraphMine
@@ -18,6 +18,8 @@ package io.github.sof3.graphmine.math
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class IntVector3(val x: Int, val y: Int, val z: Int) {
-
+fun Int.pow10(): Double {
+	var r = 1.0
+	for (i in 0 until this) r *= 10
+	return r
 }

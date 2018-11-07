@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.math
+package io.github.sof3.graphmine.util.math
 
 /*
  * GraphMine
@@ -18,5 +18,8 @@ package io.github.sof3.graphmine.math
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class Vector3 {
+fun a() {
+	val a = IntVector3(intArrayOf(1, 1, 1))
+	val b = IntVector3(intArrayOf(2, 2, 2))
+	println(a + b - a)
 }

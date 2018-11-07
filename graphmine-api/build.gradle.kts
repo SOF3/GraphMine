@@ -32,6 +32,7 @@ group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
 dependencies {
+	compile(project(":graphmine-util"))
 	compile("org.apache.logging.log4j", "log4j-api", "2.11.1")
 	compile(kotlin("stdlib-jdk8"))
 	compile("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
