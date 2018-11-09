@@ -15,13 +15,15 @@ cache:
     - $HOME/.gradle/wrapper/
 before_deploy:
   - ./gradlew dokka
-  - mkdir ../pages/api -p && cp -r graphmine-api/build/javadoc ../pages/api
+  - mkdir ../pages && touch ../pages/.nojekyll && cp -r graphmine-api/build/javadoc ../pages/api
+  - wget -O ../pages/index.html https://sof3.github.io/GraphMine || true
 deploy:
+  skip-cleanup: true
+  on:
+    branch: master
+  jdk: openjdk8
   provider: pages
   github-token: $GITHUB_TOKEN
   local-dir: ../pages
   keep-history: true
-  skip-cleanup: true
   committer-from-gh: true
-  on:
-    branch: master
