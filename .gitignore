@@ -4,7 +4,8 @@
 !.idea/fileTemplates
 !.idea/inspectionProfiles
 !.idea/.name
-!.idea/vcs.xml
+!.idea/codeStyles
+!.idea/gradle.xml
 *.class
 *.log
 *.ctxt
