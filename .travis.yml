@@ -13,19 +13,22 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-after_success: bash < (curl -s https://codecov.io/bash)
+script:
+  - ./gradlew check codeCoverageReport
+after_script:
+  - bash < (curl -s https://codecov.io/bash)
 before_deploy:
   - ./gradlew graphmine-cli:fatJar graphmine-api:dokka
   - wget -O ../gh-pages.tar.gz https://github.com/SOF3/GraphMine/archive/gh-pages.tar.gz
   - tar xzf ../gh-pages.tar.gz -C ..
   - cd ../GraphMine-gh-pages && rm -r api
-  - cp -r graphmine-api/build/javadoc api
-  - cp graphmine-cli/build/libs/graphmine-cli-fat-*.jar pages/latestMaster.jar
+  - cp -r $TRAVIS_BUILD_DIR/graphmine-api/build/javadoc api
+  - cp $TRAVIS_BUILD_DIR/graphmine-cli/build/libs/graphmine-cli-fat-*.jar pages/latestMaster.jar
 deploy:
   skip-cleanup: true
   on:
     branch: master
-  jdk: openjdk8
+    jdk: openjdk8
   provider: pages
   github-token: $GITHUB_TOKEN
   local-dir: ../pages
