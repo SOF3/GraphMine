@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FeatureEdge - graphmine-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">graphmine-api</a>&nbsp;/&nbsp;<a href="../index.html">io.github.sof3.graphmine.feature</a>&nbsp;/&nbsp;<a href="./index.html">FeatureEdge</a><br/>
+<br/>
+<h1>FeatureEdge</h1>
+<code><span class="keyword">interface </span><span class="identifier">FeatureEdge</span><span class="symbol">&lt;</span><span class="identifier">Node1</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-feature-node.html"><span class="identifier">FeatureNode</span></a><span class="symbol">&lt;</span><a href="index.html#Node1"><span class="identifier">Node1</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#Inst1"><span class="identifier">Inst1</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Node2</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-feature-node.html"><span class="identifier">FeatureNode</span></a><span class="symbol">&lt;</span><a href="index.html#Node2"><span class="identifier">Node2</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#Inst2"><span class="identifier">Inst2</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Inst1</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-feature-node-instance/index.html"><span class="identifier">FeatureNodeInstance</span></a><span class="symbol">&lt;</span><a href="index.html#Inst1"><span class="identifier">Inst1</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#Node1"><span class="identifier">Node1</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Inst2</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-feature-node-instance/index.html"><span class="identifier">FeatureNodeInstance</span></a><span class="symbol">&lt;</span><a href="index.html#Inst2"><span class="identifier">Inst2</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#Node2"><span class="identifier">Node2</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Represents the implementation of a feature.</p>
+<p>FeatureGraph.handle() provides a convenience inline function for implementing this.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../handle.html">FeatureGraph.handle</a></p>
+</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="node1.html">node1</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">node1</span><span class="symbol">: </span><a href="index.html#Node1"><span class="identifier">Node1</span></a></code>
+<p>Represents one of the endpoint FeatureNodes. Swapping node1 and node2 does not matter.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="node2.html">node2</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">node2</span><span class="symbol">: </span><a href="index.html#Node2"><span class="identifier">Node2</span></a></code>
+<p>Represents one of the endpoint FeatureNodes. Swapping node1 and node2 does not matter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="handle.html">handle</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">handle</span><span class="symbol">(</span><span class="identifier" id="io.github.sof3.graphmine.feature.FeatureEdge$handle(io.github.sof3.graphmine.feature.FeatureEdge.Inst1, io.github.sof3.graphmine.feature.FeatureEdge.Inst2, io.github.sof3.graphmine.feature.FeatureEvent)/inst1">inst1</span><span class="symbol">:</span>&nbsp;<a href="index.html#Inst1"><span class="identifier">Inst1</span></a><span class="symbol">, </span><span class="identifier" id="io.github.sof3.graphmine.feature.FeatureEdge$handle(io.github.sof3.graphmine.feature.FeatureEdge.Inst1, io.github.sof3.graphmine.feature.FeatureEdge.Inst2, io.github.sof3.graphmine.feature.FeatureEvent)/inst2">inst2</span><span class="symbol">:</span>&nbsp;<a href="index.html#Inst2"><span class="identifier">Inst2</span></a><span class="symbol">, </span><span class="identifier" id="io.github.sof3.graphmine.feature.FeatureEdge$handle(io.github.sof3.graphmine.feature.FeatureEdge.Inst1, io.github.sof3.graphmine.feature.FeatureEdge.Inst2, io.github.sof3.graphmine.feature.FeatureEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-feature-event.html"><span class="identifier">FeatureEvent</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>The implementation to handle the FeatureEvent.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-single-feature-edge/index.html">SingleFeatureEdge</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">SingleFeatureEdge</span><span class="symbol">&lt;</span><span class="identifier">Node</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-feature-node.html"><span class="identifier">FeatureNode</span></a><span class="symbol">&lt;</span><a href="../-single-feature-edge/index.html#Node"><span class="identifier">Node</span></a><span class="symbol">,</span>&nbsp;<a href="../-single-feature-edge/index.html#Inst"><span class="identifier">Inst</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Inst</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-feature-node-instance/index.html"><span class="identifier">FeatureNodeInstance</span></a><span class="symbol">&lt;</span><a href="../-single-feature-edge/index.html#Inst"><span class="identifier">Inst</span></a><span class="symbol">,</span>&nbsp;<a href="../-single-feature-edge/index.html#Node"><span class="identifier">Node</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FeatureEdge</span></a><span class="symbol">&lt;</span><a href="../-single-feature-edge/index.html#Node"><span class="identifier">Node</span></a><span class="symbol">,</span>&nbsp;<a href="../-single-feature-edge/index.html#Node"><span class="identifier">Node</span></a><span class="symbol">,</span>&nbsp;<a href="../-single-feature-edge/index.html#Inst"><span class="identifier">Inst</span></a><span class="symbol">,</span>&nbsp;<a href="../-single-feature-edge/index.html#Inst"><span class="identifier">Inst</span></a><span class="symbol">&gt;</span></code>
+<p>Convenience implementation of self-looping FeatureEdge</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

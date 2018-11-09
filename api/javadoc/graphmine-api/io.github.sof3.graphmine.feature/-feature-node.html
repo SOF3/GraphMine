@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FeatureNode - graphmine-api</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">graphmine-api</a>&nbsp;/&nbsp;<a href="index.html">io.github.sof3.graphmine.feature</a>&nbsp;/&nbsp;<a href="./-feature-node.html">FeatureNode</a><br/>
+<br/>
+<h1>FeatureNode</h1>
+<code><span class="keyword">interface </span><span class="identifier">FeatureNode</span><span class="symbol">&lt;</span><span class="identifier">Self</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-feature-node.html"><span class="identifier">FeatureNode</span></a><span class="symbol">&lt;</span><a href="-feature-node.html#Self"><span class="identifier">Self</span></a><span class="symbol">,</span>&nbsp;<a href="-feature-node.html#Inst"><span class="identifier">Inst</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Inst</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-feature-node-instance/index.html"><span class="identifier">FeatureNodeInstance</span></a><span class="symbol">&lt;</span><a href="-feature-node.html#Inst"><span class="identifier">Inst</span></a><span class="symbol">,</span>&nbsp;<a href="-feature-node.html#Self"><span class="identifier">Self</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Represents a concrete or abstract concept that can interact with itself or other FeatureNodes, such as an entity,
+a block, a client or a command.</p>
+<p>If the implementation is a singleton, it is recommended that FeatureNode be implemented in the companion object of
+the corresponding FeatureNodeInstance.</p>
+<h3>Parameters</h3>
+<p><a name="Self"></a>
+<code>Self</code> - the actual class implementing FeatureNode. If the class is open, it should also have a Self type
+parameter (and typealias the type-arg-free expression) and pass it up.</p>
+<p><a name="Inst"></a>
+<code>Inst</code> - the FeatureNodeInstance class corresponding to Self.</p>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../io.github.sof3.graphmine.world/-block/index.html">Block</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Block</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-feature-node.html"><span class="identifier">FeatureNode</span></a><span class="symbol">&lt;</span><a href="../io.github.sof3.graphmine.world/-block/index.html"><span class="identifier">Block</span></a><span class="symbol">,</span>&nbsp;<a href="../io.github.sof3.graphmine.world/-block-instance/index.html"><span class="identifier">BlockInstance</span></a><span class="symbol">&gt;</span></code>
+<p>Represents a block type.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

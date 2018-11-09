@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FeatureNodeInstance - graphmine-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">graphmine-api</a>&nbsp;/&nbsp;<a href="../index.html">io.github.sof3.graphmine.feature</a>&nbsp;/&nbsp;<a href="./index.html">FeatureNodeInstance</a><br/>
+<br/>
+<h1>FeatureNodeInstance</h1>
+<code><span class="keyword">interface </span><span class="identifier">FeatureNodeInstance</span><span class="symbol">&lt;</span><span class="identifier">Self</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FeatureNodeInstance</span></a><span class="symbol">&lt;</span><a href="index.html#Self"><span class="identifier">Self</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#Node"><span class="identifier">Node</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Node</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-feature-node.html"><span class="identifier">FeatureNode</span></a><span class="symbol">&lt;</span><a href="index.html#Node"><span class="identifier">Node</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#Self"><span class="identifier">Self</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance
+represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the
+FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node
+companion object represents the client type.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="node.html">node</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">node</span><span class="symbol">: </span><a href="index.html#Node"><span class="identifier">Node</span></a></code>
+<p>the corresponding node for the instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../io.github.sof3.graphmine.world/-block-instance/index.html">BlockInstance</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">BlockInstance</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FeatureNodeInstance</span></a><span class="symbol">&lt;</span><a href="../../io.github.sof3.graphmine.world/-block-instance/index.html"><span class="identifier">BlockInstance</span></a><span class="symbol">,</span>&nbsp;<a href="../../io.github.sof3.graphmine.world/-block/index.html"><span class="identifier">Block</span></a><span class="symbol">&gt;</span></code>
+<p>Represents a block type at a certain location. The existence persistence of this block is irrelevant to whether the
+block is really at the location, ever at the location or has been removed. This is a pure value class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

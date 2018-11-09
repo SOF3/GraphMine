@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - graphmine-api</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.scope/-base-scope/index.html">io.github.sof3.graphmine.scope.BaseScope</a></td>
+<td>
+<p>Basic implementation of BaseScope</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-block/index.html">io.github.sof3.graphmine.world.Block</a></td>
+<td>
+<p>Represents a block type.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-block-instance/index.html">io.github.sof3.graphmine.world.BlockInstance</a></td>
+<td>
+<p>Represents a block type at a certain location. The existence persistence of this block is irrelevant to whether the
+block is really at the location, ever at the location or has been removed. This is a pure value class.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-block-location/index.html">io.github.sof3.graphmine.world.BlockLocation</a></td>
+<td>
+<p>A unique identifier for an integer location.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-blocks/index.html">io.github.sof3.graphmine.world.Blocks</a></td>
+<td>
+<p>The list of default Block instances. Plugins are not expected to add custom block types to this list</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.config/-config/index.html">io.github.sof3.graphmine.config.Config</a></td>
+<td>
+<p>Model for the server config.yml</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.feature/-feature-edge/index.html">io.github.sof3.graphmine.feature.FeatureEdge</a></td>
+<td>
+<p>Represents the implementation of a feature.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.feature/-feature-event.html">io.github.sof3.graphmine.feature.FeatureEvent</a></td>
+<td>
+<p>Represents an event on some node(s). Implementations shall contain mutable and immutable properties for FeatureEdges
+to read and modify, except the FeatureNodeInstances do not need to be in the event since
+they are passed to the event in a different way.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.feature/-feature-graph/index.html">io.github.sof3.graphmine.feature.FeatureGraph</a></td>
+<td>
+<p>The Feature Graph is the main registry of features in the server. It is an undirected multi-graph that allows
+FeatureEdges (the features themselves) to handle interaction events (FeatureEvent) between FeatureNodes (the objects
+of features, e.g. entities, blocks, or abstract concepts like commands), or self-loop edges that handle events on
+a single object (e.g. player join).</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.feature/-feature-node.html">io.github.sof3.graphmine.feature.FeatureNode</a></td>
+<td>
+<p>Represents a concrete or abstract concept that can interact with itself or other FeatureNodes, such as an entity,
+a block, a client or a command.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.feature/-feature-node-instance/index.html">io.github.sof3.graphmine.feature.FeatureNodeInstance</a></td>
+<td>
+<p>Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance
+represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the
+FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node
+companion object represents the client type.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-location/index.html">io.github.sof3.graphmine.world.Location</a></td>
+<td>
+<p>Represents a point in the 3D space of a world.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.scope/-scope/index.html">io.github.sof3.graphmine.scope.Scope</a></td>
+<td>
+<p>A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin scopes include:</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine/-server/index.html">io.github.sof3.graphmine.Server</a></td>
+<td>
+<p>The Server should be the object that links up different components of the server.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.feature/-single-feature-edge/index.html">io.github.sof3.graphmine.feature.SingleFeatureEdge</a></td>
+<td>
+<p>Convenience implementation of self-looping FeatureEdge</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine/-version-info/index.html">io.github.sof3.graphmine.VersionInfo</a></td>
+<td>
+<p>Holds the static version information for this build</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-world.html">io.github.sof3.graphmine.world.World</a></td>
+<td>
+<p>Each world has its set of 3D space. Usually, this is implemented as one saved map, but plugins may create virtual
+worlds, remote worlds or anything that features the characteristics as required by the interface.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-world-partition.html">io.github.sof3.graphmine.world.WorldPartition</a></td>
+<td>
+<p>Represents a partition of a World. World partitioning is controlled by the server based on WorldUser activity.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../io.github.sof3.graphmine.world/-world-user.html">io.github.sof3.graphmine.world.WorldUser</a></td>
+<td>
+<p>Represents a user of a world that holds resources from being freed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
