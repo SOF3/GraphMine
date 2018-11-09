@@ -28,6 +28,11 @@ class FeatureGraph : FeatureGraph {
 		edges[node] = mutableMapOf()
 	}
 
+	override fun addEdge(edge: FeatureEdge<out FeatureNode<*, *>, out FeatureNode<*, *>, out FeatureNodeInstance<*, *>, out FeatureNodeInstance<*, *>>) {
+		edges[edge.node1]!![edge.node2]!!.add(edge)
+		edges[edge.node2]!![edge.node1]!!.add(edge)
+	}
+
 	override fun <Inst : FeatureNodeInstance<Inst, *>> dispatch(inst: Inst, event: FeatureEvent) {
 		getEdges(inst, inst)?.forEach { it.handle(inst, inst, event) }
 	}
@@ -35,7 +40,7 @@ class FeatureGraph : FeatureGraph {
 	override fun <Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>> dispatch(inst1: Inst1, inst2: Inst2, event: FeatureEvent) {
 		getEdges(inst1, inst1)?.forEach { it.handle(inst1, inst1, event) }
 		getEdges(inst1, inst2)?.forEach { it.handle(inst1, inst2, event) }
-		getEdges(inst2, inst1)?.forEach { it.handle(inst2, inst1, event) }
+//		getEdges(inst2, inst1)?.forEach { it.handle(inst2, inst1, event) } // edges should have been registered bidirectionally
 		getEdges(inst2, inst2)?.forEach { it.handle(inst2, inst2, event) }
 	}
 

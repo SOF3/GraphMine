@@ -4,6 +4,7 @@ import io.github.sof3.graphmine.Server
 import io.github.sof3.graphmine.VersionInfo
 import io.github.sof3.graphmine.config.Config
 import io.github.sof3.graphmine.BaseScope
+import io.github.sof3.graphmine.impl.feature.FeatureGraph
 import org.apache.logging.log4j.LogManager
 
 /*
@@ -30,9 +31,9 @@ class Server(
 	override val logger = LogManager.getLogger(Server::class.java)!!
 	private val myScope = BaseScope()
 	override val scope by myScope
+	override val features = FeatureGraph()
 
 	init {
-
 		logger.info("Starting GraphMine v${VersionInfo.VERSION} on ${config.port}")
 	}
 

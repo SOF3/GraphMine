@@ -19,10 +19,24 @@ package io.github.sof3.graphmine
  */
 
 /**
- * A Scope represents some period of persistence. Features may be enabled only during the period where a context is valid, e.g. during a plugin is enabled, during a player is online, during a period, etc.
+ * A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin scopes include:
+ *
+ * - Server scope: Until the server is stopped
+ * - Player scope: Until the player leaves the server
+ * - Plugin scope: While the plugin is enabled
+ * - World scope: While the world is loaded
+ * - World partition scope: While the world partition is loaded
+ *
+ * Plugins may create their own scopes too, e.g. a Hunger Games plugin may create a scope that lasts during the Hunger Games tournament
  */
 interface Scope {
+	/**
+	 * Returns whether the scope has been disposed
+	 */
 	val disposed: Boolean
 
+	/**
+	 * Adds an action to execute when the scope is disposed
+	 */
 	fun addOnDispose(fn: () -> Unit)
 }

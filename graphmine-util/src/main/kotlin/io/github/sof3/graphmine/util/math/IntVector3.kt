@@ -66,9 +66,9 @@ inline class IntVector3(internal val values: IntArray) {
 
 	fun eachSide(fn: (IntVector3) -> Unit) = (0..5).forEach { fn(side(Side(it))) }
 
-	private inline fun map(fn: (Int) -> Int) = IntVector3(values.mapIntArray(fn))
+	internal inline fun map(fn: (Int) -> Int) = IntVector3(values.mapIntArray(fn))
 
-	private inline fun biMap(that: IntVector3, fn: (Int, Int) -> Int): IntVector3 {
+	internal inline fun biMap(that: IntVector3, fn: (Int, Int) -> Int): IntVector3 {
 		val new = IntArray(3)
 		for (i in 0 until values.size) new[i] = fn(values[i], that.values[i])
 		return IntVector3(new)

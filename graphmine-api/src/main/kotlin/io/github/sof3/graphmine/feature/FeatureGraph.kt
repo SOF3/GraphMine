@@ -18,9 +18,29 @@ package io.github.sof3.graphmine.feature
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * The Feature Graph is the main registry of features in the server. It is an undirected multi-graph that allows
+ * FeatureEdges (the features themselves) to handle interaction events (FeatureEvent) between FeatureNodes (the objects
+ * of features, e.g. entities, blocks, or abstract concepts like commands), or self-loop edges that handle events on
+ * a single object (e.g. player join).
+ */
 interface FeatureGraph {
+	/**
+	 * Registers a FeatureNode so that edges can be added upon it
+	 */
 	fun addNode(node: FeatureNode<*, *>)
 
-	fun <Inst : FeatureNodeInstance<Inst, *>> dispatch(inst: Inst, event: FeatureEvent)
+	/**
+	 * Registers a FeatureEdge
+	 */
+	fun addEdge(edge: FeatureEdge<out FeatureNode<*,*>,out FeatureNode<*,*>,out FeatureNodeInstance<*,*>,out FeatureNodeInstance<*,*>>)
+
+	/**
+	 * Dispatch a single-node event
+	 */
 	fun <Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>> dispatch(inst1: Inst1, inst2: Inst2, event: FeatureEvent)
+	/**
+	 * Dispatch a two-node event
+	 */
+	fun <Inst : FeatureNodeInstance<Inst, *>> dispatch(inst: Inst, event: FeatureEvent)
 }
