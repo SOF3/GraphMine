@@ -26,6 +26,11 @@ package io.github.sof3.graphmine.feature
  */
 interface FeatureGraph {
 	/**
+	 * the features registered on this server
+	 */
+	val edges: MutableMap<FeatureNode<*, *>, MutableMap<FeatureNode<*, *>, MutableSet<FeatureEdge<out FeatureNode<*, *>, out FeatureNode<*, *>, out FeatureNodeInstance<*, *>, out FeatureNodeInstance<*, *>>>>>
+
+	/**
 	 * Registers a FeatureNode so that edges can be added upon it
 	 */
 	fun addNode(node: FeatureNode<*, *>)

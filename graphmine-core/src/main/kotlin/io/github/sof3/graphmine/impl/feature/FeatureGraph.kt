@@ -22,7 +22,7 @@ import io.github.sof3.graphmine.feature.FeatureGraph
  */
 
 class FeatureGraph : FeatureGraph {
-	private val edges: MutableMap<FeatureNode<*, *>, MutableMap<FeatureNode<*, *>, MutableSet<FeatureEdge<out FeatureNode<*, *>, out FeatureNode<*, *>, out FeatureNodeInstance<*, *>, out FeatureNodeInstance<*, *>>>>> = mutableMapOf()
+	override val edges: MutableMap<FeatureNode<*, *>, MutableMap<FeatureNode<*, *>, MutableSet<FeatureEdge<out FeatureNode<*, *>, out FeatureNode<*, *>, out FeatureNodeInstance<*, *>, out FeatureNodeInstance<*, *>>>>> = mutableMapOf()
 
 	override fun addNode(node: FeatureNode<*, *>) {
 		edges[node] = mutableMapOf()

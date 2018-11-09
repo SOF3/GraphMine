@@ -25,3 +25,6 @@ There are currently 4 subprojects:
 
 There may be a 5th subproject in the future:
 - graphmine-gui: An executable project that wraps the core and exposes a user interface through Java Swing or JavaFX (graphical user interface for non-terminal users)
+
+## Why is it called GraphMine?
+The main idea of GraphMine is that it organizes features in a graph-like model.

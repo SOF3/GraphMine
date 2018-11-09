@@ -14,10 +14,9 @@
             <option value="$PROJECT_DIR$/graphmine-util" />
           </set>
         </option>
-        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/graphmine-core" />
         <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
