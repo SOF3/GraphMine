@@ -1,5 +1,8 @@
 package io.github.sof3.graphmine.impl.client
 
+import io.github.sof3.graphmine.feature.FeatureNode
+import io.github.sof3.graphmine.feature.FeatureNodeInstance
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,6 +21,19 @@ package io.github.sof3.graphmine.impl.client
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class Client {
+/**
+ * Represents an established incoming connection.
+ */
+class Client : FeatureNodeInstance<Client, Client.Node> {
+	/**
+	 * The FeatureNode for Client
+	 */
+	companion object Node : FeatureNode<Node, Client>
+
+	override val node get() = Node
+
+	/**
+	 * The ClientAttachable that the client is currently attached to. `null` if client is currently not attached to anything
+	 */
 	var attached: ClientAttachable? = null
 }

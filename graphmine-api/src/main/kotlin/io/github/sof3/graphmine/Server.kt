@@ -2,6 +2,7 @@ package io.github.sof3.graphmine
 
 import io.github.sof3.graphmine.config.Config
 import io.github.sof3.graphmine.feature.FeatureGraph
+import io.github.sof3.graphmine.scope.Scope
 import org.apache.logging.log4j.Logger
 
 /*
@@ -29,21 +30,21 @@ import org.apache.logging.log4j.Logger
  */
 interface Server {
 	/**
-	 * Returns the server config.
+	 * the server config.
 	 */
 	val config: Config
 	/**
-	 * Returns the logger used for the server context. Plugins should use their own logger instead of this one.
+	 * the logger used for the server context. Plugins should use their own logger instead of this one.
 	 */
 	val logger: Logger
 
 	/**
-	 * Returns the server scope, which only gets disposed when the server shuts down.
+	 * the server scope, which only gets disposed when the server shuts down.
 	 */
 	val scope: Scope
 
 	/**
-	 * Returns the feature graph of the server. "Events" should be handled via the feature graph.
+	 * the feature graph of the server. "Events" should be handled via the feature graph.
 	 */
 	val features: FeatureGraph
 }

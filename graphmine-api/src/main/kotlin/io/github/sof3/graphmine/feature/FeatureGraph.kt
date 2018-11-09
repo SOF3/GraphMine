@@ -33,14 +33,48 @@ interface FeatureGraph {
 	/**
 	 * Registers a FeatureEdge
 	 */
-	fun addEdge(edge: FeatureEdge<out FeatureNode<*,*>,out FeatureNode<*,*>,out FeatureNodeInstance<*,*>,out FeatureNodeInstance<*,*>>)
+	fun addEdge(edge: FeatureEdge<out FeatureNode<*, *>, out FeatureNode<*, *>, out FeatureNodeInstance<*, *>, out FeatureNodeInstance<*, *>>)
 
 	/**
 	 * Dispatch a single-node event
 	 */
 	fun <Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>> dispatch(inst1: Inst1, inst2: Inst2, event: FeatureEvent)
+
 	/**
 	 * Dispatch a two-node event
 	 */
 	fun <Inst : FeatureNodeInstance<Inst, *>> dispatch(inst: Inst, event: FeatureEvent)
+}
+
+/**
+ * A convenient wrapper for FeatureGraph.addEdge and SingleFeatureEdge construction (for one node)
+ */
+inline fun <Node : FeatureNode<Node, Inst>, Inst : FeatureNodeInstance<Inst, Node>, reified Ev : FeatureEvent>
+		FeatureGraph.handle(node: Node, crossinline fn: (inst: Inst, event: Ev) -> Unit) {
+	addEdge(object : SingleFeatureEdge<Node, Inst> {
+		override val node = node
+		override fun handle(inst: Inst, event: FeatureEvent) {
+			if (event is Ev) {
+				fn(inst, event)
+			}
+		}
+	})
+}
+
+/**
+ * A convenient wrapper for FeatureGraph.addEdge and FeatureEdge construction (for two nodes)
+ */
+inline fun <Node1 : FeatureNode<Node1, Inst1>, Inst1 : FeatureNodeInstance<Inst1, Node1>,
+		Node2 : FeatureNode<Node2, Inst2>, Inst2 : FeatureNodeInstance<Inst2, Node2>,
+		reified Ev : FeatureEvent>
+		FeatureGraph.handle(node1: Node1, node2: Node2, crossinline fn: (inst1: Inst1, inst2: Inst2, event: Ev) -> Unit) {
+	addEdge(object : FeatureEdge<Node1, Node2, Inst1, Inst2> {
+		override val node1: Node1 = node1
+		override val node2: Node2 = node2
+		override fun handle(inst1: Inst1, inst2: Inst2, event: FeatureEvent) {
+			if (event is Ev) {
+				fn(inst1, inst2, event)
+			}
+		}
+	})
 }

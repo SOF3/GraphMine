@@ -21,9 +21,18 @@ import java.util.*
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Holds the static version information for this build
+ */
 object VersionInfo {
+	/**
+	 * the API version from build.gradle
+	 */
 	val VERSION: String
 
+	/**
+	 * the date the Gradle build for the API module was created
+	 */
 	val BUILD_DATE: Date
 
 	init {

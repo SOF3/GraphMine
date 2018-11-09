@@ -1,3 +1,4 @@
+import org.jetbrains.dokka.gradle.DokkaTask
 import java.io.File
 import java.io.FileWriter
 import java.text.SimpleDateFormat
@@ -26,6 +27,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	java
 	kotlin("jvm") version "1.3.0"
+	id("org.jetbrains.dokka")
 }
 
 group = "io.github.sof3.graphmine"
@@ -50,6 +52,12 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
+tasks.withType<DokkaTask> {
+	outputFormat = "html"
+	outputDirectory = "$buildDir/javadoc"
+}
+
+
 open class CreateVersionProperties : DefaultTask() {
 	@TaskAction
 	fun create() {
@@ -72,5 +80,9 @@ tasks {
 	}
 	"classes"{
 		dependsOn("createVersionProperties")
+	}
+
+	"javadoc" {
+
 	}
 }

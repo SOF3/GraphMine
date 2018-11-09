@@ -1,5 +1,6 @@
 package io.github.sof3.graphmine.util
 
+import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /*
@@ -20,65 +21,65 @@ import kotlin.reflect.KProperty
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class Ref<T>(var value: T) {
-	operator fun getValue(t: Any, p: KProperty<*>): T = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: T) {
-		value = v
+class Ref<T>(var value: T) : ReadWriteProperty<Any?, T> {
+	override fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
+		this.value = value
 	}
 }
 
-class ByteRef(var value: Byte) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Byte) {
-		value = v
+class ByteRef(var value: Byte) : ReadWriteProperty<Any?, Byte> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Byte) {
+		this.value = value
 	}
 }
 
-class CharRef(var value: Char) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Char) {
-		value = v
+class CharRef(var value: Char) : ReadWriteProperty<Any?, Char> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Char) {
+		this.value = value
 	}
 }
 
-class ShortRef(var value: Short) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Short) {
-		value = v
+class ShortRef(var value: Short) : ReadWriteProperty<Any?, Short> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Short) {
+		this.value = value
 	}
 }
 
-class IntRef(var value: Int) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Int) {
-		value = v
+class IntRef(var value: Int) : ReadWriteProperty<Any?, Int> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
+		this.value = value
 	}
 }
 
-class LongRef(var value: Long) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Long) {
-		value = v
+class LongRef(var value: Long) : ReadWriteProperty<Any?, Long> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Long) {
+		this.value = value
 	}
 }
 
-class FloatRef(var value: Float) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Float) {
-		value = v
+class FloatRef(var value: Float) : ReadWriteProperty<Any?, Float> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Float) {
+		this.value = value
 	}
 }
 
-class DoubleRef(var value: Double) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Double) {
-		value = v
+class DoubleRef(var value: Double) : ReadWriteProperty<Any?, Double> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Double) {
+		this.value = value
 	}
 }
 
-class BooleanRef(var value: Boolean) {
-	operator fun getValue(t: Any, p: KProperty<*>) = value
-	operator fun setValue(t: Any, p: KProperty<*>, v: Boolean) {
-		value = v
+class BooleanRef(var value: Boolean) : ReadWriteProperty<Any?, Boolean> {
+	override operator fun getValue(thisRef: Any?, property: KProperty<*>) = value
+	override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Boolean) {
+		this.value = value
 	}
 }

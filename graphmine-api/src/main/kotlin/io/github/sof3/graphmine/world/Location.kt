@@ -20,4 +20,16 @@ import io.github.sof3.graphmine.util.math.Vector3
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-data class Location (val vector: Vector3, val world: World)
+/**
+ * Represents a point in the 3D space of a world.
+ */
+data class Location(
+		/**
+		 * The position vector for the location
+		 */
+		val vector: Vector3,
+		/**
+		 * The world that the location is in
+		 */
+		val world: World
+)

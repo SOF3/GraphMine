@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine
+package io.github.sof3.graphmine.scope
 
 /*
  * GraphMine
@@ -31,9 +31,9 @@ package io.github.sof3.graphmine
  */
 interface Scope {
 	/**
-	 * Returns whether the scope has been disposed
+	 * whether the scope has been disposed
 	 */
-	val disposed: Boolean
+	val isDisposed: Boolean
 
 	/**
 	 * Adds an action to execute when the scope is disposed

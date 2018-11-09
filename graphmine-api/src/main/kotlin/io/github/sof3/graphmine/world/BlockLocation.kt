@@ -20,4 +20,21 @@ import io.github.sof3.graphmine.util.math.IntVector3
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-data class BlockLocation(val vector: IntVector3, val world: World)
+/**
+ * A unique identifier for an integer location.
+ *
+ * Out-of-bounds block locations are intentionally allowed, because normally out-of-bounds locations like negative
+ * locations may be valid for certain world formats. While they are not valid for the client, the World implementation
+ * is responsible for translating coordinates to something the client can see. This should not interfere with plugins'
+ * ability to interpret the world in a sensible manner.
+ */
+data class BlockLocation(
+		/**
+		 * The positional vector of the location
+		 */
+		val vector: IntVector3,
+		/**
+		 * The world that the location is in
+		 */
+		val world: World
+)

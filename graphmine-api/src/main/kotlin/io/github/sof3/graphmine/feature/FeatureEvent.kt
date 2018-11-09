@@ -18,4 +18,15 @@ package io.github.sof3.graphmine.feature
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Represents an event on some node(s). Implementations shall contain mutable and immutable properties for FeatureEdges
+ * to read and modify, except the FeatureNodeInstances do not need to be in the event since
+ * they are passed to the event in a different way.
+ */
 interface FeatureEvent
+//
+///**
+// * FeatureEvents that correspond to only one FeatureNode should implement this so that FeatureGraph.handle can have better type prediction
+// */
+//interface SingleFeatureEvent<Inst : FeatureNodeInstance<Inst, *>> : FeatureEvent
+//interface DoubleFeatureEvent<Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>> : FeatureEvent

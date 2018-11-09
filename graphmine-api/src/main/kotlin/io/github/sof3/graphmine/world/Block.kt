@@ -21,13 +21,32 @@ import io.github.sof3.graphmine.feature.FeatureNodeInstance
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-object Blocks {
-	val AIR = Block(0)
-	// TODO generate more block types
-}
+/**
+ * Represents a block type.
+ *
+ * This class is only used as a wrapper for the block ID along with FeatureNode identification. In other words, it can
+ * be said that this class only exists for documentation purpose.
+ */
+data class Block(
+		/**
+		 * The block ID. This may be changed in the future.
+		 */
+		val id: Int
+) : FeatureNode<Block, BlockInstance>
 
-data class Block(val id: Int) : FeatureNode<Block, BlockInstance>
-
-data class BlockInstance(val block: Block, val location: BlockLocation) : FeatureNodeInstance<BlockInstance, Block> {
+/**
+ * Represents a block type at a certain location. The existence persistence of this block is irrelevant to whether the
+ * block is really at the location, ever at the location or has been removed. This is a pure value class.
+ */
+data class BlockInstance(
+		/**
+		 * the block type
+		 */
+		val block: Block,
+		/**
+		 * the expected location of the block
+		 */
+		val location: BlockLocation
+) : FeatureNodeInstance<BlockInstance, Block> {
 	override val node get() = block
 }

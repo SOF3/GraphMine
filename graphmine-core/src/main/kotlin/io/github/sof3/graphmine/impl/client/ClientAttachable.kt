@@ -18,5 +18,9 @@ package io.github.sof3.graphmine.impl.client
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Represents the object the client is connected to, This object controls most of the interactions on the client. This
+ * can be an entity, or some special objects as intended by plugins.
+ */
 interface ClientAttachable {
 }

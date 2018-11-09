@@ -20,7 +20,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Model for the server config.yml
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Config(
+		/**
+		 * Port to host server on
+		 */
 		val port: Int
 )

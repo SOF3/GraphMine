@@ -18,4 +18,15 @@ package io.github.sof3.graphmine.feature
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface FeatureNode<Self: FeatureNode<Self, Instance>, Instance: FeatureNodeInstance<Instance, Self>>
+/**
+ * Represents a concrete or abstract concept that can interact with itself or other FeatureNodes, such as an entity,
+ * a block, a client or a command.
+ *
+ * If the implementation is a singleton, it is recommended that FeatureNode be implemented in the companion object of
+ * the corresponding FeatureNodeInstance.
+ *
+ * @param Self the actual class implementing FeatureNode. If the class is open, it should also have a Self type
+ * parameter (and typealias the type-arg-free expression) and pass it up.
+ * @param Inst the FeatureNodeInstance class corresponding to Self.
+ */
+interface FeatureNode<Self : FeatureNode<Self, Inst>, Inst : FeatureNodeInstance<Inst, Self>>

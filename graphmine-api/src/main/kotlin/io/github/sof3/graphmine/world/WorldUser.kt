@@ -1,11 +1,4 @@
-package io.github.sof3.graphmine.impl
-
-import io.github.sof3.graphmine.Server
-import io.github.sof3.graphmine.VersionInfo
-import io.github.sof3.graphmine.config.Config
-import io.github.sof3.graphmine.scope.BaseScope
-import io.github.sof3.graphmine.impl.feature.FeatureGraph
-import org.apache.logging.log4j.LogManager
+package io.github.sof3.graphmine.world
 
 /*
  * GraphMine
@@ -25,20 +18,8 @@ import org.apache.logging.log4j.LogManager
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class Server(
-		override val config: Config
-) : Server {
-	override val logger = LogManager.getLogger(Server::class.java)!!
-	private val myScope = BaseScope()
-	override val scope by myScope
-	override val features = FeatureGraph()
-
-	init {
-		logger.info("Starting GraphMine v${VersionInfo.VERSION} on ${config.port}")
-	}
-
-	fun shutdown(){
-		// finally...
-		myScope.dispose()
-	}
+/**
+ * Represents a user of a world that holds resources from being freed.
+ */
+interface WorldUser {
 }
