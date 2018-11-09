@@ -14,9 +14,12 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 before_deploy:
-  - ./gradlew dokka
-  - mkdir ../pages && touch ../pages/.nojekyll && cp -r graphmine-api/build/javadoc ../pages/api
-  - wget -O ../pages/index.html https://sof3.github.io/GraphMine || true
+  - ./gradlew graphmine-cli:fatJar graphmine-api:dokka
+  - wget -O ../gh-pages.tar.gz https://github.com/SOF3/GraphMine/archive/gh-pages.tar.gz
+  - mkdir ../pages && tar xzf ../gh-pages.tar.gz -C ../pages
+  - rm -r ../pages/api
+  - cp -r graphmine-api/build/javadoc ../pages/api
+  - cp graphmine-cli/build/libs/graphmine-cli-fat-*.jar ../pages/latestMaster.jar
 deploy:
   skip-cleanup: true
   on:

@@ -32,7 +32,7 @@ dependencies {
 	compile(kotlin("stdlib-jdk8"))
 	compile("commons-cli", "commons-cli", "1.4")
 	compile("commons-io", "commons-io", "2.6")
-	testCompile("junit", "junit", "4.12")
+	testCompile("io.kotlintest", "kotlintest-runner-junit5", "2.0.7")
 }
 
 application {
@@ -44,4 +44,15 @@ configure<JavaPluginConvention> {
 }
 tasks.withType<KotlinCompile> {
 	kotlinOptions.jvmTarget = "1.8"
+}
+
+val fatJar = task("fatJar", type = Jar::class) {
+	baseName = "${project.name}-fat"
+	manifest {
+		attributes["Implementation-Title"] = "GraphMine"
+		attributes["Implementation-Version"] = version
+		attributes["Main-Class"] = "io.github.sof3.graphmine.cli.MainKt"
+	}
+	from(configurations.runtime.map { if (it.isDirectory) it else zipTree(it) })
+	with(tasks["jar"] as CopySpec)
 }

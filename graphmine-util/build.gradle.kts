@@ -10,7 +10,7 @@ version = "1.0.0-SNAPSHOT"
 
 dependencies {
 	compile(kotlin("stdlib-jdk8"))
-	testCompile("junit", "junit", "4.12")
+	testCompile("io.kotlintest", "kotlintest-runner-junit5", "2.0.7")
 }
 
 configure<JavaPluginConvention> {

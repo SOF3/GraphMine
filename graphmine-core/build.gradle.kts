@@ -30,11 +30,12 @@ dependencies {
 	compile(project(":graphmine-api"))
 	compile(project(":graphmine-util"))
 	compile(kotlin("stdlib-jdk8"))
+	compile(kotlin("reflect", "1.3.0")) // actually we don't use it, but jackson-module-kotlin uses an outdated version of kotlin-reflect
 	compile("org.apache.logging.log4j", "log4j-core", "2.11.1")
 	compile("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.7")
 	compile("com.fasterxml.jackson.dataformat", "jackson-dataformat-yaml", "2.9.7")
 	compile("com.fasterxml.jackson.core", "jackson-databind", "2.9.4")
-	testCompile("junit", "junit", "4.12")
+	testCompile("io.kotlintest", "kotlintest-runner-junit5", "2.0.7")
 }
 
 configure<JavaPluginConvention> {

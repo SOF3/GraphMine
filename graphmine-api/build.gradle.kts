@@ -38,7 +38,7 @@ dependencies {
 	compile("org.apache.logging.log4j", "log4j-api", "2.11.1")
 	compile(kotlin("stdlib-jdk8"))
 	compile("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
-	testCompile("junit", "junit", "4.12")
+	testCompile("io.kotlintest", "kotlintest-runner-junit5", "2.0.7")
 }
 
 configure<JavaPluginConvention> {
@@ -80,9 +80,5 @@ tasks {
 	}
 	"classes"{
 		dependsOn("createVersionProperties")
-	}
-
-	"javadoc" {
-
 	}
 }
