@@ -27,4 +27,4 @@ There may be a 5th subproject in the future:
 - graphmine-gui: An executable project that wraps the core and exposes a user interface through Java Swing or JavaFX (graphical user interface for non-terminal users)
 
 ## Why is it called GraphMine?
-The main idea of GraphMine is that it organizes features in a graph-like model.
+GraphMine organizes features in a graph model. Features can be appended to or removed from the graph with a more intuitive approach.

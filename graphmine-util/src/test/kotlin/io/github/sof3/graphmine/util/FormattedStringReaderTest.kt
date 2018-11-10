@@ -1,4 +1,6 @@
-package io.github.sof3.graphmine.feature
+package io.github.sof3.graphmine.util
+
+import io.kotlintest.specs.StringSpec
 
 /*
  * GraphMine
@@ -18,15 +20,6 @@ package io.github.sof3.graphmine.feature
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance
- * represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the
- * FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node
- * companion object represents the client type.
- */
-interface FeatureNodeInstance<Self : FeatureNodeInstance<Self, Node>, Node : FeatureNode<Node, Self>> {
-	/**
-	 * the corresponding node for the instance.
-	 */
-	val node: Node
-}
+class FormattedStringReaderTest: StringSpec({
+
+})

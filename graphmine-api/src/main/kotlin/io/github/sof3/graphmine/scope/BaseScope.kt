@@ -1,12 +1,16 @@
 package io.github.sof3.graphmine.scope
 
 import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 
 /**
  * Basic implementation of BaseScope
  */
-open class BaseScope : Scope, ReadOnlyProperty<Any?, Scope> {
+open class BaseScope(final override val name: String) : Scope, ReadOnlyProperty<Any?, Scope> {
+	constructor(klass: KClass<out Any>, name: String) : this("${klass.qualifiedName}:$name")
+	constructor(klass: KClass<out Any>) : this(klass.qualifiedName!!)
+
 	override var isDisposed = false
 		protected set
 
@@ -26,6 +30,7 @@ open class BaseScope : Scope, ReadOnlyProperty<Any?, Scope> {
 	}
 
 	private val exposed = object : Scope {
+		override val name: String = this@BaseScope.name
 		override val isDisposed get() = this@BaseScope.isDisposed
 		override fun addOnDispose(fn: () -> Unit) = this@BaseScope.addOnDispose(fn)
 	}

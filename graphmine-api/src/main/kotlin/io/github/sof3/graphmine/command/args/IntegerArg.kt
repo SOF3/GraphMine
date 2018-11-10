@@ -1,4 +1,8 @@
-package io.github.sof3.graphmine.feature
+package io.github.sof3.graphmine.command.args
+
+import io.github.sof3.graphmine.i18n.i18n
+import io.github.sof3.graphmine.util.FormattedStringReader
+import java.lang.Integer.parseInt
 
 /*
  * GraphMine
@@ -18,15 +22,18 @@ package io.github.sof3.graphmine.feature
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance
- * represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the
- * FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node
- * companion object represents the client type.
- */
-interface FeatureNodeInstance<Self : FeatureNodeInstance<Self, Node>, Node : FeatureNode<Node, Self>> {
-	/**
-	 * the corresponding node for the instance.
-	 */
-	val node: Node
+class IntegerArg(fn: IntegerArg.() -> Unit = {}) : CommandArg<Int>() {
+	init {
+		fn()
+	}
+
+	override val typeName = "Int".i18n
+
+	override fun parseCommand(reader: FormattedStringReader) = reader.nextDelimiter(" ").let {
+		try {
+			parseInt(" ")
+		} catch (e: NumberFormatException) {
+			null
+		}
+	}
 }

@@ -18,6 +18,6 @@ package io.github.sof3.graphmine.util
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-val DEADCODE: Nothing get() = DEADCODE()
+inline val DEADCODE: Nothing get() = DEADCODE()
 
 fun DEADCODE(message: String = "Control flow error"): Nothing = throw AssertionError(message)

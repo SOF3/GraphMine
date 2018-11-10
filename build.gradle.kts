@@ -1,3 +1,4 @@
+import org.gradle.internal.impldep.org.testng.reporters.XMLUtils.xml
 import org.gradle.testing.jacoco.tasks.JacocoReport
 
 group = "io.github.sof3.graphmine"
@@ -30,10 +31,8 @@ subprojects {
 
 tasks.withType<JacocoReport> {
 	reports {
-		html.apply {
-			isEnabled = true
-			destination = File("build/reports/jacoco.xml")
-		}
+		xml.isEnabled = true
+		xml.destination = File("build/reports/jacoco.xml")
 		executionData(tasks.withType<Test>())
 	}
 }

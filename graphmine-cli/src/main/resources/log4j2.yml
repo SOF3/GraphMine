@@ -22,8 +22,8 @@ Configuration:
       DefaultRollOverStrategy:
         max: 64
   Loggers:
-#    Logger:
-#    - name: io.github.sof3.graphmine.Server
+    #    Logger:
+    #    - name: io.github.sof3.graphmine.Server
     Root:
       level: trace
       AppenderRef:

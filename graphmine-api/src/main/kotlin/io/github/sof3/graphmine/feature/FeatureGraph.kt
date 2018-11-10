@@ -28,7 +28,9 @@ interface FeatureGraph {
 	/**
 	 * the features registered on this server
 	 */
-	val edges: MutableMap<FeatureNode<*, *>, MutableMap<FeatureNode<*, *>, MutableSet<FeatureEdge<out FeatureNode<*, *>, out FeatureNode<*, *>, out FeatureNodeInstance<*, *>, out FeatureNodeInstance<*, *>>>>>
+	val edges: MutableMap<FeatureNode<*, *>,
+			MutableMap<FeatureNode<*, *>,
+					MutableSet<FeatureEdge<*, *, *, *>>>>
 
 	/**
 	 * Registers a FeatureNode so that edges can be added upon it
@@ -38,12 +40,18 @@ interface FeatureGraph {
 	/**
 	 * Registers a FeatureEdge
 	 */
-	fun addEdge(edge: FeatureEdge<out FeatureNode<*, *>, out FeatureNode<*, *>, out FeatureNodeInstance<*, *>, out FeatureNodeInstance<*, *>>)
+	fun addEdge(edge: FeatureEdge<
+			out FeatureNode<*, *>,
+			out FeatureNode<*, *>,
+			out FeatureNodeInstance<*, *>,
+			out FeatureNodeInstance<*, *>>
+	)
 
 	/**
 	 * Dispatch a single-node event
 	 */
-	fun <Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>> dispatch(inst1: Inst1, inst2: Inst2, event: FeatureEvent)
+	fun <Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>>
+			dispatch(inst1: Inst1, inst2: Inst2, event: FeatureEvent)
 
 	/**
 	 * Dispatch a two-node event
@@ -54,7 +62,10 @@ interface FeatureGraph {
 /**
  * A convenient wrapper for FeatureGraph.addEdge and SingleFeatureEdge construction (for one node)
  */
-inline fun <Node : FeatureNode<Node, Inst>, Inst : FeatureNodeInstance<Inst, Node>, reified Ev : FeatureEvent>
+inline fun <
+		Node : FeatureNode<Node, Inst>,
+		Inst : FeatureNodeInstance<Inst, Node>,
+		reified Ev : FeatureEvent>
 		FeatureGraph.handle(node: Node, crossinline fn: (inst: Inst, event: Ev) -> Unit) {
 	addEdge(object : SingleFeatureEdge<Node, Inst> {
 		override val node = node

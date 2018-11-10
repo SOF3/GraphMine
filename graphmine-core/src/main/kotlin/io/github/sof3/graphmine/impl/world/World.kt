@@ -1,7 +1,5 @@
 package io.github.sof3.graphmine.impl.world
 
-import io.github.sof3.graphmine.impl.feature.FeatureGraph
-
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe

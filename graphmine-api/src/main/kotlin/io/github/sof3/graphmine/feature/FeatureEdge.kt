@@ -48,7 +48,9 @@ interface FeatureEdge<
 /**
  * Convenience implementation of self-looping FeatureEdge
  */
-interface SingleFeatureEdge<Node : FeatureNode<Node, Inst>, Inst : FeatureNodeInstance<Inst, Node>>
+interface SingleFeatureEdge<
+		Node : FeatureNode<Node, Inst>,
+		Inst : FeatureNodeInstance<Inst, Node>>
 	: FeatureEdge<Node, Node, Inst, Inst> {
 	/**
 	 * the node that the edge incidents with

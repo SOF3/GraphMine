@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.feature
+package io.github.sof3.graphmine.command
 
 /*
  * GraphMine
@@ -19,14 +19,6 @@ package io.github.sof3.graphmine.feature
  */
 
 /**
- * Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance
- * represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the
- * FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node
- * companion object represents the client type.
+ * To be implemented by anything that can send a command
  */
-interface FeatureNodeInstance<Self : FeatureNodeInstance<Self, Node>, Node : FeatureNode<Node, Self>> {
-	/**
-	 * the corresponding node for the instance.
-	 */
-	val node: Node
-}
+interface CommandSender

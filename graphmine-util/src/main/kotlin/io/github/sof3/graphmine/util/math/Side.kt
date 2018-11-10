@@ -21,7 +21,7 @@ import io.github.sof3.graphmine.util.DEADCODE
  */
 
 inline class Side(val ord: Int) {
-	companion object Sides{
+	companion object Sides {
 		val DOWN get() = Side(0)
 		val UP get() = Side(1)
 		val NORTH get() = Side(2)

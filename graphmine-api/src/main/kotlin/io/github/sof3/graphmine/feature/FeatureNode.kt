@@ -25,8 +25,8 @@ package io.github.sof3.graphmine.feature
  * If the implementation is a singleton, it is recommended that FeatureNode be implemented in the companion object of
  * the corresponding FeatureNodeInstance.
  *
- * @param Self the actual class implementing FeatureNode. If the class is open, it should also have a Self type
- * parameter (and typealias the type-arg-free expression) and pass it up.
+ * @param Self the actual class implementing FeatureNode. It is not mandatory to pass the actual instance type, but it
+ * is recommended if possible to improve type prediction
  * @param Inst the FeatureNodeInstance class corresponding to Self.
  */
 interface FeatureNode<Self : FeatureNode<Self, Inst>, Inst : FeatureNodeInstance<Inst, Self>>

@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.feature
+package io.github.sof3.graphmine.command
 
 /*
  * GraphMine
@@ -18,15 +18,21 @@ package io.github.sof3.graphmine.feature
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance
- * represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the
- * FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node
- * companion object represents the client type.
- */
-interface FeatureNodeInstance<Self : FeatureNodeInstance<Self, Node>, Node : FeatureNode<Node, Self>> {
-	/**
-	 * the corresponding node for the instance.
-	 */
-	val node: Node
+data class CommandExecuteContext<
+		Overload : CommandOverload<in Overload, Cmd>,
+		Cmd : Command<Cmd, in Overload>,
+		Sender : CommandSender>
+(
+		val args: Overload,
+		val sender: Sender
+) {
+	inline fun <reified SubOverload : Overload>
+			argsAre(fn: CommandExecuteContext<SubOverload, Cmd, Sender>.() -> Unit) {
+		if (args is SubOverload) fn(CommandExecuteContext(args, sender))
+	}
+
+	inline fun <reified SubSender : Sender>
+			senderIs(fn: CommandExecuteContext<Overload, Cmd, SubSender>.() -> Unit) {
+		if (sender is SubSender) fn(CommandExecuteContext(args, sender))
+	}
 }

@@ -1,11 +1,7 @@
-package io.github.sof3.graphmine.impl
+package io.github.sof3.graphmine.command
 
-import io.github.sof3.graphmine.Server
-import io.github.sof3.graphmine.VersionInfo
-import io.github.sof3.graphmine.config.Config
-import io.github.sof3.graphmine.impl.feature.FeatureGraph
-import io.github.sof3.graphmine.scope.BaseScope
-import org.apache.logging.log4j.LogManager
+import io.github.sof3.graphmine.i18n.I18nable
+import kotlin.reflect.KClass
 
 /*
  * GraphMine
@@ -25,20 +21,19 @@ import org.apache.logging.log4j.LogManager
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class Server(
-		override val config: Config
-) : Server {
-	override val logger = LogManager.getLogger(Server::class.java)!!
-	private val myScope = BaseScope(Server::class)
-	override val scope by myScope
-	override val features = FeatureGraph()
+class CommandBuilder<Cmd : Command<Cmd, Overload>, Overload : CommandOverload<Overload, Cmd>> {
+	var name: String? = null
+	var description: I18nable? = null
+	val aliases = mutableListOf<String>()
+	val overloads = mutableListOf<KClass<out Overload>>()
 
-	init {
-		logger.info("Starting GraphMine v${VersionInfo.VERSION} on ${config.port}")
+	internal val handlers = mutableListOf<CommandExecuteContext<Overload, Cmd, CommandSender>.() -> Unit>()
+
+	fun handleAll(fn: CommandExecuteContext<Overload, Cmd, CommandSender>.() -> Unit) {
+		handlers += fn
 	}
 
-	fun shutdown() {
-		// finally...
-		myScope.dispose()
+	inline fun <reified O : Overload> handle(crossinline fn: CommandExecuteContext<O, Cmd, CommandSender>.() -> Unit) {
+		handleAll { argsAre<O>(fn) }
 	}
 }

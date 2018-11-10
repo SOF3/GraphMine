@@ -37,8 +37,9 @@ dependencies {
 	compile(project(":graphmine-util"))
 	compile("org.apache.logging.log4j", "log4j-api", "2.11.1")
 	compile(kotlin("stdlib-jdk8"))
+	compile(kotlin("reflect"))
 	compile("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
-	testCompile("io.kotlintest", "kotlintest-runner-junit5", "2.0.7")
+	testCompile("io.kotlintest", "kotlintest-runner-junit5", "3.1.10")
 }
 
 configure<JavaPluginConvention> {
@@ -53,7 +54,7 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<DokkaTask> {
-	outputFormat = "html"
+	outputFormat = "jekyll"
 	outputDirectory = "$buildDir/javadoc"
 }
 

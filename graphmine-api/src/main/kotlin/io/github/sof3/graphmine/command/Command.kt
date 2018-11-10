@@ -1,4 +1,7 @@
-package io.github.sof3.graphmine.feature
+package io.github.sof3.graphmine.command
+
+import io.github.sof3.graphmine.feature.FeatureNode
+import kotlin.reflect.KClass
 
 /*
  * GraphMine
@@ -18,15 +21,16 @@ package io.github.sof3.graphmine.feature
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance
- * represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the
- * FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node
- * companion object represents the client type.
- */
-interface FeatureNodeInstance<Self : FeatureNodeInstance<Self, Node>, Node : FeatureNode<Node, Self>> {
-	/**
-	 * the corresponding node for the instance.
-	 */
-	val node: Node
+abstract class Command<
+		Cmd : Command<Cmd, Overload>,
+		Overload : CommandOverload<Overload, Cmd>>
+(
+		val overloadClass: KClass<Overload>,
+		fn: CommandBuilder<Cmd, Overload>.() -> Unit
+) : FeatureNode<Cmd, Overload> {
+	init {
+		val builder = CommandBuilder<Cmd, Overload>()
+		builder.fn()
+		TODO("apply builder")
+	}
 }
