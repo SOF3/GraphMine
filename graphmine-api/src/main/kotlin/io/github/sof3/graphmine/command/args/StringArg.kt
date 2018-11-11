@@ -1,5 +1,8 @@
 package io.github.sof3.graphmine.command.args
 
+import io.github.sof3.graphmine.i18n.i18n
+import io.github.sof3.graphmine.util.string.FormattedStringReader
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -19,6 +22,10 @@ package io.github.sof3.graphmine.command.args
  */
 
 class StringArg(fn: StringArg.() -> Unit = {}) : CommandArg<String>() {
+	override val typeName = "String".i18n
+
+	override fun parseCommand(reader: FormattedStringReader) = reader.nextQuoted().inner
+
 	init {
 		fn()
 	}

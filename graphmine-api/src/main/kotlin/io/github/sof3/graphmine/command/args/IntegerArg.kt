@@ -1,8 +1,7 @@
 package io.github.sof3.graphmine.command.args
 
 import io.github.sof3.graphmine.i18n.i18n
-import io.github.sof3.graphmine.util.FormattedStringReader
-import java.lang.Integer.parseInt
+import io.github.sof3.graphmine.util.string.FormattedStringReader
 
 /*
  * GraphMine
@@ -31,7 +30,7 @@ class IntegerArg(fn: IntegerArg.() -> Unit = {}) : CommandArg<Int>() {
 
 	override fun parseCommand(reader: FormattedStringReader) = reader.nextDelimiter(" ").let {
 		try {
-			parseInt(" ")
+			it?.beforeDelimiter?.toInt()
 		} catch (e: NumberFormatException) {
 			null
 		}

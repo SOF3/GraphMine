@@ -2,7 +2,7 @@ package io.github.sof3.graphmine.command.args
 
 import io.github.sof3.graphmine.command.CommandOverload
 import io.github.sof3.graphmine.i18n.I18nable
-import io.github.sof3.graphmine.util.FormattedStringReader
+import io.github.sof3.graphmine.util.string.FormattedStringReader
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 

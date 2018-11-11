@@ -1,3 +1,4 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.dokka.gradle.DokkaTask
 import java.io.File
 import java.io.FileWriter
@@ -40,6 +41,7 @@ dependencies {
 	compile(kotlin("reflect"))
 	compile("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
 	testCompile("io.kotlintest", "kotlintest-runner-junit5", "3.1.10")
+	testCompile("org.slf4j", "slf4j-simple", "1.7.25")
 }
 
 configure<JavaPluginConvention> {
@@ -49,7 +51,14 @@ configure<JavaPluginConvention> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		jvmTarget = "1.8"
-//		freeCompilerArgs += "-XXLanguage:+InlineClasses"
+	}
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+	testLogging {
+		showStandardStreams = true
+		events(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
 	}
 }
 

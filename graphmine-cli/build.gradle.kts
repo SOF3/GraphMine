@@ -1,3 +1,4 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /*
@@ -33,6 +34,7 @@ dependencies {
 	compile("commons-cli", "commons-cli", "1.4")
 	compile("commons-io", "commons-io", "2.6")
 	testCompile("io.kotlintest", "kotlintest-runner-junit5", "3.1.10")
+	testCompile("org.slf4j", "slf4j-simple", "1.7.25")
 }
 
 application {
@@ -44,6 +46,14 @@ configure<JavaPluginConvention> {
 }
 tasks.withType<KotlinCompile> {
 	kotlinOptions.jvmTarget = "1.8"
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+	testLogging {
+		showStandardStreams = true
+		events(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
+	}
 }
 
 val fatJar = task("fatJar", type = Jar::class) {

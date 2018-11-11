@@ -1,3 +1,4 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /*
@@ -35,6 +36,7 @@ dependencies {
 	compile("com.fasterxml.jackson.dataformat", "jackson-dataformat-yaml", "2.9.7")
 	compile("com.fasterxml.jackson.core", "jackson-databind", "2.9.4")
 	testCompile("io.kotlintest", "kotlintest-runner-junit5", "3.1.10")
+	testCompile("org.slf4j", "slf4j-simple", "1.7.25")
 }
 
 configure<JavaPluginConvention> {
@@ -44,7 +46,14 @@ configure<JavaPluginConvention> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		jvmTarget = "1.8"
-//		freeCompilerArgs += "-XXLanguage:+InlineClasses"
+	}
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+	testLogging {
+		showStandardStreams = true
+		events(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
 	}
 }
 

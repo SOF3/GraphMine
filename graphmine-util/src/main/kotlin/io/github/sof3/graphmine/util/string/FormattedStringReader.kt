@@ -1,5 +1,7 @@
-package io.github.sof3.graphmine.util
+package io.github.sof3.graphmine.util.string
 
+import io.github.sof3.graphmine.util.get
+import io.github.sof3.graphmine.util.hasOffset
 import org.jetbrains.annotations.Contract
 
 /*
@@ -20,8 +22,9 @@ import org.jetbrains.annotations.Contract
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-open class FormattedStringReader(open val string: String) {
-	protected open var pointer = 0
+var suspend = false
+open class FormattedStringReader(open var string: String) {
+	open var pointer = 0
 
 	/**
 	 * Peeks everything remaining in the string. Does **not** consume anything.
@@ -47,10 +50,10 @@ open class FormattedStringReader(open val string: String) {
 	 * If multiple delimiters match the input at the same position, the first one is used, so if the parser expects
 	 * greedy behaviour, reverse-sort the delimiters by length before passing.
 	 */
-	fun nextDelimiter(vararg delimiters: String = arrayOf(" ")): DelimiterResult {
+	fun nextDelimiter(vararg delimiters: String = arrayOf(" ")): DelimiterResult? {
 		for (start in pointer until string.length) {
 			for (delimiter in delimiters) {
-				if (start + delimiter.length < string.length && string[start, start + delimiter.length] == delimiter) {
+				if (start + delimiter.length <= string.length && string[start, start + delimiter.length] == delimiter) {
 					val result = string[pointer, start]
 					pointer = start + delimiter.length
 					return DelimiterResult(result, delimiter)
@@ -58,6 +61,7 @@ open class FormattedStringReader(open val string: String) {
 			}
 		}
 
+		if(pointer == string.length) return null
 		val rem = remaining
 		pointer = string.length
 		return DelimiterResult(rem, null)
@@ -74,7 +78,7 @@ open class FormattedStringReader(open val string: String) {
 	fun exactly(vararg oneOf: String, suffix: String = " "): String? {
 		val rem = remaining
 		for (prefix in oneOf) {
-			if (rem.startsWith(prefix)) {
+			if (rem.startsWith(prefix + suffix)) {
 				pointer += rem.length
 				return rem
 			}
@@ -224,11 +228,11 @@ open class FormattedStringReader(open val string: String) {
 }
 
 /**
- * @see CommandReader.nextDelimiter
+ * @see FormattedStringReader.nextDelimiter
  */
 data class DelimiterResult(val beforeDelimiter: String, val delimiter: String?)
 
 /**
- * @see CommandReader.nextQuoted
+ * @see FormattedStringReader.nextQuoted
  */
 data class QuotedResult(val inner: String, val hasDelimiter: Boolean, val original: String, val quotesCount: Int)
