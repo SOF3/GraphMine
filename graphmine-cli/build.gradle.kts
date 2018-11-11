@@ -28,13 +28,19 @@ plugins {
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
+repositories{
+	jcenter()
+	maven(url = "https://dl.bintray.com/spekframework/spek-dev")
+}
+
 dependencies {
 	compile(project(":graphmine-core"))
 	compile(kotlin("stdlib-jdk8"))
 	compile("commons-cli", "commons-cli", "1.4")
 	compile("commons-io", "commons-io", "2.6")
-	testCompile("io.kotlintest", "kotlintest-runner-junit5", "3.1.10")
-	testCompile("org.slf4j", "slf4j-simple", "1.7.25")
+	testCompile(kotlin("test"))
+	testCompile("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
+	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
 
 application {
