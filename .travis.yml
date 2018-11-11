@@ -31,6 +31,6 @@ deploy:
     jdk: openjdk8
   provider: pages
   github-token: $GITHUB_TOKEN
-  local-dir: ../pages
+  local-dir: $TRAVIS_BUILD_DIR/../GraphMine-gh-pages
   keep-history: true
   committer-from-gh: true
