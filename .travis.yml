@@ -23,7 +23,7 @@ before_deploy:
 - tar xzf ../gh-pages.tar.gz -C ..
 - cd ../GraphMine-gh-pages && rm -r api
 - cp -r $TRAVIS_BUILD_DIR/graphmine-api/build/javadoc api
-- cp $TRAVIS_BUILD_DIR/graphmine-cli/build/libs/graphmine-cli-fat-*.jar pages/latestMaster.jar
+- cp $TRAVIS_BUILD_DIR/graphmine-cli/build/libs/graphmine-cli-fat-*.jar latestMaster.jar
 deploy:
   skip-cleanup: true
   on:
