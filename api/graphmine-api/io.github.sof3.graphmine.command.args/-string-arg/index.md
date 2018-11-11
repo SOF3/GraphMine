@@ -25,7 +25,7 @@ title: StringArg - graphmine-api
 
 ### Functions
 
-| [parseCommand](parse-command.html) | `fun parseCommand(reader: FormattedStringReader): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [parseCommand](parse-command.html) | `fun parseCommand(reader: FormattedStringReader): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 
 ### Inherited Functions
 
