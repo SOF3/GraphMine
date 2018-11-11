@@ -16,7 +16,7 @@ cache:
 script:
 - ./gradlew check codeCoverageReport
 after_script:
-- bash < (curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
 before_deploy:
 - ./gradlew graphmine-cli:fatJar graphmine-api:dokka
 - wget -O ../gh-pages.tar.gz https://github.com/SOF3/GraphMine/archive/gh-pages.tar.gz

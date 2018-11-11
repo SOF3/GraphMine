@@ -24,7 +24,7 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
 class StringArg(fn: StringArg.() -> Unit = {}) : CommandArg<String>() {
 	override val typeName = "String".i18n
 
-	override fun parseCommand(reader: FormattedStringReader) = reader.nextQuoted().inner
+	override fun parseCommand(reader: FormattedStringReader) = reader.nextQuoted()?.inner
 
 	init {
 		fn()

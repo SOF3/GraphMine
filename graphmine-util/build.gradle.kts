@@ -60,7 +60,7 @@ tasks.withType<Test> {
 		showExceptions = true
 		showCauses = true
 		showStackTraces = true
-		events(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
+		events(TestLogEvent.FAILED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
 	}
 }
 

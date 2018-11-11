@@ -4,6 +4,7 @@ import org.spekframework.spek2.dsl.TestBody
 import org.spekframework.spek2.style.gherkin.ScenarioBody
 import kotlin.random.Random
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 /*
  * GraphMine
@@ -24,8 +25,9 @@ import kotlin.test.assertEquals
  */
 
 infix fun <T> Ref<T>.shouldBe(expected: T) = assertEquals(expected, value)
-
+infix fun <T> Ref<T>.shouldNotBe(expected: T) = assertNotEquals(expected, value)
 infix fun <T> T.shouldBe(expected: T) = assertEquals(expected, this)
+infix fun <T> T.shouldNotBe(expected: T) = assertNotEquals(expected, this)
 
 private typealias InScenarioBody = ScenarioBody.() -> Unit
 

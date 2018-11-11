@@ -22,7 +22,6 @@ import org.jetbrains.annotations.Contract
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-var suspend = false
 open class FormattedStringReader(open var string: String) {
 	open var pointer = 0
 
@@ -70,17 +69,19 @@ open class FormattedStringReader(open var string: String) {
 	/**
 	 * Returns the first value in `oneOf` that the remaining string starts with. Returns null if none is found.
 	 *
-	 * If suffix is provided, each `oneOf` is appended with the suffix, but the suffix itself will not be returned
+	 * If suffix is provided, each `oneOf` is appended with the suffix, but the suffix itself will not be returned.
+	 *
+	 * Consumes both the matched `oneOf` value and the suffix.
 	 *
 	 * The options are searched in order. If a greedy approach is desired, the caller should reverse-sort the args by
 	 * length before passing.
 	 */
-	fun exactly(vararg oneOf: String, suffix: String = " "): String? {
+	fun exactly(vararg oneOf: String, suffix: String = ""): String? {
 		val rem = remaining
 		for (prefix in oneOf) {
 			if (rem.startsWith(prefix + suffix)) {
-				pointer += rem.length
-				return rem
+				pointer += prefix.length + suffix.length
+				return prefix
 			}
 		}
 		return null
@@ -110,6 +111,8 @@ open class FormattedStringReader(open var string: String) {
 	 * - `hasDelimiter`: whether a delimiter is consumed (if false, the end of string is reached)
 	 * - `original`: the whole consumed string except the delimiter
 	 * - `quotesCount`: the number of *pairs of* quotes used
+	 *
+	 * Returns null if end of string was already reached before calling this method.
 	 */
 	fun nextQuoted(
 			open: Char = '"',
@@ -119,7 +122,9 @@ open class FormattedStringReader(open var string: String) {
 			closeEscape: Char? = openEscape,
 			delimiterEscape: Char? = null,
 			dumb: Boolean = false
-	): QuotedResult {
+	): QuotedResult? {
+		if(pointer == string.length) return null
+
 		val inner = StringBuilder()
 		val original = StringBuilder()
 		var quotesCount = 0
@@ -174,8 +179,8 @@ open class FormattedStringReader(open var string: String) {
 			if (dumb && pointer == originalPointer && string[pointer] == open) {
 				val closeIndex = string.indexOf(close, startIndex = pointer + 1)
 				if (closeIndex != -1) {
-					original.append(pointer, closeIndex + 1)
-					inner.append(pointer + 1, closeIndex)
+					original.append(string[pointer, closeIndex + 1])
+					inner.append(string[pointer + 1, closeIndex])
 					pointer = closeIndex + 1
 					quotesCount++
 					continue
