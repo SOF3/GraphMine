@@ -1,0 +1,34 @@
+---
+title: IntegerArg - graphmine-api
+---
+
+[graphmine-api](../../index.html) / [io.github.sof3.graphmine.command.args](../index.html) / [IntegerArg](./index.html)
+
+# IntegerArg
+
+`class IntegerArg : `[`CommandArg`](../-command-arg/index.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>`
+
+### Constructors
+
+| [&lt;init&gt;](-init-.html) | `IntegerArg(fn: `[`IntegerArg`](./index.html)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` = {})` |
+
+### Properties
+
+| [typeName](type-name.html) | `val typeName: `[`StringI18nable`](../../io.github.sof3.graphmine.i18n/-string-i18nable/index.html) |
+
+### Inherited Properties
+
+| [default](../-command-arg/default.html) | `var default: `[`R`](../-command-arg/-wrapper/index.html#R)`?`<br>the default value of the arugment. If null, the argument is required. |
+| [defaultPrintable](../-command-arg/default-printable.html) | `var defaultPrintable: `[`I18nable`](../../io.github.sof3.graphmine.i18n/-i18nable/index.html)`?`<br>the default value of the argument expressed in human-readable string. |
+| [optional](../-command-arg/optional.html) | `val optional: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>whether the argument is required, deduced from "default" |
+| [validator](../-command-arg/validator.html) | `var validator: `[`ArgValidator`](../-arg-validator.html)`<`[`R`](../-command-arg/-wrapper/index.html#R)`>`<br>validates the result parsed by this command |
+
+### Functions
+
+| [parseCommand](parse-command.html) | `fun parseCommand(reader: FormattedStringReader): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`?` |
+
+### Inherited Functions
+
+| [invoke](../-command-arg/invoke.html) | `operator fun invoke(fn: `[`CommandArg`](../-command-arg/index.html)`<`[`R`](../-command-arg/-wrapper/index.html#R)`>.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`CommandArg`](../-command-arg/index.html)`<`[`R`](../-command-arg/-wrapper/index.html#R)`>` |
+| [provideDelegate](../-command-arg/provide-delegate.html) | `operator fun provideDelegate(thisRef: AnyOverload, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>): `[`ReadOnlyProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-only-property/index.html)`<AnyOverload, `[`R`](../-command-arg/-wrapper/index.html#R)`>` |
+
