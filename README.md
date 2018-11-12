@@ -14,6 +14,8 @@ No project is perfect, but I hope this one is going to *look* better than Pocket
 ## How to run the project?
 Development jar executables can be found in https://sof3.github.io/latestMaster.jar
 
+Oracle JDK 9 is not supported, but Oracle JDK 8 and OpenJDK 8 are both OK.
+
 ## Development setup
 Checkout the project from IntelliJ IDEA directly. The .idea directory will have setup the project code styles, file templates, inspection profiles and gradle project paths.
 

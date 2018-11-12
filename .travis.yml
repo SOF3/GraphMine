@@ -2,7 +2,7 @@ language: java
 jdk:
 - openjdk8
 - oraclejdk8
-- oraclejdk9
+#- oraclejdk9
 env:
   global:
   - secure: "SuMHzb/Ua8UOH9ayTRyJ1H5xERrZq6pFG0kM8i1nvQcHmKTkfYcP/J/SaXYLhEueCch4m0OVeBCgSKZUxAFEhvTino2ULPpebGHUAtmeBzMIn2jIyOM3qY6oEXfQ6OXV1O3xXp2m/Q7WQXyrnGCiGTBNKJ4uEwvWzaMyocvw0g4RFRrGuhJT8xsceMrxKzyhqDr/Um/c7E2xD58nCc8OmfHXwAlJa1yOzcWwNAdU2jfAF/jFQIfFE/u2OmeT4sNkTgzrsGstiphhIQsUyLglwQrhQvqgaU5Bp//iRAAq0inreVjaA2HJAiU41ZhrYUjOEFa2S6z8JWicT8dsbCKDgspp7+u1NSHUs4k9mxhHhCo/1npbw5e/Uyr78Qin5fLYVEWUwdRDby0q6kJZgjVpbf+LtKMd1nNcDerSf4cI4wRORI0afAZ4mRQC7Fs13JjnUdJs+7ly8QB6/IF4pwziuVwXeBufQzj0VEF4jf7I83F0LWGUENh/98rknQB2UjI5EujLQLT6bU7TWdjXCqLH6QAp8ljGVMJKCXE3hODkXnye+hqjbUH2uYhJwCQjiFTTWOUtlWXnTNRQdOsFG+X6DmC8yi8otHt6Qz4s1/ZCTB78Gl1wSKgf01q+3HPoHrdVmoJFPxMEqo+UPwV6A5ScBRPwt+aLV8WW0xYHXW1jGFA="
@@ -18,7 +18,7 @@ script:
 after_script:
 - bash <(curl -s https://codecov.io/bash)
 before_deploy:
-- ./gradlew graphmine-cli:fatJar graphmine-api:dokka
+- ./gradlew graphmine-cli:fatJar graphmine-api:dokka grpahmine-util:dokka
 - wget -O ../gh-pages.tar.gz https://github.com/SOF3/GraphMine/archive/gh-pages.tar.gz
 - tar xzf ../gh-pages.tar.gz -C ..
 - cd ../GraphMine-gh-pages && rm -r api && mkdir api
