@@ -16,7 +16,10 @@ title: alltypes - graphmine-api
 | [io.github.sof3.graphmine.command.CommandExecuteContext](../io.github.sof3.graphmine.command/-command-execute-context/index.html) |  |
 | [io.github.sof3.graphmine.command.CommandOverload](../io.github.sof3.graphmine.command/-command-overload/index.html) |  |
 | [io.github.sof3.graphmine.command.CommandSender](../io.github.sof3.graphmine.command/-command-sender.html) | To be implemented by anything that can send a command |
-| [io.github.sof3.graphmine.config.Config](../io.github.sof3.graphmine.config/-config/index.html) | Model for the server config.yml |
+| [io.github.sof3.graphmine.config.ConfigEntryDelegate](../io.github.sof3.graphmine.config/-config-entry-delegate/index.html) |  |
+| [io.github.sof3.graphmine.config.ConfigGroupSpec](../io.github.sof3.graphmine.config/-config-group-spec/index.html) |  |
+| [io.github.sof3.graphmine.config.ConfigSpec](../io.github.sof3.graphmine.config/-config-spec/index.html) |  |
+| [io.github.sof3.graphmine.config.CoreConfig](../io.github.sof3.graphmine.config/-core-config/index.html) | Model for the server config.yml |
 | [io.github.sof3.graphmine.feature.FeatureEdge](../io.github.sof3.graphmine.feature/-feature-edge/index.html) | Represents the implementation of a feature. |
 | [io.github.sof3.graphmine.feature.FeatureEvent](../io.github.sof3.graphmine.feature/-feature-event.html) | Represents an event on some node(s). Implementations shall contain mutable and immutable properties for FeatureEdges to read and modify, except the FeatureNodeInstances do not need to be in the event since they are passed to the event in a different way. |
 | [io.github.sof3.graphmine.feature.FeatureGraph](../io.github.sof3.graphmine.feature/-feature-graph/index.html) | The Feature Graph is the main registry of features in the server. It is an undirected multi-graph that allows FeatureEdges (the features themselves) to handle interaction events (FeatureEvent) between FeatureNodes (the objects of features, e.g. entities, blocks, or abstract concepts like commands), or self-loop edges that handle events on a single object (e.g. player join). |
@@ -26,6 +29,9 @@ title: alltypes - graphmine-api
 | [io.github.sof3.graphmine.world.Location](../io.github.sof3.graphmine.world/-location/index.html) | Represents a point in the 3D space of a world. |
 | [io.github.sof3.graphmine.scope.Scope](../io.github.sof3.graphmine.scope/-scope/index.html) | A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin scopes include: |
 | [io.github.sof3.graphmine.Server](../io.github.sof3.graphmine/-server/index.html) | The Server should be the object that links up different components of the server. |
+| [io.github.sof3.graphmine.config.ServerConfig](../io.github.sof3.graphmine.config/-server-config/index.html) |  |
+| [io.github.sof3.graphmine.config.SimpleConfigEntry](../io.github.sof3.graphmine.config/-simple-config-entry/index.html) |  |
+| [io.github.sof3.graphmine.config.SimpleConfigEntryDelegate](../io.github.sof3.graphmine.config/-simple-config-entry-delegate/index.html) |  |
 | [io.github.sof3.graphmine.feature.SingleFeatureEdge](../io.github.sof3.graphmine.feature/-single-feature-edge/index.html) | Convenience implementation of self-looping FeatureEdge |
 | [io.github.sof3.graphmine.command.args.StringArg](../io.github.sof3.graphmine.command.args/-string-arg/index.html) |  |
 | [io.github.sof3.graphmine.VersionInfo](../io.github.sof3.graphmine/-version-info/index.html) | Holds the static version information for this build |

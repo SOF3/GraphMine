@@ -6,7 +6,7 @@ title: Server.config - graphmine-api
 
 # config
 
-`abstract val config: `[`Config`](../../io.github.sof3.graphmine.config/-config/index.html)
+`abstract val config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)
 
 the server config.
 
