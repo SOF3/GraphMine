@@ -34,12 +34,12 @@ repositories{
 }
 
 dependencies {
-	compile(project(":graphmine-core"))
-	compile(kotlin("stdlib-jdk8"))
-	compile("commons-cli", "commons-cli", "1.4")
-	compile("commons-io", "commons-io", "2.6")
-	testCompile(kotlin("test"))
-	testCompile("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
+	implementation(project(":graphmine-core"))
+	implementation(kotlin("stdlib-jdk8"))
+	implementation("commons-cli", "commons-cli", "1.4")
+	implementation("commons-io", "commons-io", "2.6")
+	testImplementation(kotlin("test"))
+	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
 

@@ -33,16 +33,15 @@ repositories{
 }
 
 dependencies {
-	compile(project(":graphmine-api"))
-	compile(project(":graphmine-util"))
-	compile("org.apache.logging.log4j", "log4j-core", "2.11.1")
-	compile(kotlin("stdlib-jdk8"))
-	compile(kotlin("reflect"))
-	compile("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.7")
-	compile("com.fasterxml.jackson.dataformat", "jackson-dataformat-yaml", "2.9.7")
-	compile("com.fasterxml.jackson.core", "jackson-databind", "2.9.4")
-	testCompile(kotlin("test"))
-	testCompile("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
+	api(project(":graphmine-api"))
+	runtimeOnly("org.apache.logging.log4j", "log4j-core", "2.11.1")
+	implementation(kotlin("stdlib-jdk8"))
+	implementation(kotlin("reflect"))
+	api("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.7")
+	api("com.fasterxml.jackson.dataformat", "jackson-dataformat-yaml", "2.9.7")
+	api("com.fasterxml.jackson.core", "jackson-databind", "2.9.4")
+	testImplementation(kotlin("test"))
+	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
 

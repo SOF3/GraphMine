@@ -1,6 +1,4 @@
-package io.github.sof3.graphmine.command.args
-
-import io.github.sof3.graphmine.util.string.FormattedStringReader
+import io.github.sof3.graphmine.i18n.core.translateCore
 
 /*
  * GraphMine
@@ -20,12 +18,9 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class StringArg(fn: StringArg.() -> Unit = {}) : CommandArg<String>() {
-	override val typeName = TODO("String.i18n")
-
-	override fun parseCommand(reader: FormattedStringReader) = reader.nextQuoted()?.inner
-
-	init {
-		fn()
+"en_US" translateCore {
+	serverName { "GraphMine" }
+	startup {
+		version { "Starting GraphMine version $version on $ip:$port" }
 	}
 }

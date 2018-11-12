@@ -1,4 +1,5 @@
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /*
@@ -22,21 +23,22 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	java
 	kotlin("jvm") version "1.3.0"
+	id("org.jetbrains.dokka")
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
-repositories{
+repositories {
 	jcenter()
 	maven(url = "https://dl.bintray.com/spekframework/spek-dev")
 }
 
 dependencies {
-	compile(kotlin("stdlib-jdk8"))
-	compile(kotlin("reflect"))
-	testCompile(kotlin("test"))
-	testCompile("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
+	implementation(kotlin("stdlib-jdk8"))
+	implementation(kotlin("reflect"))
+	testImplementation(kotlin("test"))
+	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
 
@@ -62,6 +64,11 @@ tasks.withType<Test> {
 		showStackTraces = true
 		events(TestLogEvent.FAILED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
 	}
+}
+
+tasks.withType<DokkaTask> {
+	outputFormat = "jekyll"
+	outputDirectory = "$buildDir/javadoc"
 }
 
 tasks.withType<KotlinCompile> {

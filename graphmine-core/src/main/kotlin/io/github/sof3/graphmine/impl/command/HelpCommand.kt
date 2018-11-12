@@ -36,7 +36,7 @@ class HelpCommandByName : HelpCommandOverloads() {
 object HelpCommand : Command<HelpCommand, HelpCommandOverloads>(HelpCommandOverloads::class, {
 	name = "help"
 
-	description = "Shows help information".i18n
+	description = "Shows help information".i18n // TODO localize
 
 	aliases += "h"
 	aliases += "?"

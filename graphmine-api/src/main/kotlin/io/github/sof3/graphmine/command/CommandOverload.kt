@@ -2,7 +2,7 @@ package io.github.sof3.graphmine.command
 
 import io.github.sof3.graphmine.command.args.CommandArg
 import io.github.sof3.graphmine.feature.FeatureNodeInstance
-import io.github.sof3.graphmine.i18n.JointI18nable
+import io.github.sof3.graphmine.i18n.I18nable
 
 abstract class CommandOverload<
 		Self : CommandOverload<Self, Cmd>,
@@ -16,7 +16,7 @@ abstract class CommandOverload<
 	lateinit var alias: String
 		internal set
 
-	fun express(): JointI18nable = TODO()
+	fun express(): I18nable = TODO()
 //			JointI18nable(" ".i18n, *(args.map {
 //		val ret = "${it.name}: ${it.arg.typeName}"
 //		if(it.arg.optional){

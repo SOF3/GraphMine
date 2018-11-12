@@ -1,6 +1,4 @@
-package io.github.sof3.graphmine.command.args
-
-import io.github.sof3.graphmine.util.string.FormattedStringReader
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /*
  * GraphMine
@@ -20,12 +18,28 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class StringArg(fn: StringArg.() -> Unit = {}) : CommandArg<String>() {
-	override val typeName = TODO("String.i18n")
+plugins {
+	java
+	kotlin("jvm") version "1.3.0"
+}
 
-	override fun parseCommand(reader: FormattedStringReader) = reader.nextQuoted()?.inner
+group = "io.github.sof3.graphmine"
+version = "1.0.0-SNAPSHOT"
 
-	init {
-		fn()
-	}
+repositories {
+	jcenter()
+}
+
+dependencies {
+	implementation(kotlin("stdlib-jdk8"))
+	implementation(kotlin("script-runtime"))
+	implementation(kotlin("script-util"))
+	implementation(kotlin("compiler-embeddable"))
+}
+
+configure<JavaPluginConvention> {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+}
+tasks.withType<KotlinCompile> {
+	kotlinOptions.jvmTarget = "1.8"
 }

@@ -21,8 +21,9 @@ before_deploy:
 - ./gradlew graphmine-cli:fatJar graphmine-api:dokka
 - wget -O ../gh-pages.tar.gz https://github.com/SOF3/GraphMine/archive/gh-pages.tar.gz
 - tar xzf ../gh-pages.tar.gz -C ..
-- cd ../GraphMine-gh-pages && rm -r api
-- cp -r $TRAVIS_BUILD_DIR/graphmine-api/build/javadoc api
+- cd ../GraphMine-gh-pages && rm -r api && mkdir api
+- cp -r $TRAVIS_BUILD_DIR/graphmine-api/build/javadoc/graphmine-api api/graphmine-api
+- cp -r $TRAVIS_BUILD_DIR/graphmine-util/build/javadoc/graphmine-util api/graphmine-util
 - cp $TRAVIS_BUILD_DIR/graphmine-cli/build/libs/graphmine-cli-fat-*.jar latestMaster.jar
 deploy:
   skip-cleanup: true

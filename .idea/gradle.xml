@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$/graphmine-api" />
             <option value="$PROJECT_DIR$/graphmine-cli" />
             <option value="$PROJECT_DIR$/graphmine-core" />
+            <option value="$PROJECT_DIR$/graphmine-i18n" />
+            <option value="$PROJECT_DIR$/graphmine-i18n-core" />
             <option value="$PROJECT_DIR$/graphmine-util" />
           </set>
         </option>
@@ -19,6 +21,14 @@
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/graphmine-core" />
         <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/graphmine-i18n" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/graphmine-i18n-core" />
       </GradleProjectSettings>
     </option>
   </component>

@@ -17,8 +17,10 @@ Development jar executables can be found in https://sof3.github.io/latestMaster.
 ## Development setup
 Checkout the project from IntelliJ IDEA directly. The .idea directory will have setup the project code styles, file templates, inspection profiles and gradle project paths.
 
-There are currently 4 subprojects:
+There are currently 6 subprojects:
 - graphmine-util: utility code that are not directly related to GraphMine
+- graphmine-i18n: The i18n framework uesd by GraphMine. This may be made an independent project in the future.
+- graphmine-i18n-core: Declares the i18n strings required by GraphMine in the `main/kotlin` module and implements them in the `main/resources` module
 - graphmine-api: The stable plugin API
 - graphmine-core: Contains the implementation of graphmine-api
 - graphmine-cli: An executable project that wraps the core and exposes a user interface through standard I/O (command line interface for terminal users)

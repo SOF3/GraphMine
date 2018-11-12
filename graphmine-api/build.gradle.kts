@@ -34,19 +34,21 @@ plugins {
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
-repositories{
+repositories {
 	jcenter()
 	maven(url = "https://dl.bintray.com/spekframework/spek-dev")
 }
 
 dependencies {
-	compile(project(":graphmine-util"))
-	compile("org.apache.logging.log4j", "log4j-api", "2.11.1")
-	compile(kotlin("stdlib-jdk8"))
-	compile(kotlin("reflect"))
-	compile("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
-	testCompile(kotlin("test"))
-	testCompile("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
+	api(project(":graphmine-util"))
+	api(project(":graphmine-i18n"))
+	api(project(":graphmine-i18n-core"))
+	api("org.apache.logging.log4j", "log4j-api", "2.11.1")
+	implementation(kotlin("stdlib-jdk8"))
+	implementation(kotlin("reflect"))
+	implementation("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
+	testImplementation(kotlin("test"))
+	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
 

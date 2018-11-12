@@ -1,6 +1,5 @@
 package io.github.sof3.graphmine.command.args
 
-import io.github.sof3.graphmine.i18n.i18n
 import io.github.sof3.graphmine.util.string.FormattedStringReader
 
 /*
@@ -26,7 +25,7 @@ class IntegerArg(fn: IntegerArg.() -> Unit = {}) : CommandArg<Int>() {
 		fn()
 	}
 
-	override val typeName = "Int".i18n
+	override val typeName = TODO("Int.i18n")
 
 	override fun parseCommand(reader: FormattedStringReader) = reader.nextDelimiter(" ").let {
 		try {
