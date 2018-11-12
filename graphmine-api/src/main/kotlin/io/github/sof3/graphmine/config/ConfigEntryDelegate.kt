@@ -1,5 +1,7 @@
 package io.github.sof3.graphmine.config
 
+import kotlin.properties.ReadWriteProperty
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,20 +20,6 @@ package io.github.sof3.graphmine.config
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Model for the server config.yml
- */
-class CoreConfig(fn: CoreConfig.() -> Unit) : ConfigSpec() {
-	var language by entry("en_US")
-
-	val server by group(ServerConfig())
-
-	init {
-		apply(fn)
-	}
-}
-
-class ServerConfig : ConfigGroupSpec<ServerConfig>() {
-	var ip by entry("0.0.0.0")
-	var port by entry(19132) { if (it !in 0..65535) "Port must be between 0 and 65535" else null }
+interface ConfigEntryDelegate<T> : ReadWriteProperty<ConfigSpec, T> {
+	val set: Boolean
 }

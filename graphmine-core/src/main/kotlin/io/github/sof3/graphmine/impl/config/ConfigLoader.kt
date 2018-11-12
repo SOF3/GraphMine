@@ -1,11 +1,8 @@
 package io.github.sof3.graphmine.impl.config
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
-import com.fasterxml.jackson.module.kotlin.readValue
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import io.github.sof3.graphmine.config.Config
 import java.io.File
+import java.io.FileReader
+import javax.script.ScriptEngineManager
 
 /*
  * GraphMine
@@ -25,4 +22,13 @@ import java.io.File
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-fun loadConfig(file: File) = ObjectMapper(YAMLFactory()).registerKotlinModule().readValue<Config>(file)
+object ConfigLoader {
+	init {
+		System.setProperty("idea.io.use.fallback", "true")
+	}
+
+	inline fun <reified T> load(file: File): T {
+		val engine = ScriptEngineManager().getEngineByExtension("kts")
+		return FileReader(file).use { engine.eval(it) as T }
+	}
+}

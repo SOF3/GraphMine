@@ -18,20 +18,12 @@ package io.github.sof3.graphmine.config
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Model for the server config.yml
- */
-class CoreConfig(fn: CoreConfig.() -> Unit) : ConfigSpec() {
-	var language by entry("en_US")
+abstract class ConfigGroupSpec<Self: ConfigGroupSpec<Self>> : ConfigSpec() {
+	lateinit var parent: ConfigSpec
+	lateinit var groupName: String
 
-	val server by group(ServerConfig())
+	override val path get() = parent.path + groupName
 
-	init {
-		apply(fn)
-	}
-}
-
-class ServerConfig : ConfigGroupSpec<ServerConfig>() {
-	var ip by entry("0.0.0.0")
-	var port by entry(19132) { if (it !in 0..65535) "Port must be between 0 and 65535" else null }
+	@Suppress("UNCHECKED_CAST")
+	operator fun invoke(fn: Self.() -> Unit) = (this as Self).run(fn)
 }

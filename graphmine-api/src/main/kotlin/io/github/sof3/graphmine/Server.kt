@@ -1,7 +1,8 @@
 package io.github.sof3.graphmine
 
-import io.github.sof3.graphmine.config.Config
+import io.github.sof3.graphmine.config.CoreConfig
 import io.github.sof3.graphmine.feature.FeatureGraph
+import io.github.sof3.graphmine.i18n.core.CoreLang
 import io.github.sof3.graphmine.scope.Scope
 import org.apache.logging.log4j.Logger
 
@@ -32,11 +33,21 @@ interface Server {
 	/**
 	 * the server config.
 	 */
-	val config: Config
+	val config: CoreConfig
 	/**
 	 * the logger used for the server context. Plugins should use their own logger instead of this one.
 	 */
 	val logger: Logger
+
+	/**
+	 * the core i18n provider
+	 */
+	val lang: CoreLang
+
+	/**
+	 * Returns the default locale of the server.
+	 */
+	val defaultLocale: String
 
 	/**
 	 * the server scope, which only gets disposed when the server shuts down.

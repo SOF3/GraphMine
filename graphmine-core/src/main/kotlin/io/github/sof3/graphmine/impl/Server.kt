@@ -2,7 +2,9 @@ package io.github.sof3.graphmine.impl
 
 import io.github.sof3.graphmine.Server
 import io.github.sof3.graphmine.VersionInfo
-import io.github.sof3.graphmine.config.Config
+import io.github.sof3.graphmine.config.CoreConfig
+import io.github.sof3.graphmine.i18n.core.CoreLang.Startup.VersionArg
+import io.github.sof3.graphmine.i18n.core.CoreLangLoader.loadCoreLang
 import io.github.sof3.graphmine.impl.feature.FeatureGraph
 import io.github.sof3.graphmine.scope.BaseScope
 import org.apache.logging.log4j.LogManager
@@ -26,15 +28,17 @@ import org.apache.logging.log4j.LogManager
  */
 
 class Server(
-		override val config: Config
+		override val config: CoreConfig
 ) : Server {
 	override val logger = LogManager.getLogger(Server::class.java)!!
+	override val lang = loadCoreLang()
+	override val defaultLocale = config.language
 	private val myScope = BaseScope(Server::class)
 	override val scope by myScope
 	override val features = FeatureGraph()
 
 	init {
-		logger.info("Starting GraphMine v${VersionInfo.VERSION} on ${config.port}")
+		logger.info(lang.startup.version.i18n(VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port))[defaultLocale])
 	}
 
 	fun shutdown() {

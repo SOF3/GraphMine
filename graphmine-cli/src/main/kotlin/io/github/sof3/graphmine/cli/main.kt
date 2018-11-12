@@ -2,7 +2,7 @@ package io.github.sof3.graphmine.cli
 
 import io.github.sof3.graphmine.VersionInfo
 import io.github.sof3.graphmine.impl.Server
-import io.github.sof3.graphmine.impl.config.loadConfig
+import io.github.sof3.graphmine.impl.config.ConfigLoader
 import org.apache.commons.cli.DefaultParser
 import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
@@ -33,7 +33,7 @@ fun main(args: Array<String>) {
 	val options = Options().apply {
 		addOption("v", "version", false, "GraphMine version")
 		addOption("h", "help", false, "Command line description")
-		addOption("c", "config", true, "Path to config.yml")
+		addOption("c", "config", true, "Path to config.kts")
 	}
 	val cmd = DefaultParser().parse(options, args)
 
@@ -46,13 +46,16 @@ fun main(args: Array<String>) {
 		println("GraphMine v${VersionInfo.VERSION}, built on ${DateFormat.getDateTimeInstance().format(VersionInfo.BUILD_DATE)}")
 	}
 
-	val configFile = File(cmd.getOptionValue("c", "data/config.yml"))
-	if (configFile.exists().not()) {
-		val default = object {}.javaClass.classLoader.getResourceAsStream("config.yml")
+	val dataDir = File("data")
+	if(!dataDir.exists()) dataDir.mkdirs()
+
+	val configFile = File(cmd.getOptionValue("c", "data/config.kts"))
+	if (!configFile.exists()) {
+		val default = object {}.javaClass.classLoader.getResourceAsStream("config.kts")
 		FileOutputStream(configFile).use { IOUtils.copy(default, it) }
 	}
 
 	Server(
-			loadConfig(configFile)
+			config = ConfigLoader.load(configFile)
 	)
 }
