@@ -2,4 +2,5 @@
 title: GraphMine
 ---
 
-- [API docs](api/graphmine-api)
+- [GraphMine API docs](api/graphmine-api)
+- [GraphMine-Util API docs](api/graphmine-util)
