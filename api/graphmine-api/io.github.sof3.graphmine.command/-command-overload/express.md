@@ -6,4 +6,4 @@ title: CommandOverload.express - graphmine-api
 
 # express
 
-`fun express(): `[`JointI18nable`](../../io.github.sof3.graphmine.i18n/-joint-i18nable/index.html)
+`fun express(): I18nable`

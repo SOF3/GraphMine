@@ -6,7 +6,7 @@ title: ArgValidator - graphmine-api
 
 # ArgValidator
 
-`typealias ArgValidator<R> = (`[`R`](-arg-validator.html#R)`) -> `[`I18nable`](../io.github.sof3.graphmine.i18n/-i18nable/index.html)`?`
+`typealias ArgValidator<R> = (`[`R`](-arg-validator.html#R)`) -> I18nable?`
 
 Checks whether a command argument is valid. Returns null if valid, or an I18nable to be sent to the CommandSender if
 invalid.

@@ -22,17 +22,12 @@ title: alltypes - graphmine-api
 | [io.github.sof3.graphmine.feature.FeatureGraph](../io.github.sof3.graphmine.feature/-feature-graph/index.html) | The Feature Graph is the main registry of features in the server. It is an undirected multi-graph that allows FeatureEdges (the features themselves) to handle interaction events (FeatureEvent) between FeatureNodes (the objects of features, e.g. entities, blocks, or abstract concepts like commands), or self-loop edges that handle events on a single object (e.g. player join). |
 | [io.github.sof3.graphmine.feature.FeatureNode](../io.github.sof3.graphmine.feature/-feature-node.html) | Represents a concrete or abstract concept that can interact with itself or other FeatureNodes, such as an entity, a block, a client or a command. |
 | [io.github.sof3.graphmine.feature.FeatureNodeInstance](../io.github.sof3.graphmine.feature/-feature-node-instance/index.html) | Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node companion object represents the client type. |
-| [io.github.sof3.graphmine.i18n.GluedJointI18nable](../io.github.sof3.graphmine.i18n/-glued-joint-i18nable/index.html) |  |
-| [io.github.sof3.graphmine.i18n.I18nable](../io.github.sof3.graphmine.i18n/-i18nable/index.html) |  |
 | [io.github.sof3.graphmine.command.args.IntegerArg](../io.github.sof3.graphmine.command.args/-integer-arg/index.html) |  |
-| [io.github.sof3.graphmine.i18n.JointI18nable](../io.github.sof3.graphmine.i18n/-joint-i18nable/index.html) |  |
 | [io.github.sof3.graphmine.world.Location](../io.github.sof3.graphmine.world/-location/index.html) | Represents a point in the 3D space of a world. |
 | [io.github.sof3.graphmine.scope.Scope](../io.github.sof3.graphmine.scope/-scope/index.html) | A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin scopes include: |
 | [io.github.sof3.graphmine.Server](../io.github.sof3.graphmine/-server/index.html) | The Server should be the object that links up different components of the server. |
 | [io.github.sof3.graphmine.feature.SingleFeatureEdge](../io.github.sof3.graphmine.feature/-single-feature-edge/index.html) | Convenience implementation of self-looping FeatureEdge |
-| [kotlin.String](../io.github.sof3.graphmine.i18n/kotlin.-string/index.html) (extensions in package io.github.sof3.graphmine.i18n) |  |
 | [io.github.sof3.graphmine.command.args.StringArg](../io.github.sof3.graphmine.command.args/-string-arg/index.html) |  |
-| [io.github.sof3.graphmine.i18n.StringI18nable](../io.github.sof3.graphmine.i18n/-string-i18nable/index.html) |  |
 | [io.github.sof3.graphmine.VersionInfo](../io.github.sof3.graphmine/-version-info/index.html) | Holds the static version information for this build |
 | [io.github.sof3.graphmine.world.World](../io.github.sof3.graphmine.world/-world.html) | Each world has its set of 3D space. Usually, this is implemented as one saved map, but plugins may create virtual worlds, remote worlds or anything that features the characteristics as required by the interface. |
 | [io.github.sof3.graphmine.world.WorldPartition](../io.github.sof3.graphmine.world/-world-partition.html) | Represents a partition of a World. World partitioning is controlled by the server based on WorldUser activity. |

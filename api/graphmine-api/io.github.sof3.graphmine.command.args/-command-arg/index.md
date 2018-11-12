@@ -19,9 +19,9 @@ title: CommandArg - graphmine-api
 ### Properties
 
 | [default](default.html) | `var default: `[`R`](-wrapper/index.html#R)`?`<br>the default value of the arugment. If null, the argument is required. |
-| [defaultPrintable](default-printable.html) | `var defaultPrintable: `[`I18nable`](../../io.github.sof3.graphmine.i18n/-i18nable/index.html)`?`<br>the default value of the argument expressed in human-readable string. |
+| [defaultPrintable](default-printable.html) | `var defaultPrintable: I18nable?`<br>the default value of the argument expressed in human-readable string. |
 | [optional](optional.html) | `val optional: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>whether the argument is required, deduced from "default" |
-| [typeName](type-name.html) | `abstract val typeName: `[`I18nable`](../../io.github.sof3.graphmine.i18n/-i18nable/index.html) |
+| [typeName](type-name.html) | `abstract val typeName: I18nable` |
 | [validator](validator.html) | `var validator: `[`ArgValidator`](../-arg-validator.html)`<`[`R`](-wrapper/index.html#R)`>`<br>validates the result parsed by this command |
 
 ### Functions

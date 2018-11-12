@@ -15,7 +15,7 @@ title: CommandBuilder - graphmine-api
 ### Properties
 
 | [aliases](aliases.html) | `val aliases: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
-| [description](description.html) | `var description: `[`I18nable`](../../io.github.sof3.graphmine.i18n/-i18nable/index.html)`?` |
+| [description](description.html) | `var description: I18nable?` |
 | [name](name.html) | `var name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [overloads](overloads.html) | `val overloads: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`KClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)`<out `[`Overload`](index.html#Overload)`>>` |
 

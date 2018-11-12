@@ -6,7 +6,7 @@ title: IntegerArg.typeName - graphmine-api
 
 # typeName
 
-`val typeName: `[`StringI18nable`](../../io.github.sof3.graphmine.i18n/-string-i18nable/index.html)
+`val typeName: `[`Nothing`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html)
 
 Overrides [CommandArg.typeName](../-command-arg/type-name.html)
 

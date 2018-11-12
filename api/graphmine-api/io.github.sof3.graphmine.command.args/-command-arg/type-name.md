@@ -6,4 +6,4 @@ title: CommandArg.typeName - graphmine-api
 
 # typeName
 
-`abstract val typeName: `[`I18nable`](../../io.github.sof3.graphmine.i18n/-i18nable/index.html)
+`abstract val typeName: I18nable`

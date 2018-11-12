@@ -6,4 +6,4 @@ title: CommandBuilder.description - graphmine-api
 
 # description
 
-`var description: `[`I18nable`](../../io.github.sof3.graphmine.i18n/-i18nable/index.html)`?`
+`var description: I18nable?`

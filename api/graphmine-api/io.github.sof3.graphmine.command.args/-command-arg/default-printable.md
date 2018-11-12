@@ -6,7 +6,7 @@ title: CommandArg.defaultPrintable - graphmine-api
 
 # defaultPrintable
 
-`var defaultPrintable: `[`I18nable`](../../io.github.sof3.graphmine.i18n/-i18nable/index.html)`?`
+`var defaultPrintable: I18nable?`
 
 the default value of the argument expressed in human-readable string.
 

@@ -20,6 +20,6 @@ title: CommandOverload - graphmine-api
 
 ### Functions
 
-| [express](express.html) | `fun express(): `[`JointI18nable`](../../io.github.sof3.graphmine.i18n/-joint-i18nable/index.html) |
+| [express](express.html) | `fun express(): I18nable` |
 | [getArgs](get-args.html) | `fun getArgs(): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`Wrapper`](../../io.github.sof3.graphmine.command.args/-command-arg/-wrapper/index.html)`<*>>` |
 

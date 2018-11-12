@@ -14,5 +14,5 @@ title: io.github.sof3.graphmine.command.args - graphmine-api
 
 ### Type Aliases
 
-| [ArgValidator](-arg-validator.html) | `typealias ArgValidator<R> = (`[`R`](-arg-validator.html#R)`) -> `[`I18nable`](../io.github.sof3.graphmine.i18n/-i18nable/index.html)`?`<br>Checks whether a command argument is valid. Returns null if valid, or an I18nable to be sent to the CommandSender if invalid. |
+| [ArgValidator](-arg-validator.html) | `typealias ArgValidator<R> = (`[`R`](-arg-validator.html#R)`) -> I18nable?`<br>Checks whether a command argument is valid. Returns null if valid, or an I18nable to be sent to the CommandSender if invalid. |
 

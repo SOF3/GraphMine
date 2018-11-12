@@ -11,7 +11,6 @@ title: graphmine-api
 | [io.github.sof3.graphmine.command.args](io.github.sof3.graphmine.command.args/index.html) |  |
 | [io.github.sof3.graphmine.config](io.github.sof3.graphmine.config/index.html) |  |
 | [io.github.sof3.graphmine.feature](io.github.sof3.graphmine.feature/index.html) |  |
-| [io.github.sof3.graphmine.i18n](io.github.sof3.graphmine.i18n/index.html) |  |
 | [io.github.sof3.graphmine.scope](io.github.sof3.graphmine.scope/index.html) |  |
 | [io.github.sof3.graphmine.world](io.github.sof3.graphmine.world/index.html) |  |
 
