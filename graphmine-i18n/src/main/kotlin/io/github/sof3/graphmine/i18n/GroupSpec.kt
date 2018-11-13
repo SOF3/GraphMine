@@ -25,5 +25,13 @@ abstract class GroupSpec<Self : GroupSpec<Self>> : LangSpec<Self>() {
 	internal lateinit var parent: LangSpec<*>
 	internal lateinit var name: String
 
+	override val rootSpec: LangSpec<*> get() = parent.rootSpec
+
+	final override var locale: String?
+		get() = super.locale
+		set(value) {
+			super.locale = value
+		}
+
 	final override val path: Array<String> get() = parent.path + name
 }

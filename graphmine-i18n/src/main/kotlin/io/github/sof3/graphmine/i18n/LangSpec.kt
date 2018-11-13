@@ -1,6 +1,8 @@
 package io.github.sof3.graphmine.i18n
 
+import io.github.sof3.graphmine.util.Ref
 import kotlin.properties.ReadOnlyProperty
+import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /*
@@ -30,8 +32,11 @@ typealias Def<Arg> = Arg.() -> String
  *
  * To declare a group, create a val with delegation to an group() call, passing a new instance of the Group.
  */
+@Suppress("LeakingThis")
 abstract class LangSpec<Self : LangSpec<Self>> {
-	var locale: String? = null
+	open val rootSpec: LangSpec<*> = this
+
+	open var locale: String? = null
 		set(locale) {
 			field = locale!!
 			if (javaClass !in allSpecs) allSpecs[javaClass] = linkedMapOf() // use LinkedHashMap to retain the insertion order
@@ -65,7 +70,7 @@ abstract class LangSpec<Self : LangSpec<Self>> {
 			i18n(Unit as Arg)
 		}
 
-		fun i18n(arg: Arg): I18nable = SpecI18nable(allSpecs[this@LangSpec.javaClass]!!, path, arg)
+		fun i18n(arg: Arg) = SpecI18nable(allSpecs[rootSpec.javaClass]!!, path, arg)
 	}
 
 	protected inner class AcceptDelegate<Arg : Any?>(
@@ -84,13 +89,14 @@ abstract class LangSpec<Self : LangSpec<Self>> {
 	protected inline fun <reified Arg : Any?> accept() =
 			AcceptDelegate(Arg::class.java) { it is Arg }
 
-	protected fun <Group : GroupSpec<Group>> group(group: Group) = object : ReadOnlyProperty<Self, Group> {
-		override fun getValue(thisRef: Self, property: KProperty<*>): Group {
+	protected fun <Group : GroupSpec<Group>> group(group: Group) = GroupDelegate(group)
+
+	protected inner class GroupDelegate<Group : GroupSpec<Group>>(private val group: Group) {
+		operator fun provideDelegate(thisRef: Self, property: KProperty<*>): ReadWriteProperty<Self, Group> {
 			g[property.name] = group
 			group.parent = this@LangSpec
 			group.name = property.name
-			group.locale = locale
-			return group
+			return Ref(group)
 		}
 	}
 }

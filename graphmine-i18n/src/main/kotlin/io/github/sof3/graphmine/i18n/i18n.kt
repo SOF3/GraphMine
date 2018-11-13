@@ -13,6 +13,7 @@ inline fun <reified T: LangSpec<T>> loadLangScript(locales: Iterable<String>): T
 	for (locale in locales) {
 		InputStreamReader(T::class.java.getResourceAsStream("$locale.lang.kts")).use {
 			lang = engine.eval(it) as T
+			assert(lang.locale == locale)
 		}
 	}
 	return lang

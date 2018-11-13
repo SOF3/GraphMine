@@ -36,10 +36,15 @@ object VersionInfo {
 	val BUILD_DATE: Date
 
 	init {
-		val properties = javaClass.classLoader.getResourceAsStream("build.properties").use {
+		val properties = javaClass.classLoader.getResourceAsStream("build.properties")?.use {
 			Properties().apply { load(it) }
 		}
-		VERSION = properties["version"].toString()
-		BUILD_DATE = SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'").parse(properties["build-date"].toString())
+		if(properties != null){
+			VERSION = properties["version"].toString()
+			BUILD_DATE = SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'").parse(properties["build-date"].toString())
+		}else{
+			VERSION = "NO_GRADLE"
+			BUILD_DATE = Date()
+		}
 	}
 }

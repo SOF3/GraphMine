@@ -44,10 +44,13 @@ fun main(args: Array<String>) {
 
 	if (cmd.hasOption("v")) {
 		println("GraphMine v${VersionInfo.VERSION}, built on ${DateFormat.getDateTimeInstance().format(VersionInfo.BUILD_DATE)}")
+		return
 	}
 
+	println("Loading...")
+
 	val dataDir = File("data")
-	if(!dataDir.exists()) dataDir.mkdirs()
+	if (!dataDir.exists()) dataDir.mkdirs()
 
 	val configFile = File(cmd.getOptionValue("c", "data/config.kts"))
 	if (!configFile.exists()) {

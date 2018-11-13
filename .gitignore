@@ -8,6 +8,7 @@
 !.idea/inspectionProfiles
 !.idea/.name
 !.idea/codeStyles
+!.idea/runConfigurations
 !.idea/gradle.xml
 *.class
 *.log
