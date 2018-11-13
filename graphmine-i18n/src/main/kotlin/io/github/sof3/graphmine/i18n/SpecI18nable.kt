@@ -25,6 +25,7 @@ class SpecI18nable internal constructor(val map: Map<String, LangSpec<*>>, val p
 		getFromSpec(map[locale]).run {
 			if (this != null) return this
 		}
+		println(map[locale]!!.g.keys.joinToString(", "))
 
 		map.forEach { (_, spec) ->
 			getFromSpec(spec).run {

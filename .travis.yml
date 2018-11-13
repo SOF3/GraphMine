@@ -14,8 +14,9 @@ cache:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
 script:
-- ./gradlew check codeCoverageReport
+- ./gradlew check
 after_script:
+- ./gradlew codeCoverageReport
 - bash <(curl -s https://codecov.io/bash)
 before_deploy:
 - ./gradlew graphmine-cli:fatJar graphmine-api:dokka graphmine-util:dokka
