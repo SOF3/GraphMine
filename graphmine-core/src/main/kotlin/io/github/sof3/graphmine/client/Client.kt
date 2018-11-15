@@ -1,5 +1,8 @@
 package io.github.sof3.graphmine.client
 
+import io.github.sof3.graphmine.feature.FeatureNode
+import io.github.sof3.graphmine.feature.FeatureNodeInstance
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,5 +21,10 @@ package io.github.sof3.graphmine.client
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface Client {
+interface Client: FeatureNodeInstance<Client, Client.Node> {
+	var attached: ClientAttachable
+
+	companion object Node : FeatureNode<Node, Client>
+
+	override val node get() = Node
 }

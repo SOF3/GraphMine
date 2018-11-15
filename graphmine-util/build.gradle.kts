@@ -37,6 +37,7 @@ repositories {
 dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("reflect"))
+	runtimeOnly(kotlin("compiler-embeddable"))
 	testImplementation(kotlin("test"))
 	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")

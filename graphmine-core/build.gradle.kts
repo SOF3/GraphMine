@@ -28,12 +28,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	java
 	kotlin("jvm") version "1.3.0"
+	id("org.jetbrains.dokka")
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
-repositories{
+repositories {
 	jcenter()
 	maven(url = "https://dl.bintray.com/spekframework/spek-dev")
 }

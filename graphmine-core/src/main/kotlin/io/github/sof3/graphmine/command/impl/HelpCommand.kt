@@ -1,4 +1,10 @@
-package io.github.sof3.graphmine.impl.world
+package io.github.sof3.graphmine.command.impl
+
+import io.github.sof3.graphmine.Server
+import io.github.sof3.graphmine.command.CommandSender
+import io.github.sof3.graphmine.command.Command
+import io.github.sof3.graphmine.command.Overload
+import io.github.sof3.graphmine.i18n.i18n
 
 /*
  * GraphMine
@@ -18,5 +24,26 @@ package io.github.sof3.graphmine.impl.world
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class World {
+class HelpCommandByPage : Overload() {
+	val page by integer().default(1)
 }
+
+class HelpCommandByName : Overload() {
+	val name by string()
+}
+
+object HelpCommand : Command<Server>({
+	name = "help"
+
+	description = "Shows help information".i18n // TODO localize
+
+	aliases += "h"
+	aliases += "?"
+
+	handle<HelpCommandByPage, CommandSender> {
+		TODO("implement")
+	}
+	handle<HelpCommandByName, CommandSender> {
+		TODO("implement")
+	}
+})

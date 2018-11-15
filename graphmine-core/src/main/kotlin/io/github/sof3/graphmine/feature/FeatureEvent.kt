@@ -24,9 +24,3 @@ package io.github.sof3.graphmine.feature
  * they are passed to the event in a different way.
  */
 interface FeatureEvent
-//
-///**
-// * FeatureEvents that correspond to only one FeatureNode should implement this so that FeatureGraph.handle can have better type prediction
-// */
-//interface SingleFeatureEvent<Inst : FeatureNodeInstance<Inst, *>> : FeatureEvent
-//interface DoubleFeatureEvent<Inst1 : FeatureNodeInstance<Inst1, *>, Inst2 : FeatureNodeInstance<Inst2, *>> : FeatureEvent

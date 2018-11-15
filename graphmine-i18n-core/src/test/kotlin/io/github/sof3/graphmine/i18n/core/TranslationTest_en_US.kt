@@ -1,7 +1,6 @@
 package io.github.sof3.graphmine.i18n.core
 
 import io.github.sof3.graphmine.i18n.LangSpec
-import io.github.sof3.graphmine.i18n.core.CoreLangLoader.loadCoreLang
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import org.spekframework.spek2.style.gherkin.ScenarioBody

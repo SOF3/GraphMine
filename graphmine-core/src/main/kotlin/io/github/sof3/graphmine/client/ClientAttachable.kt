@@ -1,8 +1,4 @@
-package io.github.sof3.graphmine.impl.config
-
-import java.io.File
-import java.io.FileReader
-import javax.script.ScriptEngineManager
+package io.github.sof3.graphmine.client
 
 /*
  * GraphMine
@@ -22,13 +18,5 @@ import javax.script.ScriptEngineManager
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-object ConfigLoader {
-	init {
-		System.setProperty("idea.io.use.fallback", "true")
-	}
-
-	inline fun <reified T> load(file: File): T {
-		val engine = ScriptEngineManager().getEngineByExtension("kts")
-		return FileReader(file).use { engine.eval(it) as T }
-	}
+interface ClientAttachable {
 }

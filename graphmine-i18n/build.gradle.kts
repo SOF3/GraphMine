@@ -35,7 +35,6 @@ dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("script-runtime"))
 	implementation(kotlin("script-util"))
-	implementation(kotlin("compiler-embeddable"))
 }
 
 configure<JavaPluginConvention> {

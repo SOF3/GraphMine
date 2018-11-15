@@ -1,7 +1,10 @@
-package io.github.sof3.graphmine.impl.client
+package io.github.sof3.graphmine.command.impl
 
-import io.github.sof3.graphmine.feature.FeatureNode
-import io.github.sof3.graphmine.feature.FeatureNodeInstance
+import io.github.sof3.graphmine.Server
+import io.github.sof3.graphmine.command.Overload
+import io.github.sof3.graphmine.command.CommandSender
+import io.github.sof3.graphmine.command.Command
+import io.github.sof3.graphmine.i18n.i18n
 
 /*
  * GraphMine
@@ -21,19 +24,17 @@ import io.github.sof3.graphmine.feature.FeatureNodeInstance
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Represents an established incoming connection.
- */
-class Client : FeatureNodeInstance<Client, Client.Node> {
-	/**
-	 * The FeatureNode for Client
-	 */
-	companion object Node : FeatureNode<Node, Client>
+class SayCommand : Overload() {
+	companion object : Command<Server>({
+		name = "say"
+		aliases += "announce"
 
-	override val node get() = Node
+		description = "".i18n // TODO
 
-	/**
-	 * The ClientAttachable that the client is currently attached to. `null` if client is currently not attached to anything
-	 */
-	var attached: ClientAttachable? = null
+		handle<SayCommand, CommandSender> {
+			TODO("Implement")
+		}
+	})
+
+	val message by rawText()
 }

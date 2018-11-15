@@ -2,8 +2,11 @@ package io.github.sof3.graphmine
 
 import io.github.sof3.graphmine.config.CoreConfig
 import io.github.sof3.graphmine.feature.FeatureGraph
-import io.github.sof3.graphmine.i18n.core.CoreLang
+import io.github.sof3.graphmine.i18n.I18nable
+import io.github.sof3.graphmine.i18n.core.*
+import io.github.sof3.graphmine.scope.BaseScope
 import io.github.sof3.graphmine.scope.Scope
+import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
 /*
@@ -28,34 +31,51 @@ import org.apache.logging.log4j.Logger
  * The Server should be the object that links up different components of the server.
  *
  * To prevent cyclic dependency, instead of passing the Server object around, pass the objects that will actually be used, e.g. the logger, the config, etc.
+ *
+ * @param initNano System.nanoTime() when the server start command was created
  */
-interface Server {
+class Server(
+		/**
+		 * @return the server config
+		 */
+		val config: CoreConfig,
+		initNano: Long = System.nanoTime()
+) {
 	/**
-	 * the server config.
+	 * @return the logger used for the server scope. Plugins should use their own logger instead of this one.
 	 */
-	val config: CoreConfig
-	/**
-	 * the logger used for the server scope. Plugins should use their own logger instead of this one.
-	 */
-	val logger: Logger
+	val logger: Logger = LogManager.getLogger(Server::class.java)!!
 
 	/**
-	 * the core i18n provider
+	 * @return the core i18n provider
 	 */
-	val lang: CoreLang
+	val lang: CoreLang = loadCoreLang()
 
 	/**
-	 * Returns the default locale of the server.
+	 * @return the default locale of the server.
 	 */
-	val defaultLocale: String
+	val defaultLocale: String get() = config.language
+
+	private val myScope = BaseScope(Server::class)
+	/**
+	 * @return the server scope, which only gets disposed when the server shuts down.
+	 */
+	val scope: Scope by myScope // TODO dispose on shutdown
 
 	/**
-	 * the server scope, which only gets disposed when the server shuts down.
+	 * @return the feature graph of the server. "Events" should be handled via the feature graph.
 	 */
-	val scope: Scope
+	val features = FeatureGraph()
 
-	/**
-	 * the feature graph of the server. "Events" should be handled via the feature graph.
-	 */
-	val features: FeatureGraph
+	init {
+		info(lang.startup.version.i18n(CoreLang.Startup.VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port)))
+
+		info(lang.startup.complete.i18n(CoreLang.Startup.CompleteArg(nano = System.nanoTime() - initNano)))
+	}
+
+	private fun debug(i18nable: I18nable) = logger.debug(i18nable[defaultLocale])
+	private fun error(i18nable: I18nable) = logger.error(i18nable[defaultLocale])
+	private fun fatal(i18nable: I18nable) = logger.fatal(i18nable[defaultLocale])
+	private fun info(i18nable: I18nable) = logger.info(i18nable[defaultLocale])
+	private fun warn(i18nable: I18nable) = logger.warn(i18nable[defaultLocale])
 }

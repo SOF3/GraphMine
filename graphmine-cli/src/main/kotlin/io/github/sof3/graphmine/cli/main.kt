@@ -1,8 +1,8 @@
 package io.github.sof3.graphmine.cli
 
 import io.github.sof3.graphmine.VersionInfo
-import io.github.sof3.graphmine.impl.Server
-import io.github.sof3.graphmine.impl.config.ConfigLoader
+import io.github.sof3.graphmine.Server
+import io.github.sof3.graphmine.util.KtsLoader
 import org.apache.commons.cli.DefaultParser
 import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
@@ -60,7 +60,7 @@ fun main(args: Array<String>) {
 	}
 
 	Server(
-			config = ConfigLoader.load(configFile),
+			config = KtsLoader.load(configFile),
 			initNano = initNano
 	)
 }
