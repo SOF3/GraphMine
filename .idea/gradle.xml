@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/graphmine-api" />
             <option value="$PROJECT_DIR$/graphmine-cli" />
             <option value="$PROJECT_DIR$/graphmine-core" />
             <option value="$PROJECT_DIR$/graphmine-i18n" />
