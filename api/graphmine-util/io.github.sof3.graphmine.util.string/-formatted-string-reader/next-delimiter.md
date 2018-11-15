@@ -7,13 +7,14 @@ title: FormattedStringReader.nextDelimiter - graphmine-util
 # nextDelimiter
 
 `fun nextDelimiter(vararg delimiters: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = arrayOf(" ")): `[`DelimiterResult`](../-delimiter-result/index.html)`?`
+* If there is nothing to read (isComplete == true), returns null
 * If the delimiter is in the remaining string:
 * consumes $x := everything before the delimiter, **b**&gt;
 * consumes the delimiter itself
-* returns (true, $x)
+* returns ($x, delimiter)
 * If the delimiter is *not* in the remaining string:
 * consumes $x := the remaining string
-* returns (false, $x)
+* returns ($x, null)
 
 If multiple delimiters are provided, the first delimiter found in the remaining string is used (i.e. BFS).
 

@@ -12,6 +12,7 @@ title: alltypes - graphmine-util
 | [kotlin.CharArray](../io.github.sof3.graphmine.util/kotlin.-char-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [io.github.sof3.graphmine.util.CharRef](../io.github.sof3.graphmine.util/-char-ref/index.html) |  |
 | [kotlin.CharSequence](../io.github.sof3.graphmine.util/kotlin.-char-sequence/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
+| [io.github.sof3.graphmine.util.DelegateProvider](../io.github.sof3.graphmine.util/-delegate-provider/index.html) |  |
 | [io.github.sof3.graphmine.util.string.DelimiterResult](../io.github.sof3.graphmine.util.string/-delimiter-result/index.html) |  |
 | [kotlin.DoubleArray](../io.github.sof3.graphmine.util/kotlin.-double-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [io.github.sof3.graphmine.util.DoubleRef](../io.github.sof3.graphmine.util/-double-ref/index.html) |  |
@@ -23,6 +24,7 @@ title: alltypes - graphmine-util
 | [io.github.sof3.graphmine.util.IntRef](../io.github.sof3.graphmine.util/-int-ref/index.html) |  |
 | [io.github.sof3.graphmine.util.math.IntVector3](../io.github.sof3.graphmine.util.math/-int-vector3/index.html) |  |
 | [io.github.sof3.graphmine.util.math.IntVector3Range](../io.github.sof3.graphmine.util.math/-int-vector3-range/index.html) |  |
+| [io.github.sof3.graphmine.util.KtsLoader](../io.github.sof3.graphmine.util/-kts-loader/index.html) | State object to ensure system properties are set before loading a script |
 | [kotlin.LongArray](../io.github.sof3.graphmine.util/kotlin.-long-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [io.github.sof3.graphmine.util.LongRef](../io.github.sof3.graphmine.util/-long-ref/index.html) |  |
 | [io.github.sof3.graphmine.util.string.QuotedResult](../io.github.sof3.graphmine.util.string/-quoted-result/index.html) |  |
@@ -31,5 +33,6 @@ title: alltypes - graphmine-util
 | [io.github.sof3.graphmine.util.ShortRef](../io.github.sof3.graphmine.util/-short-ref/index.html) |  |
 | [io.github.sof3.graphmine.util.math.Side](../io.github.sof3.graphmine.util.math/-side/index.html) |  |
 | [kotlin.String](../io.github.sof3.graphmine.util/kotlin.-string/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
+| [io.github.sof3.graphmine.util.VarDelegateProvider](../io.github.sof3.graphmine.util/-var-delegate-provider/index.html) |  |
 | [io.github.sof3.graphmine.util.math.Vector3](../io.github.sof3.graphmine.util.math/-vector3/index.html) |  |
 

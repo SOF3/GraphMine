@@ -6,7 +6,7 @@ title: DelimiterResult.<init> - graphmine-util
 
 # &lt;init&gt;
 
-`DelimiterResult(beforeDelimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, delimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?)`
+`DelimiterResult(content: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, delimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?)`
 
 **See Also**
 

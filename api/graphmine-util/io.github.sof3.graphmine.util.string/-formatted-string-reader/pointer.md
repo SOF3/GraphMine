@@ -6,4 +6,4 @@ title: FormattedStringReader.pointer - graphmine-util
 
 # pointer
 
-`open var pointer: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+`var pointer: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)

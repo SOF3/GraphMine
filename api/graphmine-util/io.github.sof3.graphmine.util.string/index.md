@@ -9,6 +9,6 @@ title: io.github.sof3.graphmine.util.string - graphmine-util
 ### Types
 
 | [DelimiterResult](-delimiter-result/index.html) | `data class DelimiterResult` |
-| [FormattedStringReader](-formatted-string-reader/index.html) | `open class FormattedStringReader` |
+| [FormattedStringReader](-formatted-string-reader/index.html) | `data class FormattedStringReader` |
 | [QuotedResult](-quoted-result/index.html) | `data class QuotedResult` |
 

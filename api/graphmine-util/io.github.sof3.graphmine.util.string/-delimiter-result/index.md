@@ -14,10 +14,10 @@ title: DelimiterResult - graphmine-util
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `DelimiterResult(beforeDelimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, delimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?)` |
+| [&lt;init&gt;](-init-.html) | `DelimiterResult(content: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, delimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?)` |
 
 ### Properties
 
-| [beforeDelimiter](before-delimiter.html) | `val beforeDelimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [content](content.html) | `val content: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 | [delimiter](delimiter.html) | `val delimiter: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 

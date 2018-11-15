@@ -6,4 +6,4 @@ title: FormattedStringReader.string - graphmine-util
 
 # string
 
-`open var string: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`val string: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)

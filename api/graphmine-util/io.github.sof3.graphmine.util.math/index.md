@@ -17,7 +17,3 @@ title: io.github.sof3.graphmine.util.math - graphmine-util
 
 | [kotlin.Int](kotlin.-int/index.html) |  |
 
-### Functions
-
-| [a](a.html) | `fun a(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-
