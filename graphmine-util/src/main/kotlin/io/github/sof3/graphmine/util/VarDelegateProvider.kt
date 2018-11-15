@@ -1,6 +1,5 @@
 package io.github.sof3.graphmine.util
 
-import javafx.beans.property.ReadOnlyProperty
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
