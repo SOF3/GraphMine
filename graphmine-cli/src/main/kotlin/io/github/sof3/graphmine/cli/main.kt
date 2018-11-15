@@ -1,7 +1,7 @@
 package io.github.sof3.graphmine.cli
 
-import io.github.sof3.graphmine.VersionInfo
 import io.github.sof3.graphmine.Server
+import io.github.sof3.graphmine.VersionInfo
 import io.github.sof3.graphmine.util.KtsLoader
 import org.apache.commons.cli.DefaultParser
 import org.apache.commons.cli.HelpFormatter

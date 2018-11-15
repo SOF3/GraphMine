@@ -26,17 +26,17 @@ import kotlin.reflect.full.createInstance
 class RegisteredOverload(private val klass: KClass<out Overload>) {
 	val args: List<CommandArg<*>>
 
-	init{
+	init {
 		val instance = klass.createInstance()
 		args = instance.args
 	}
 
-	fun accept(line: String): Overload?{
+	fun accept(line: String): Overload? {
 		val parser = FormattedStringReader(line)
 
 		val command = klass.createInstance()
-		for(arg in command.args){
-			if(!arg.accept(parser)) return null
+		for (arg in command.args) {
+			if (!arg.accept(parser)) return null
 		}
 
 		return command

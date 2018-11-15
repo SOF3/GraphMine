@@ -18,7 +18,7 @@ package io.github.sof3.graphmine.i18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class LiteralI18nable(val string: String): I18nable {
+class LiteralI18nable(val string: String) : I18nable {
 	override fun get(locale: String) = string
 }
 

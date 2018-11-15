@@ -1,8 +1,8 @@
 package io.github.sof3.graphmine.i18n
 
+import io.github.sof3.graphmine.util.DelegateProvider
 import io.github.sof3.graphmine.util.Ref
 import kotlin.properties.ReadOnlyProperty
-import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /*
@@ -23,79 +23,45 @@ import kotlin.reflect.KProperty
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-typealias Def<Arg> = Arg.() -> String
-
-/**
- * Superclass for root declaration classes. Subclasses beyond this module must always be final.
- *
- * To declare a field, create a val with delegation to an accept() call.
- *
- * To declare a group, create a val with delegation to an group() call, passing a new instance of the Group.
- */
-@Suppress("LeakingThis")
 abstract class LangSpec<Self : LangSpec<Self>> {
-	open val rootSpec: LangSpec<*> = this
-
+	open val rootSpec: LangSpec<*> get() = this
 	open var locale: String? = null
-		set(locale) {
-			field = locale!!
-			if (javaClass !in allSpecs) allSpecs[javaClass] = linkedMapOf() // use LinkedHashMap to retain the insertion order
-			val specs = allSpecs[javaClass]!!
-			specs[locale] = this
+	open val path = emptyList<String>()
+
+	val declarations = hashMapOf<String, Declaration<*>>()
+	val groups = hashMapOf<String, GroupSpec<*>>()
+
+	// to be invoked from translation
+	inline operator fun invoke(locale: String, fn: Self.() -> Unit): LangSpec<Self> {
+		if (this.locale != null) throw ConcurrentModificationException("Concurrent calls to forLocale()")
+		try {
+			this.locale = locale
+			@Suppress("UNCHECKED_CAST") fn(this as Self)
+		} finally {
+			this.locale = null
 		}
-
-	open val path: Array<String> = emptyArray()
-
-	inner class Declaration<Arg>(
-			private val propertyName: String,
-			private val argClass: Class<Arg>,
-			private val isArg: (Any?) -> Boolean
-	) {
-		val path: Array<String> = this@LangSpec.path + propertyName // just some optimization to prevent recursive calling every time
-
-		operator fun invoke(def: Def<Arg>) {
-			m[propertyName] = { arg ->
-				if (!isArg(arg)) {
-					throw IllegalArgumentException("Expected argument of type ${argClass.name}, " +
-							"got ${arg?.javaClass?.name ?: "null"}")
-				}
-				@Suppress("UNCHECKED_CAST")
-				def(arg as Arg)
-			}
-		}
-
-		fun i18n() {
-			if (argClass != Unit::class.java) throw IllegalArgumentException("The declaration requires one ${argClass.name} argument")
-			@Suppress("UNCHECKED_CAST")
-			i18n(Unit as Arg)
-		}
-
-		fun i18n(arg: Arg) = SpecI18nable(allSpecs[rootSpec.javaClass]!!, path, arg)
+		return this
 	}
 
-	protected inner class AcceptDelegate<Arg : Any?>(
-			private val argClass: Class<Arg>,
-			private val isArg: (Any?) -> Boolean
-	) : ReadOnlyProperty<Self, Declaration<Arg>> {
-		override fun getValue(thisRef: Self, property: KProperty<*>) = Declaration(property.name, argClass, isArg)
+	/**
+	 * Invoked by declaration subclasses to create a single declaration
+	 */
+	fun <Arg : Any> accept() = object : DelegateProvider<Self, Declaration<Arg>> {
+		override fun provideDelegate(thisRef: Self, property: KProperty<*>): ReadOnlyProperty<Self, Declaration<Arg>> {
+			val declaration = Declaration<Arg>({rootSpec}, {path + property.name})
+			declarations[property.name] = declaration
+			return declaration
+		}
 	}
 
-	internal val m: MutableMap<String, (Any?) -> String> = hashMapOf()
-	internal val g: MutableMap<String, LangSpec<*>> = hashMapOf()
-
-	@Suppress("UNCHECKED_CAST")
-	operator fun invoke(fn: Self.() -> Unit) = (this as Self).apply(fn)
-
-	protected inline fun <reified Arg : Any?> accept() =
-			AcceptDelegate(Arg::class.java) { it is Arg }
-
-	protected fun <Group : GroupSpec<Group>> group(group: Group) = GroupDelegate(group)
-
-	protected inner class GroupDelegate<Group : GroupSpec<Group>>(private val group: Group) {
-		operator fun provideDelegate(thisRef: Self, property: KProperty<*>): ReadWriteProperty<Self, Group> {
-			g[property.name] = group
+	/**
+	 * Invoked by declaration subclasses to create a declaration group
+	 */
+	fun <Grp : GroupSpec<Grp>> group(group: Grp) = object : DelegateProvider<Self, Grp> {
+		override fun provideDelegate(thisRef: Self, property: KProperty<*>): ReadOnlyProperty<Self, Grp> {
 			group.parent = this@LangSpec
 			group.name = property.name
+			groups[property.name] = group
 			return Ref(group)
 		}
 	}

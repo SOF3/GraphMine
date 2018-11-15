@@ -18,7 +18,7 @@ package io.github.sof3.graphmine.config
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-abstract class ConfigGroupSpec<Self: ConfigGroupSpec<Self>> : ConfigSpec() {
+abstract class ConfigGroupSpec<Self : ConfigGroupSpec<Self>> : ConfigSpec() {
 	lateinit var parent: ConfigSpec
 	lateinit var groupName: String
 

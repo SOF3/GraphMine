@@ -21,7 +21,7 @@ import io.github.sof3.graphmine.feature.FeatureNodeInstance
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface Client: FeatureNodeInstance<Client, Client.Node> {
+interface Client : FeatureNodeInstance<Client, Client.Node> {
 	var attached: ClientAttachable
 
 	companion object Node : FeatureNode<Node, Client>

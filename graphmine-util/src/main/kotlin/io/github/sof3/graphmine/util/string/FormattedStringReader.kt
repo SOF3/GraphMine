@@ -30,7 +30,7 @@ data class FormattedStringReader(val string: String) {
 	 *
 	 * This
 	 */
-	inline fun exec(fn: () -> Unit){
+	inline fun exec(fn: () -> Unit) {
 		val store = pointer
 		fn()
 		pointer = store

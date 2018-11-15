@@ -18,20 +18,17 @@ package io.github.sof3.graphmine.i18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Superclass for group declaration classes. Subclasses must always be final.
- */
 abstract class GroupSpec<Self : GroupSpec<Self>> : LangSpec<Self>() {
-	internal lateinit var parent: LangSpec<*>
-	internal lateinit var name: String
+	lateinit var parent: LangSpec<*>
+	lateinit var name: String
 
-	override val rootSpec: LangSpec<*> get() = parent.rootSpec
+	override val rootSpec: LangSpec<*> get() = parent
+	override var locale: String?
+		get() = parent.locale
+		set(_) = throw RuntimeException("Cannot set locale on group spec")
+	override val path get() = parent.path + name
 
-	final override var locale: String?
-		get() = super.locale
-		set(value) {
-			super.locale = value
-		}
-
-	final override val path: Array<String> get() = parent.path + name
+	operator fun invoke(fn: Self.() -> Unit) {
+		@Suppress("UNCHECKED_CAST") fn(this as Self)
+	}
 }

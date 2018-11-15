@@ -1,8 +1,8 @@
 package io.github.sof3.graphmine.command.impl
 
 import io.github.sof3.graphmine.Server
-import io.github.sof3.graphmine.command.CommandSender
 import io.github.sof3.graphmine.command.Command
+import io.github.sof3.graphmine.command.CommandSender
 import io.github.sof3.graphmine.command.Overload
 import io.github.sof3.graphmine.i18n.i18n
 

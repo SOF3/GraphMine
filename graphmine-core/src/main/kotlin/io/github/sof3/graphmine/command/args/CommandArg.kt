@@ -55,7 +55,7 @@ abstract class CommandArg<T : Any> : DelegateProvider<Overload, T> {
 
 data class ParseResult<T>(val state: ParseState, val value: T? = null)
 
-enum class ParseState{
+enum class ParseState {
 	OK,
 	NO_VALUE
 }

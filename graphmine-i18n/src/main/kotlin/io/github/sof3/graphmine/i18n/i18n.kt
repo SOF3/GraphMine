@@ -1,20 +1,10 @@
 package io.github.sof3.graphmine.i18n
 
+import io.github.sof3.graphmine.util.KtsLoader
 import java.io.InputStreamReader
-import javax.script.ScriptEngineManager
 
-val allSpecs: MutableMap<Class<out LangSpec<*>>, MutableMap<String, LangSpec<*>>> = hashMapOf()
-
-inline fun <reified T: LangSpec<T>> loadLangScript(locales: Iterable<String>): T{
-	lateinit var lang: T
-
-	val engine = ScriptEngineManager().getEngineByExtension("kts")
-
+inline fun <reified T : LangSpec<T>> loadLangScript(locales: Iterable<String>) {
 	for (locale in locales) {
-		InputStreamReader(T::class.java.getResourceAsStream("$locale.lang.kts")).use {
-			lang = engine.eval(it) as T
-			assert(lang.locale == locale)
-		}
+		KtsLoader.load<T>(InputStreamReader(T::class.java.getResourceAsStream("$locale.lang.kts")))
 	}
-	return lang
 }

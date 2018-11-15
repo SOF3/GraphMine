@@ -21,6 +21,6 @@ import kotlin.reflect.KProperty
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface VarDelegateProvider<in R, T>{
+interface VarDelegateProvider<in R, T> {
 	operator fun provideDelegate(thisRef: R, property: KProperty<*>): ReadWriteProperty<R, T>
 }

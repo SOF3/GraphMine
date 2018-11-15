@@ -1,6 +1,6 @@
 package io.github.sof3.graphmine.i18n.core
 
-import io.github.sof3.graphmine.i18n.LangSpec
+import io.github.sof3.graphmine.i18n.Declaration
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import org.spekframework.spek2.style.gherkin.ScenarioBody
@@ -25,16 +25,16 @@ import kotlin.test.assertEquals
  */
 
 object TranslationTest_en_US : Spek({
-	fun <Arg> ScenarioBody.expect(decl: LangSpec<CoreLang>.Declaration<Arg>, arg: Arg, expected: String) {
+	fun <Arg : Any> ScenarioBody.expect(decl: Declaration<Arg>, arg: Arg, expected: String) {
 		lateinit var actual: String
-		Given(decl.path.joinToString(".") + " with " + arg.toString()) { actual = decl.i18n(arg)["en_US"] }
+		Given("${decl.pathJoined} with ${arg.toString()}") { actual = decl(arg)["en_US"] }
 		Then("Translation should be \"$expected\"") { assertEquals(expected, actual) }
 	}
-	Feature("GraphMine en_US translation") {
-		val lang by memoized { loadCoreLang() }
 
-		fun ScenarioBody.expect(decl: LangSpec<CoreLang>.Declaration<Unit>, s: String) =
-				expect(decl, Unit, s)
+	Feature("GraphMine en_US translation") {
+		val lang by memoized { loadCoreLang(); CoreLang }
+
+		fun ScenarioBody.expect(decl: Declaration<Unit>, s: String) = expect(decl, Unit, s)
 
 		Scenario("serverName") { expect(lang.serverName, "GraphMine") }
 	}

@@ -6,4 +6,6 @@ val availableLocales = listOf(
 		"en_US"
 )
 
-fun loadCoreLang() = loadLangScript<CoreLang>(availableLocales)
+fun loadCoreLang() {
+	loadLangScript<CoreLang>(availableLocales)
+}

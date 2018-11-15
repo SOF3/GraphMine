@@ -47,11 +47,6 @@ class Server(
 	val logger: Logger = LogManager.getLogger(Server::class.java)!!
 
 	/**
-	 * @return the core i18n provider
-	 */
-	val lang: CoreLang = loadCoreLang()
-
-	/**
 	 * @return the default locale of the server.
 	 */
 	val defaultLocale: String get() = config.language
@@ -68,9 +63,11 @@ class Server(
 	val features = FeatureGraph()
 
 	init {
-		info(lang.startup.version.i18n(CoreLang.Startup.VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port)))
+		loadCoreLang()
 
-		info(lang.startup.complete.i18n(CoreLang.Startup.CompleteArg(nano = System.nanoTime() - initNano)))
+		info(CoreLang.startup.version(CoreLang.Startup.VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port)))
+
+		info(CoreLang.startup.complete(CoreLang.Startup.CompleteArg(nano = System.nanoTime() - initNano)))
 	}
 
 	private fun debug(i18nable: I18nable) = logger.debug(i18nable[defaultLocale])

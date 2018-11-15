@@ -1,4 +1,5 @@
-import io.github.sof3.graphmine.i18n.core.translateCore
+import io.github.sof3.graphmine.i18n.core.*
+import io.github.sof3.graphmine.i18n.core.CoreLang.Startup.complete
 import kotlin.math.round
 
 /*
@@ -19,7 +20,7 @@ import kotlin.math.round
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-"en_US" translateCore {
+CoreLang("en_US") {
 	serverName { "GraphMine" }
 	startup {
 		version { "Starting GraphMine version $version on $ip:$port" }

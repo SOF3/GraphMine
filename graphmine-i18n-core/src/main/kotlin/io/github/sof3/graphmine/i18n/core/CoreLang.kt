@@ -21,21 +21,18 @@ import io.github.sof3.graphmine.i18n.LangSpec
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-infix fun String.translateCore(fn: CoreLang.() -> Unit) = CoreLang().apply {
-	locale = this@translateCore
-	this.fn()
-}
-
-class CoreLang : LangSpec<CoreLang>() {
+object CoreLang : LangSpec<CoreLang>() {
 	val serverName by accept<Unit>()
 
-	val startup by group(Startup())
+	val startup by group(Startup)
 
-	class Startup : GroupSpec<Startup>() {
+	object Startup : GroupSpec<Startup>() {
 		val version by accept<VersionArg>()
+
 		data class VersionArg(val version: String, val ip: String, val port: Int)
 
 		val complete by accept<CompleteArg>()
+
 		data class CompleteArg(val nano: Long)
 	}
 }
