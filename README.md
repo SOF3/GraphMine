@@ -27,8 +27,12 @@ There are currently 6 subprojects:
 - graphmine-core: Contains the implementation of graphmine-api
 - graphmine-cli: An executable project that wraps the core and exposes a user interface through standard I/O (command line interface for terminal users)
 
-There may be a 5th subproject in the future:
+There may be a 7th subproject in the future:
 - graphmine-gui: An executable project that wraps the core and exposes a user interface through Java Swing or JavaFX (graphical user interface for non-terminal users)
+
+#### Project dependency graph
+
+![](https://sof3.github.io/GraphMine/depGraph.png)
 
 ## Why is it called GraphMine?
 GraphMine organizes features in a graph model. Features can be appended to or removed from the graph with a more intuitive approach.

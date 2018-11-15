@@ -35,7 +35,7 @@ interface Server {
 	 */
 	val config: CoreConfig
 	/**
-	 * the logger used for the server context. Plugins should use their own logger instead of this one.
+	 * the logger used for the server scope. Plugins should use their own logger instead of this one.
 	 */
 	val logger: Logger
 

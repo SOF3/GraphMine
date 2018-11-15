@@ -3,10 +3,12 @@ package io.github.sof3.graphmine.impl
 import io.github.sof3.graphmine.Server
 import io.github.sof3.graphmine.VersionInfo
 import io.github.sof3.graphmine.config.CoreConfig
-import io.github.sof3.graphmine.i18n.core.CoreLang.Startup.VersionArg
+import io.github.sof3.graphmine.i18n.I18nable
+import io.github.sof3.graphmine.i18n.core.CoreLang.Startup.*
 import io.github.sof3.graphmine.i18n.core.CoreLangLoader.loadCoreLang
 import io.github.sof3.graphmine.impl.feature.FeatureGraph
 import io.github.sof3.graphmine.scope.BaseScope
+import kotlinx.coroutines.runBlocking
 import org.apache.logging.log4j.LogManager
 
 /*
@@ -28,7 +30,8 @@ import org.apache.logging.log4j.LogManager
  */
 
 class Server(
-		override val config: CoreConfig
+		override val config: CoreConfig,
+		initNano: Long
 ) : Server {
 	override val logger = LogManager.getLogger(Server::class.java)!!
 	override val lang = loadCoreLang()
@@ -37,9 +40,15 @@ class Server(
 	override val scope by myScope
 	override val features = FeatureGraph()
 
+	private fun info(i18nable: I18nable) = logger.info(i18nable[defaultLocale])
+
 	init {
-		logger.info(lang.startup.version.i18n(VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port))[defaultLocale])
+		info(lang.startup.version.i18n(VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port)))
+
+		info(lang.startup.complete.i18n(CompleteArg(nano = System.nanoTime() - initNano)))
 	}
+
+
 
 	fun shutdown() {
 		// finally...

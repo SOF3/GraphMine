@@ -1,5 +1,9 @@
 package io.github.sof3.graphmine.command
 
+import io.github.sof3.graphmine.client.Client
+import io.github.sof3.graphmine.command.args.*
+import kotlin.reflect.KClass
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,21 +22,24 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-data class CommandExecuteContext<
-		Overload : CommandOverload<in Overload, Cmd>,
-		Cmd : Command<Cmd, in Overload>,
-		Sender : CommandSender>
-(
-		val args: Overload,
-		val sender: Sender
-) {
-	inline fun <reified SubOverload : Overload>
-			argsAre(fn: CommandExecuteContext<SubOverload, Cmd, Sender>.() -> Unit) {
-		if (args is SubOverload) fn(CommandExecuteContext(args, sender))
-	}
+abstract class Overload {
+	internal val args = mutableListOf<CommandArg<*>>()
 
-	inline fun <reified SubSender : Sender>
-			senderIs(fn: CommandExecuteContext<Overload, Cmd, SubSender>.() -> Unit) {
-		if (sender is SubSender) fn(CommandExecuteContext(args, sender))
+	fun string(): CommandArg<String> = addArg(StringArg())
+
+	fun integer(): CommandArg<Int> = addArg(IntegerArg())
+
+	fun number(): CommandArg<Double> = addArg(NumberArg())
+
+	fun client(): CommandArg<Client> = addArg(ClientArg())
+
+	inline fun <reified E : Enum<E>> enum() = enum(E::class)
+	fun <E : Enum<E>> enum(enumClass: KClass<E>): CommandArg<E> = addArg(EnumArg(enumClass))
+
+	fun rawText(): CommandArg<String> = addArg(RawTextArg())
+
+	private fun <T : Any> addArg(arg: CommandArg<T>): CommandArg<T> {
+		args += arg
+		return arg
 	}
 }

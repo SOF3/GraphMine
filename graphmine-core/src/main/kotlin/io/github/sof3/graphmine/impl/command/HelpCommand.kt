@@ -1,9 +1,9 @@
 package io.github.sof3.graphmine.impl.command
 
+import io.github.sof3.graphmine.Server
+import io.github.sof3.graphmine.command.CommandSender
 import io.github.sof3.graphmine.command.Command
-import io.github.sof3.graphmine.command.CommandOverload
-import io.github.sof3.graphmine.command.args.IntegerArg
-import io.github.sof3.graphmine.command.args.StringArg
+import io.github.sof3.graphmine.command.Overload
 import io.github.sof3.graphmine.i18n.i18n
 
 /*
@@ -24,16 +24,15 @@ import io.github.sof3.graphmine.i18n.i18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-sealed class HelpCommandOverloads : CommandOverload<HelpCommandOverloads, HelpCommand>(HelpCommand)
-class HelpCommandByPage : HelpCommandOverloads() {
-	val page by IntegerArg { default = 1 }
+class HelpCommandByPage : Overload() {
+	val page by integer().default(1)
 }
 
-class HelpCommandByName : HelpCommandOverloads() {
-	val name by StringArg()
+class HelpCommandByName : Overload() {
+	val name by string()
 }
 
-object HelpCommand : Command<HelpCommand, HelpCommandOverloads>(HelpCommandOverloads::class, {
+object HelpCommand : Command<Server>({
 	name = "help"
 
 	description = "Shows help information".i18n // TODO localize
@@ -41,18 +40,10 @@ object HelpCommand : Command<HelpCommand, HelpCommandOverloads>(HelpCommandOverl
 	aliases += "h"
 	aliases += "?"
 
-	overloads += HelpCommandByPage::class
-	overloads += HelpCommandByName::class
-
-	handle<HelpCommandByPage> {
-
+	handle<HelpCommandByPage, CommandSender> {
+		TODO("implement")
 	}
-	handle<HelpCommandByName> {
-
-	}
-
-	// alternatively:
-	handleAll {
-
+	handle<HelpCommandByName, CommandSender> {
+		TODO("implement")
 	}
 })

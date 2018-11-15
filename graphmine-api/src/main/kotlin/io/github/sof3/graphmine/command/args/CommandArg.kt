@@ -1,7 +1,7 @@
 package io.github.sof3.graphmine.command.args
 
-import io.github.sof3.graphmine.command.CommandOverload
-import io.github.sof3.graphmine.i18n.I18nable
+import io.github.sof3.graphmine.command.Overload
+import io.github.sof3.graphmine.util.DelegateProvider
 import io.github.sof3.graphmine.util.string.FormattedStringReader
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
@@ -25,47 +25,37 @@ import kotlin.reflect.KProperty
  */
 
 /**
- * Checks whether a command argument is valid. Returns null if valid, or an I18nable to be sent to the CommandSender if
- * invalid.
+ * Superclass of a command argument.
  */
-typealias ArgValidator<R> = (R) -> I18nable?
-
-private typealias AnyOverload = CommandOverload<*, *>
-
-abstract class CommandArg<R : Any> { // R must be non-null because null is used as the "not set" indicator
-	/**
-	 * the default value of the arugment. If null, the argument is required.
-	 */
-	var default: R? = null
-	/**
-	 * the default value of the argument expressed in human-readable string.
-	 */
-	var defaultPrintable: I18nable? = null
-	/**
-	 * whether the argument is required, deduced from "default"
-	 */
-	val optional: Boolean get() = default != null
-	/**
-	 * validates the result parsed by this command
-	 * @see ArgValidator
-	 */
-	var validator: ArgValidator<R> = { null }
-
-	abstract val typeName: I18nable
-
-	operator fun invoke(fn: CommandArg<R>.() -> Unit) = apply(fn)
-
-	operator fun provideDelegate(thisRef: AnyOverload, property: KProperty<*>): ReadOnlyProperty<AnyOverload, R> {
-		val wrapper = Wrapper(property.name)
-		thisRef.args += wrapper
-		return wrapper
+abstract class CommandArg<T : Any> : DelegateProvider<Overload, T> {
+	fun accept(parser: FormattedStringReader): Boolean {
+		value = parse(parser) ?: return false
+		return true
 	}
 
-	inner class Wrapper(val name: String) : ReadOnlyProperty<AnyOverload, R> {
-		val arg get() = this@CommandArg
+	abstract fun parse(parser: FormattedStringReader): T?
 
-		override fun getValue(thisRef: AnyOverload, property: KProperty<*>): R = TODO()
+
+	override fun provideDelegate(thisRef: Overload, property: KProperty<*>) = object : ReadOnlyProperty<Overload, T> {
+		override fun getValue(thisRef: Overload, property: KProperty<*>) = value
 	}
 
-	abstract fun parseCommand(reader: FormattedStringReader): R?
+	var optional = false
+	var default: T? = null
+		set(value) {
+			field = value
+			optional = true
+		}
+
+	fun default(value: T) = apply { default = value }
+
+	lateinit var value: T
+		protected set
+}
+
+data class ParseResult<T>(val state: ParseState, val value: T? = null)
+
+enum class ParseState{
+	OK,
+	NO_VALUE
 }

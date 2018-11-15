@@ -1,7 +1,7 @@
-package io.github.sof3.graphmine.i18n.core
+package io.github.sof3.graphmine.util
 
-import io.github.sof3.graphmine.i18n.GroupSpec
-import io.github.sof3.graphmine.i18n.LangSpec
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
 
 /*
  * GraphMine
@@ -21,21 +21,6 @@ import io.github.sof3.graphmine.i18n.LangSpec
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-infix fun String.translateCore(fn: CoreLang.() -> Unit) = CoreLang().apply {
-	locale = this@translateCore
-	this.fn()
-}
-
-class CoreLang : LangSpec<CoreLang>() {
-	val serverName by accept<Unit>()
-
-	val startup by group(Startup())
-
-	class Startup : GroupSpec<Startup>() {
-		val version by accept<VersionArg>()
-		data class VersionArg(val version: String, val ip: String, val port: Int)
-
-		val complete by accept<CompleteArg>()
-		data class CompleteArg(val nano: Long)
-	}
+interface DelegateProvider<in R, out T> {
+	operator fun provideDelegate(thisRef: R, property: KProperty<*>): ReadOnlyProperty<R, T>
 }

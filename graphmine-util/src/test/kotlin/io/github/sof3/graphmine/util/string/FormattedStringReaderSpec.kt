@@ -74,7 +74,7 @@ object FormattedStringReaderSpec : Spek({
 			GivenRandom(1..5, FSR, nullDR, "random non-empty input") {
 				When("nextDelimiter is called") { _, r, c -> c.value = r.nextDelimiter() }
 				Then("should return (input, null)") { s, _, c ->
-					c.value!!.beforeDelimiter shouldBe s
+					c.value!!.content shouldBe s
 					c.value!!.delimiter shouldBe null
 				}
 				And("should consume the whole input") { _, r, _ ->
@@ -87,7 +87,7 @@ object FormattedStringReaderSpec : Spek({
 			GivenRandom(1..5, FSR, nullDR, "random non-empty delimiter") {
 				When("nextDelimiter is called") { s, r, c -> c.value = r.nextDelimiter(s) }
 				Then("should return (input, null)") { s, _, c ->
-					c.value!!.beforeDelimiter shouldBe ""
+					c.value!!.content shouldBe ""
 					c.value!!.delimiter shouldBe s
 				}
 				And("should consume the whole input") { _, r, _ ->

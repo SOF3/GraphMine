@@ -1,4 +1,5 @@
 import io.github.sof3.graphmine.i18n.core.translateCore
+import kotlin.math.round
 
 /*
  * GraphMine
@@ -22,5 +23,6 @@ import io.github.sof3.graphmine.i18n.core.translateCore
 	serverName { "GraphMine" }
 	startup {
 		version { "Starting GraphMine version $version on $ip:$port" }
+		complete { "Startup completed in ${round(nano / 1e+6) / 1e+3}s" }
 	}
 }

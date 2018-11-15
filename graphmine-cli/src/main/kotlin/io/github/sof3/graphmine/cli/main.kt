@@ -32,7 +32,7 @@ import java.text.DateFormat
 fun main(args: Array<String>) {
 	val options = Options().apply {
 		addOption("v", "version", false, "GraphMine version")
-		addOption("h", "help", false, "Command line description")
+		addOption("h", "help", false, "Overload line description")
 		addOption("c", "config", true, "Path to config.kts")
 	}
 	val cmd = DefaultParser().parse(options, args)
@@ -48,6 +48,7 @@ fun main(args: Array<String>) {
 	}
 
 	println("Loading...")
+	val initNano = System.nanoTime()
 
 	val dataDir = File("data")
 	if (!dataDir.exists()) dataDir.mkdirs()
@@ -59,6 +60,7 @@ fun main(args: Array<String>) {
 	}
 
 	Server(
-			config = ConfigLoader.load(configFile)
+			config = ConfigLoader.load(configFile),
+			initNano = initNano
 	)
 }

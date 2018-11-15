@@ -1,5 +1,11 @@
+import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorExtension
 import org.gradle.internal.impldep.org.testng.reporters.XMLUtils.xml
 import org.gradle.testing.jacoco.tasks.JacocoReport
+import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorPlugin
+import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorExtension.Generator
+import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorTask
+import guru.nidi.graphviz.attribute.Color
+import guru.nidi.graphviz.attribute.Style
 
 /*
  * GraphMine
@@ -25,14 +31,17 @@ version = "1.0.0-SNAPSHOT"
 buildscript {
 	repositories {
 		jcenter()
+		mavenCentral()
 	}
 	dependencies {
 		classpath("org.jetbrains.dokka:dokka-gradle-plugin:0.9.17")
+		classpath("com.vanniktech:gradle-dependency-graph-generator-plugin:0.5.0")
 	}
 }
 
 plugins {
 	jacoco
+	id("com.vanniktech.dependency.graph.generator") version "0.5.0"
 }
 
 allprojects {
@@ -45,6 +54,20 @@ subprojects {
 	repositories {
 		jcenter()
 	}
+}
+
+val graphMineDepGraphGenerator = Generator(
+		dependencyNode = { node, dependency ->
+			if (dependency.moduleGroup.startsWith("io.github.sof3.graphmine"))
+				node.add(Style.FILLED, Color.rgb("#cbff2b"))
+			if (dependency.moduleGroup.startsWith("org.jetbrains.kotlin"))
+				node.add(Style.FILLED, Color.rgb("#f2831e"))
+			else node
+		}
+)
+
+configure<DependencyGraphGeneratorExtension> {
+	generators = listOf(graphMineDepGraphGenerator)
 }
 
 tasks.withType<JacocoReport> {

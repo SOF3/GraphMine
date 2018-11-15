@@ -22,8 +22,19 @@ import org.jetbrains.annotations.Contract
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-open class FormattedStringReader(open var string: String) {
-	open var pointer = 0
+data class FormattedStringReader(val string: String) {
+	var pointer = 0
+
+	/**
+	 * Executes a function that may modify the state of this object, but upon completion, the state is reset.
+	 *
+	 * This
+	 */
+	inline fun exec(fn: () -> Unit){
+		val store = pointer
+		fn()
+		pointer = store
+	}
 
 	/**
 	 * Peeks everything remaining in the string. Does **not** consume anything.
@@ -31,18 +42,24 @@ open class FormattedStringReader(open var string: String) {
 	val remaining: String get() = string.substring(pointer)
 
 	/**
+	 * Returns whether the reader reached the end of string
+	 */
+	val isComplete get() = pointer == string.length
+
+	/**
 	 * Consumes and returns the next character.
 	 */
 	fun nextChar(): Char? = if (pointer >= string.length) null else string[pointer++]
 
 	/**
+	 * - If there is nothing to read (isComplete == true), returns null
 	 * - If the delimiter is in the remaining string:
 	 *   - consumes $x := everything before the delimiter, **b**>
 	 *   - consumes the delimiter itself
-	 *   - returns (true, $x)
+	 *   - returns ($x, delimiter)
 	 * - If the delimiter is *not* in the remaining string:
 	 *   - consumes $x := the remaining string
-	 *   - returns (false, $x)
+	 *   - returns ($x, null)
 	 *
 	 * If multiple delimiters are provided, the first delimiter found in the remaining string is used (i.e. BFS).
 	 *
@@ -50,6 +67,8 @@ open class FormattedStringReader(open var string: String) {
 	 * greedy behaviour, reverse-sort the delimiters by length before passing.
 	 */
 	fun nextDelimiter(vararg delimiters: String = arrayOf(" ")): DelimiterResult? {
+		if (pointer == string.length) return null
+
 		for (start in pointer until string.length) {
 			for (delimiter in delimiters) {
 				if (start + delimiter.length <= string.length && string[start, start + delimiter.length] == delimiter) {
@@ -60,7 +79,6 @@ open class FormattedStringReader(open var string: String) {
 			}
 		}
 
-		if(pointer == string.length) return null
 		val rem = remaining
 		pointer = string.length
 		return DelimiterResult(rem, null)
@@ -123,7 +141,7 @@ open class FormattedStringReader(open var string: String) {
 			delimiterEscape: Char? = null,
 			dumb: Boolean = false
 	): QuotedResult? {
-		if(pointer == string.length) return null
+		if (pointer == string.length) return null
 
 		val inner = StringBuilder()
 		val original = StringBuilder()
@@ -235,7 +253,7 @@ open class FormattedStringReader(open var string: String) {
 /**
  * @see FormattedStringReader.nextDelimiter
  */
-data class DelimiterResult(val beforeDelimiter: String, val delimiter: String?)
+data class DelimiterResult(val content: String, val delimiter: String?)
 
 /**
  * @see FormattedStringReader.nextQuoted

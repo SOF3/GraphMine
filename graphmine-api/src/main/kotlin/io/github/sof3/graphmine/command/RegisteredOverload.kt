@@ -1,7 +1,9 @@
 package io.github.sof3.graphmine.command
 
-import io.github.sof3.graphmine.i18n.I18nable
+import io.github.sof3.graphmine.command.args.CommandArg
+import io.github.sof3.graphmine.util.string.FormattedStringReader
 import kotlin.reflect.KClass
+import kotlin.reflect.full.createInstance
 
 /*
  * GraphMine
@@ -21,19 +23,22 @@ import kotlin.reflect.KClass
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class CommandBuilder<Cmd : Command<Cmd, Overload>, Overload : CommandOverload<Overload, Cmd>> {
-	var name: String? = null
-	var description: I18nable? = null
-	val aliases = mutableListOf<String>()
-	val overloads = mutableListOf<KClass<out Overload>>()
+class RegisteredOverload(private val klass: KClass<out Overload>) {
+	val args: List<CommandArg<*>>
 
-	internal val handlers = mutableListOf<CommandExecuteContext<Overload, Cmd, CommandSender>.() -> Unit>()
-
-	fun handleAll(fn: CommandExecuteContext<Overload, Cmd, CommandSender>.() -> Unit) {
-		handlers += fn
+	init{
+		val instance = klass.createInstance()
+		args = instance.args
 	}
 
-	inline fun <reified O : Overload> handle(crossinline fn: CommandExecuteContext<O, Cmd, CommandSender>.() -> Unit) {
-		handleAll { argsAre<O>(fn) }
+	fun accept(line: String): Overload?{
+		val parser = FormattedStringReader(line)
+
+		val command = klass.createInstance()
+		for(arg in command.args){
+			if(!arg.accept(parser)) return null
+		}
+
+		return command
 	}
 }

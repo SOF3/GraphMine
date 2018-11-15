@@ -18,7 +18,5 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * To be implemented by anything that can send a command
- */
-interface CommandSender
+interface CommandSender {
+}

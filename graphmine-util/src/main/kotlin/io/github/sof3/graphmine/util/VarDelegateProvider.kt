@@ -1,6 +1,8 @@
-package io.github.sof3.graphmine.command.args
+package io.github.sof3.graphmine.util
 
-import io.github.sof3.graphmine.util.string.FormattedStringReader
+import javafx.beans.property.ReadOnlyProperty
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 
 /*
  * GraphMine
@@ -20,18 +22,6 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class IntegerArg(fn: IntegerArg.() -> Unit = {}) : CommandArg<Int>() {
-	init {
-		fn()
-	}
-
-	override val typeName = TODO("Int.i18n")
-
-	override fun parseCommand(reader: FormattedStringReader) = reader.nextDelimiter(" ").let {
-		try {
-			it?.beforeDelimiter?.toInt()
-		} catch (e: NumberFormatException) {
-			null
-		}
-	}
+interface VarDelegateProvider<in R, T>{
+	operator fun provideDelegate(thisRef: R, property: KProperty<*>): ReadWriteProperty<R, T>
 }
