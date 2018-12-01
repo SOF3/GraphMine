@@ -7,16 +7,16 @@ This module provides a kotlin-flavoured i18n (internationalization) framework.
 #### Locale
 A locale refers to a human language. It does not need to be an ISO-639 language code; the convention should be determined by the user of this module based on its context, as long as it can be represented in a simple `kotlin.String`.
 
-#### i18nable
-An i18nable (pronounced "eighteenable") represents a text displayed differently given different locales. In code, it is represented with the `I18nable` interface
+#### i18n
+An i18n object represents a text displayed differently given different locales. In code, it is represented with the `I18n` interface
 
-Logically, i18nable is the conversion `(locale: String) -> (humanReadable: String)`
+Logically, i18n is the conversion `(locale: String) -> (humanReadable: String)`
 
 #### Declaration
-A declaration is the specification that a dynamic i18nable is required by a module based on an argument of type `Arg`. This `Arg` type should either be `Unit` or a kotlin `data class`.
+A declaration is the specification that a dynamic i18n is required by a module based on an argument of type `Arg`. This `Arg` type should either be `Unit` or a kotlin `data class`.
 
 Logically, a declaration has the conversions:
-- `(arg: Arg) -> i18nable`
+- `(arg: Arg) -> i18n`
 - `(arg: Arg, locale: String) -> (humanReadable: String)`
 - `(locale: Locale) -> Translation` (in the next section)
 

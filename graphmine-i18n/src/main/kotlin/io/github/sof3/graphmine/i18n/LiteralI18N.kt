@@ -18,14 +18,8 @@ package io.github.sof3.graphmine.i18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class SpecI18nable<Arg : Any> internal constructor(private val arg: Arg, private val declaration: Declaration<Arg>) : I18nable {
-	override fun get(locale: String): String {
-		val best = declaration.translations[locale]
-		if (best != null) return best(arg)
-
-		val iter = declaration.translations.iterator()
-		if (iter.hasNext()) return iter.next().value(arg)
-
-		return declaration.pathJoined
-	}
+class LiteralI18N(val string: String) : I18n {
+	override fun get(locale: String) = string
 }
+
+val String.i18n get() = LiteralI18N(this)

@@ -19,5 +19,5 @@ package io.github.sof3.graphmine.i18n
  */
 
 interface I18nable {
-	operator fun get(locale: String): String
+	val i18n: I18n
 }

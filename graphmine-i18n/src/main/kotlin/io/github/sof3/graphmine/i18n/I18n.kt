@@ -1,5 +1,7 @@
-import io.github.sof3.graphmine.i18n.core.*
-import kotlin.math.round
+package io.github.sof3.graphmine.i18n
+
+import io.github.sof3.graphmine.util.KtsLoader
+import java.io.InputStreamReader
 
 /*
  * GraphMine
@@ -19,23 +21,12 @@ import kotlin.math.round
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-CoreLang("en_US") {
-	serverName { "GraphMine" }
-	startup {
-		version { "Starting GraphMine version $version on $ip:$port" }
-		complete { "Startup completed in ${round(nano / 1e+6) / 1e+3}s" }
-	}
-	commands {
-		generic {
-			notFound { """Command "$command" not found""" }
-			wrongSyntax {
-				"""Wrong format for "$command". """ +
-						if (syntax.size == 1) "Correct format: ${syntax[0]}"
-						else syntax.joinToString("\n", "Possible format:\n")
-			}
-		}
-		version {
-			description { "Shows the server version" }
-		}
+interface I18n {
+	operator fun get(locale: String): String
+}
+
+inline fun <reified T : LangSpec<T>> loadLangScript(locales: Iterable<String>) {
+	for (locale in locales) {
+		KtsLoader.load<T>(InputStreamReader(T::class.java.getResourceAsStream("$locale.lang.kts")))
 	}
 }

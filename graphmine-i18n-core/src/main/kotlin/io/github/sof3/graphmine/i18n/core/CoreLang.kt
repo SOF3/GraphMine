@@ -1,6 +1,7 @@
 package io.github.sof3.graphmine.i18n.core
 
 import io.github.sof3.graphmine.i18n.GroupSpec
+import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.LangSpec
 
 /*
@@ -34,5 +35,27 @@ object CoreLang : LangSpec<CoreLang>() {
 		val complete by accept<CompleteArg>()
 
 		data class CompleteArg(val nano: Long)
+	}
+
+	val commands by group(Commands)
+
+	object Commands : GroupSpec<Commands>() {
+		val generic by group(Generic)
+
+		object Generic : GroupSpec<Generic>() {
+			val notFound by accept<CommandArg>()
+
+			data class CommandArg(val command: String)
+
+			val wrongSyntax by accept<WrongSyntaxArg>()
+
+			data class WrongSyntaxArg(val command: String, val syntax: List<I18n>)
+		}
+
+		val version by group(Version)
+
+		object Version : GroupSpec<Version>() {
+			val description by accept<Unit>()
+		}
 	}
 }

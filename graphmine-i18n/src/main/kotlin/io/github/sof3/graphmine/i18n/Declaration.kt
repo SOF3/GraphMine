@@ -41,9 +41,9 @@ class Declaration<Arg : Any>(private val spec: () -> LangSpec<*>, private val pa
 	}
 
 	/**
-	 * To be called by translation users to obtain a specific I18nable for this declaration.
+	 * To be called by translation users to obtain a specific I18n for this declaration.
 	 */
-	operator fun invoke(arg: Arg): I18nable {
-		return SpecI18nable(arg, this)
+	operator fun invoke(arg: Arg): I18n {
+		return SpecI18N(arg, this)
 	}
 }

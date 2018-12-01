@@ -32,8 +32,9 @@
           <package name="kotlinx.android.synthetic" withSubpackages="true" static="false" />
         </value>
       </option>
+      <option name="IMPORT_NESTED_CLASSES" value="true" />
     </JetCodeStyleSettings>
-    <TypeScriptCodeStyleSettings>
+    <TypeScriptCodeStyleSettings version="0">
       <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
       <option name="FORCE_QUOTE_STYlE" value="true" />
