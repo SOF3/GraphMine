@@ -18,4 +18,4 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface CommandSender
+class EmptyOverload : Overload()

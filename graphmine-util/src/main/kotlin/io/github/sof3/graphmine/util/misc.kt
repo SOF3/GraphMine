@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.command
+package io.github.sof3.graphmine.util
 
 /*
  * GraphMine
@@ -18,4 +18,6 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface CommandSender
+inline fun <T> T?.notNull(fn: (T) -> Unit) {
+	if (this != null) fn(this)
+}

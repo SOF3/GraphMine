@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.command
+package io.github.sof3.graphmine.util.qualifier
 
 /*
  * GraphMine
@@ -18,4 +18,14 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface CommandSender
+class QualifierMap<T> {
+	private val map = hashMapOf<String, T>()
+
+	operator fun set(qualifier: Qualifier, value: T) {
+		for (slice in qualifier.permutations) {
+			map[slice.joinToString(".")] = value
+		}
+	}
+
+	operator fun get(key: String) = map[key]
+}

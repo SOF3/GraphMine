@@ -2,7 +2,7 @@ package io.github.sof3.graphmine
 
 import io.github.sof3.graphmine.config.CoreConfig
 import io.github.sof3.graphmine.feature.FeatureGraph
-import io.github.sof3.graphmine.i18n.I18nable
+import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.core.*
 import io.github.sof3.graphmine.scope.BaseScope
 import io.github.sof3.graphmine.scope.Scope
@@ -70,9 +70,9 @@ class Server(
 		info(CoreLang.startup.complete(CoreLang.Startup.CompleteArg(nano = System.nanoTime() - initNano)))
 	}
 
-	private fun debug(i18nable: I18nable) = logger.debug(i18nable[defaultLocale])
-	private fun error(i18nable: I18nable) = logger.error(i18nable[defaultLocale])
-	private fun fatal(i18nable: I18nable) = logger.fatal(i18nable[defaultLocale])
-	private fun info(i18nable: I18nable) = logger.info(i18nable[defaultLocale])
-	private fun warn(i18nable: I18nable) = logger.warn(i18nable[defaultLocale])
+	private fun debug(i18n: I18n) = logger.debug(i18n[defaultLocale])
+	private fun error(i18n: I18n) = logger.error(i18n[defaultLocale])
+	private fun fatal(i18n: I18n) = logger.fatal(i18n[defaultLocale])
+	private fun info(i18n: I18n) = logger.info(i18n[defaultLocale])
+	private fun warn(i18n: I18n) = logger.warn(i18n[defaultLocale])
 }

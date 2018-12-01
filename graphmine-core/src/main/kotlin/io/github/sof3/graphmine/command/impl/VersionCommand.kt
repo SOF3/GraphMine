@@ -1,4 +1,10 @@
-package io.github.sof3.graphmine.command
+package io.github.sof3.graphmine.command.impl
+
+import io.github.sof3.graphmine.Server
+import io.github.sof3.graphmine.command.Command
+import io.github.sof3.graphmine.command.CommandSender
+import io.github.sof3.graphmine.command.EmptyOverload
+import io.github.sof3.graphmine.i18n.core.*
 
 /*
  * GraphMine
@@ -18,4 +24,13 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface CommandSender
+object VersionCommand : Command<Server>({
+	name = "version"
+	aliases += "v"
+
+	description = CoreLang.commands.version.description(Unit)
+
+	handle<EmptyOverload, CommandSender> {
+
+	}
+})

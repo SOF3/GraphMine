@@ -1,5 +1,7 @@
 package io.github.sof3.graphmine.command
 
+import io.github.sof3.graphmine.i18n.I18n
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,4 +20,6 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface CommandSender
+interface CommandReceiver {
+	fun receiveMessage(message: I18n)
+}

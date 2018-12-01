@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.command
+package io.github.sof3.graphmine.util.qualifier
 
 /*
  * GraphMine
@@ -18,4 +18,18 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface CommandSender
+class Qualifier(string: String) {
+	val parts = string.split(".")
+
+	val simple get() = parts.last()
+
+	val permutations = (0 until parts.size).map { parts.subList(it, parts.size) }
+
+	override fun toString() = parts.joinToString(".")
+
+	private val hashCode by lazy { parts.map(String::hashCode).reduce { a, b -> a * 31 + b } }
+	override fun hashCode() = hashCode
+	override fun equals(other: Any?) = other is Qualifier && parts == other.parts
+}
+
+fun String.qualify() = Qualifier(this)

@@ -1,5 +1,7 @@
 package io.github.sof3.graphmine.command
 
+import io.github.sof3.graphmine.i18n.I18n
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,10 +20,16 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface CommandExecutor<A : Overload, S : CommandSender, C> {
-	val args: A
-	val sender: S
-	val c: C
+class CommandExecutor<A : Overload, S : CommandSender, C>(
+		val args: A,
+		val sender: S,
+		val c: C,
+		private val receiver: CommandReceiver
+) {
+	@Suppress("UNCHECKED_CAST")
+	inline fun <reified SubA : A, reified SubS : S> specialize() =
+			if (args is SubA && sender is SubS) this as CommandExecutor<SubA, SubS, C>
+			else null
 
-	fun <SubA : A, SubS : S> specialize(): CommandExecutor<SubA, SubS, C>
+	fun respond(message: I18n) = receiver.receiveMessage(message)
 }

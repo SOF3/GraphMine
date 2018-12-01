@@ -1,6 +1,6 @@
 package io.github.sof3.graphmine.command
 
-import io.github.sof3.graphmine.i18n.I18nable
+import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.i18n
 
 /*
@@ -24,22 +24,30 @@ import io.github.sof3.graphmine.i18n.i18n
 /**
  * This class represents a command type. Each instance of Command should represent one registered command.
  *
- * Subclasses must
+ * Subclasses must initialize the "name" property.
  */
 abstract class Command<C : Any>(fn: Command<C>.() -> Unit) {
 	internal lateinit var c: C
 
 	lateinit var name: String
-	var description: I18nable = "".i18n
+	var description: I18n = "".i18n
 	var aliases = listOf<String>()
 
 	val overloads = mutableListOf<RegisteredOverload>()
-	val handlers = mutableListOf<(CommandExecutor<Overload, CommandSender, C>) -> Unit>()
+	val handlers = mutableListOf<suspend (CommandExecutor<Overload, CommandSender, C>) -> Unit>()
 
-	inline fun <reified A : Overload, reified S : CommandSender> handle(crossinline fn: CommandExecutor<A, S, C>.() -> Unit) {
+	suspend fun execute(arg: Overload, by: CommandSender, receiver: CommandReceiver) {
+		val executor = CommandExecutor(arg, by, c, receiver)
+		handlers.forEach { it(executor) }
+	}
+
+	inline fun <reified A : Overload, reified S : CommandSender> handle(crossinline fn: suspend CommandExecutor<A, S, C>.() -> Unit) {
 		overloads += RegisteredOverload(A::class)
 
-		handlers += { if (it.args is A && it.sender is S) fn(it.specialize()) }
+		handlers += {
+			val special = it.specialize<A, S>()
+			if (special != null) fn(special)
+		}
 	}
 
 	init {
