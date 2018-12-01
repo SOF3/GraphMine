@@ -5,6 +5,7 @@ import io.github.sof3.graphmine.command.Command
 import io.github.sof3.graphmine.command.CommandSender
 import io.github.sof3.graphmine.command.Overload
 import io.github.sof3.graphmine.i18n.i18n
+import io.github.sof3.graphmine.util.qualifier.qualify
 
 /*
  * GraphMine
@@ -24,9 +25,9 @@ import io.github.sof3.graphmine.i18n.i18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class SayCommand : Overload() {
+internal class SayCommand : Overload() {
 	companion object : Command<Server>({
-		name = "say"
+		name = "graphmine.say".qualify()
 		aliases += "announce"
 
 		description = "".i18n // TODO

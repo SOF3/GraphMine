@@ -20,6 +20,11 @@ import io.github.sof3.graphmine.i18n.I18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Accepts output from a command.
+ */
 interface CommandReceiver {
 	fun receiveMessage(message: I18n)
+
+	// TODO add receiver-specific configurations here, similar to how tty detection works on Linux
 }

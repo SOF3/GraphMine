@@ -36,6 +36,7 @@ CoreLang("en_US") {
 		}
 		version {
 			description { "Shows the server version" }
+			response { "The server is running GraphMine version $version" }
 		}
 	}
 }

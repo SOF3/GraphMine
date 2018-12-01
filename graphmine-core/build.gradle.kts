@@ -5,6 +5,7 @@ import java.io.FileWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Properties
+import java.nio.file.Files
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /*
@@ -81,6 +82,12 @@ tasks.withType<KotlinCompile> {
 tasks.withType<DokkaTask> {
 	outputFormat = "jekyll"
 	outputDirectory = "$buildDir/javadoc"
+
+	Files.walk(File(project.projectDir, "src/main/kotlin/io/github/sof3/graphmine").toPath())
+			.filter { it.toFile().isDirectory }
+			.map { it.resolve("package.md").toFile() }
+			.filter { it.isFile }
+			.forEach { includes += it.absolutePath }
 }
 
 

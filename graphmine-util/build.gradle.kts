@@ -1,3 +1,4 @@
+import java.nio.file.Files
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -70,6 +71,12 @@ tasks.withType<Test> {
 tasks.withType<DokkaTask> {
 	outputFormat = "jekyll"
 	outputDirectory = "$buildDir/javadoc"
+
+	Files.walk(File(project.projectDir, "src/main/kotlin/io/github/sof3/graphmine").toPath())
+			.filter { it.toFile().isDirectory }
+			.map { it.resolve("package.md").toFile() }
+			.filter { it.isFile }
+			.forEach { includes += it.absolutePath }
 }
 
 tasks.withType<KotlinCompile> {

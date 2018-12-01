@@ -56,6 +56,9 @@ object CoreLang : LangSpec<CoreLang>() {
 
 		object Version : GroupSpec<Version>() {
 			val description by accept<Unit>()
+			val response by accept<VersionResponse>()
+
+			data class VersionResponse(val version: String)
 		}
 	}
 }

@@ -1,10 +1,13 @@
 package io.github.sof3.graphmine.command.impl
 
 import io.github.sof3.graphmine.Server
+import io.github.sof3.graphmine.VersionInfo
 import io.github.sof3.graphmine.command.Command
 import io.github.sof3.graphmine.command.CommandSender
 import io.github.sof3.graphmine.command.EmptyOverload
 import io.github.sof3.graphmine.i18n.core.*
+import io.github.sof3.graphmine.i18n.core.CoreLang.Commands.Version.VersionResponse
+import io.github.sof3.graphmine.util.qualifier.qualify
 
 /*
  * GraphMine
@@ -25,12 +28,12 @@ import io.github.sof3.graphmine.i18n.core.*
  */
 
 object VersionCommand : Command<Server>({
-	name = "version"
+	name = "graphmine.version".qualify()
 	aliases += "v"
 
 	description = CoreLang.commands.version.description(Unit)
 
 	handle<EmptyOverload, CommandSender> {
-
+		respond(CoreLang.commands.version.response(VersionResponse(VersionInfo.VERSION)))
 	}
 })

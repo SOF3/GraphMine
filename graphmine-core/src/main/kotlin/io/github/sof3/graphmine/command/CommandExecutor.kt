@@ -1,6 +1,7 @@
 package io.github.sof3.graphmine.command
 
 import io.github.sof3.graphmine.i18n.I18n
+import io.github.sof3.graphmine.scope.Scope
 
 /*
  * GraphMine
@@ -20,16 +21,45 @@ import io.github.sof3.graphmine.i18n.I18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class CommandExecutor<A : Overload, S : CommandSender, C>(
+/**
+ * The `this` context of command handlers.
+ *
+ * Other modules are encouraged to create extension functions on this class for more convenient handling.
+ *
+ * @param A the type of overload. Can be any supertype of the actual overload.
+ * @param S the type of command sender. Can be any supertype of the actual sender.
+ * @param C the [scope][Scope] of the command execution.
+ *
+ * @property args the parsed overload instance
+ * @param sender the sender that sent the command
+ * @param receiver the object to send command output into
+ * @param scope the scope that owns the command
+ */
+class CommandExecutor<A : Overload, S : CommandSender, C : Scope> internal constructor(
 		val args: A,
 		val sender: S,
-		val c: C,
-		private val receiver: CommandReceiver
+		val receiver: CommandReceiver,
+		val scope: C
 ) {
+	/**
+	 * Restricts the command executor to its subtypes.
+	 *
+	 * [SubA] and [SubS] are intentionally not forced to be subtypes of [A] and [S] because it is possible that [SubA]
+	 * is another interface that does not extend [A].
+	 *
+	 * @param SubA the new expected overload type
+	 * @param SubS the new expected sender type
+	 * @return `this` if the types can be narrowed for this instance, `null` if types are incompatible
+	 */
 	@Suppress("UNCHECKED_CAST")
-	inline fun <reified SubA : A, reified SubS : S> specialize() =
+	inline fun <reified SubA : Overload, reified SubS : CommandSender> specialize() =
 			if (args is SubA && sender is SubS) this as CommandExecutor<SubA, SubS, C>
 			else null
 
+	/**
+	 * Responds to the command sender. A shortcut for `receiver.receiveMessage`.
+	 *
+	 * @param message the i18nized message to be sent.
+	 */
 	fun respond(message: I18n) = receiver.receiveMessage(message)
 }

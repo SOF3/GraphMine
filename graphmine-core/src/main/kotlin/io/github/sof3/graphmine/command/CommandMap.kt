@@ -25,14 +25,28 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Stores a list of commands. This class can also be instantiated at individual commands to provide a sub-command list.
+ */
 class CommandMap {
 	private val map = QualifierMap<Command<*>>()
 
-	fun <C : Scope> addCommand(command: Command<C>, context: C) = apply {
-		command.scope = context
-		map[command.name.qualify()] = command
+	/**
+	 * Adds a command to the map.
+	 *
+	 * @param command the command to be added
+	 * @param scope the [scope][Scope] that owns the command
+	 */
+	fun <C : Scope> addCommand(command: Command<C>, scope: C) = apply {
+		command.scope = scope
+		map[command.name] = command
 	}
 
+	/**
+	 * Dispatches a command. This function should only be used when the command name is unknown.
+	 *
+	 * @param
+	 */
 	fun dispatch(string: String, by: CommandSender, to: CommandReceiver) {
 		val reader = FormattedStringReader(string)
 		val (name) = reader.nextDelimiter() ?: return

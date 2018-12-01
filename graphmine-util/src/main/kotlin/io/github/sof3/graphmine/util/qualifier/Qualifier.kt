@@ -18,6 +18,11 @@ package io.github.sof3.graphmine.util.qualifier
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Represents a qualified identifier.
+ *
+ * @param string the dot-delimited qualified identifier
+ */
 class Qualifier(string: String) {
 	val parts = string.split(".")
 
