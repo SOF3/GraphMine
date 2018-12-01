@@ -6,4 +6,4 @@ title: CommandExecutor.c - graphmine-core
 
 # c
 
-`abstract val c: `[`C`](index.html#C)
+`val c: `[`C`](index.html#C)

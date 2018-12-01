@@ -42,4 +42,5 @@ title: io.github.sof3.graphmine.util - graphmine-util
 ### Functions
 
 | [DEADCODE](-d-e-a-d-c-o-d-e.html) | `fun DEADCODE(message: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "Control flow error"): `[`Nothing`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html) |
+| [notNull](not-null.html) | `fun <T> `[`T`](not-null.html#T)`?.notNull(fn: (`[`T`](not-null.html#T)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

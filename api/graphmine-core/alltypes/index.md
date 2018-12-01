@@ -14,14 +14,25 @@ title: alltypes - graphmine-core
 | [io.github.sof3.graphmine.client.ClientAttachable](../io.github.sof3.graphmine.client/-client-attachable.html) |  |
 | [io.github.sof3.graphmine.command.Command](../io.github.sof3.graphmine.command/-command/index.html) | This class represents a command type. Each instance of Command should represent one registered command. |
 | [io.github.sof3.graphmine.command.args.CommandArg](../io.github.sof3.graphmine.command.args/-command-arg/index.html) | Superclass of a command argument. |
+| [io.github.sof3.graphmine.command.CommandException](../io.github.sof3.graphmine.command/-command-exception/index.html) |  |
 | [io.github.sof3.graphmine.command.CommandExecutor](../io.github.sof3.graphmine.command/-command-executor/index.html) |  |
+| [io.github.sof3.graphmine.command.CommandMap](../io.github.sof3.graphmine.command/-command-map/index.html) |  |
+| [io.github.sof3.graphmine.command.CommandNotFoundException](../io.github.sof3.graphmine.command/-command-not-found-exception/index.html) |  |
+| [io.github.sof3.graphmine.command.CommandReceiver](../io.github.sof3.graphmine.command/-command-receiver/index.html) |  |
 | [io.github.sof3.graphmine.command.CommandSender](../io.github.sof3.graphmine.command/-command-sender.html) |  |
 | [io.github.sof3.graphmine.config.ConfigEntryDelegate](../io.github.sof3.graphmine.config/-config-entry-delegate/index.html) |  |
 | [io.github.sof3.graphmine.config.ConfigGroupSpec](../io.github.sof3.graphmine.config/-config-group-spec/index.html) |  |
 | [io.github.sof3.graphmine.config.ConfigSpec](../io.github.sof3.graphmine.config/-config-spec/index.html) |  |
 | [io.github.sof3.graphmine.config.CoreConfig](../io.github.sof3.graphmine.config/-core-config/index.html) | Model for the server config.yml |
 | [io.github.sof3.graphmine.feature.DoubleFeatureHandler](../io.github.sof3.graphmine.feature/-double-feature-handler/index.html) |  |
+| [io.github.sof3.graphmine.command.EmptyOverload](../io.github.sof3.graphmine.command/-empty-overload/index.html) |  |
+| [io.github.sof3.graphmine.entity.Entity](../io.github.sof3.graphmine.entity/-entity/index.html) | An entity follows the ICES structure: |
+| [io.github.sof3.graphmine.entity.EntityController](../io.github.sof3.graphmine.entity/-entity-controller/index.html) |  |
+| [io.github.sof3.graphmine.entity.EntityState](../io.github.sof3.graphmine.entity/-entity-state.html) |  |
+| [io.github.sof3.graphmine.entity.EntityViewEvent](../io.github.sof3.graphmine.entity/-entity-view-event.html) |  |
 | [io.github.sof3.graphmine.command.args.EnumArg](../io.github.sof3.graphmine.command.args/-enum-arg/index.html) |  |
+| [io.github.sof3.graphmine.entity.ExternalView](../io.github.sof3.graphmine.entity/-external-view.html) |  |
+| [io.github.sof3.graphmine.entity.ExternalViewer](../io.github.sof3.graphmine.entity/-external-viewer/index.html) |  |
 | [io.github.sof3.graphmine.feature.FeatureEdge](../io.github.sof3.graphmine.feature/-feature-edge/index.html) | Represents the implementation of a feature. |
 | [io.github.sof3.graphmine.feature.FeatureEvent](../io.github.sof3.graphmine.feature/-feature-event.html) | Represents an event on some node(s). Implementations shall contain mutable and immutable properties for FeatureEdges to read and modify, except the FeatureNodeInstances do not need to be in the event since they are passed to the event in a different way. |
 | [io.github.sof3.graphmine.feature.FeatureGraph](../io.github.sof3.graphmine.feature/-feature-graph/index.html) | The Feature Graph is the main registry of features in the server. It is an undirected multi-graph that allows FeatureEdges (the features themselves) to handle interaction events (FeatureEvent) between FeatureNodes (the objects of features, e.g. entities, blocks, or abstract concepts like commands), or self-loop edges that handle events on a single object (e.g. player join). |
@@ -31,6 +42,7 @@ title: alltypes - graphmine-core
 | [io.github.sof3.graphmine.command.impl.HelpCommandByName](../io.github.sof3.graphmine.command.impl/-help-command-by-name/index.html) |  |
 | [io.github.sof3.graphmine.command.impl.HelpCommandByPage](../io.github.sof3.graphmine.command.impl/-help-command-by-page/index.html) |  |
 | [io.github.sof3.graphmine.command.args.IntegerArg](../io.github.sof3.graphmine.command.args/-integer-arg/index.html) |  |
+| [io.github.sof3.graphmine.entity.InternalViewer](../io.github.sof3.graphmine.entity/-internal-viewer/index.html) |  |
 | [io.github.sof3.graphmine.world.Location](../io.github.sof3.graphmine.world/-location/index.html) | Represents a point in the 3D space of a world. |
 | [io.github.sof3.graphmine.command.args.NumberArg](../io.github.sof3.graphmine.command.args/-number-arg/index.html) |  |
 | [io.github.sof3.graphmine.command.Overload](../io.github.sof3.graphmine.command/-overload/index.html) |  |
@@ -47,8 +59,10 @@ title: alltypes - graphmine-core
 | [io.github.sof3.graphmine.feature.SingleFeatureEdge](../io.github.sof3.graphmine.feature/-single-feature-edge/index.html) | Convenience implementation of self-looping FeatureEdge |
 | [io.github.sof3.graphmine.feature.SingleFeatureHandler](../io.github.sof3.graphmine.feature/-single-feature-handler/index.html) |  |
 | [io.github.sof3.graphmine.command.args.StringArg](../io.github.sof3.graphmine.command.args/-string-arg/index.html) |  |
+| [io.github.sof3.graphmine.command.impl.VersionCommand](../io.github.sof3.graphmine.command.impl/-version-command.html) |  |
 | [io.github.sof3.graphmine.VersionInfo](../io.github.sof3.graphmine/-version-info/index.html) | Holds the static version information for this build |
 | [io.github.sof3.graphmine.world.World](../io.github.sof3.graphmine.world/-world.html) | Each world has its set of 3D space. Usually, this is implemented as one saved map, but plugins may create virtual worlds, remote worlds or anything that features the characteristics as required by the interface. |
 | [io.github.sof3.graphmine.world.WorldPartition](../io.github.sof3.graphmine.world/-world-partition.html) | Represents a partition of a World. World partitioning is controlled by the server based on WorldUser activity. |
 | [io.github.sof3.graphmine.world.WorldUser](../io.github.sof3.graphmine.world/-world-user.html) | Represents a user of a world that holds resources from being freed. |
+| [io.github.sof3.graphmine.command.WrongSyntaxException](../io.github.sof3.graphmine.command/-wrong-syntax-exception/index.html) |  |
 

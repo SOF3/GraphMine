@@ -6,4 +6,4 @@ title: Command.description - graphmine-core
 
 # description
 
-`var description: I18nable`
+`var description: I18n`

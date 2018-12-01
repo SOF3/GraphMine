@@ -6,4 +6,4 @@ title: CommandExecutor.sender - graphmine-core
 
 # sender
 
-`abstract val sender: `[`S`](index.html#S)
+`val sender: `[`S`](index.html#S)

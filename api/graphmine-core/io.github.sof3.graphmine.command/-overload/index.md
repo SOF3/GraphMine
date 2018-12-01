@@ -23,6 +23,7 @@ title: Overload - graphmine-core
 
 ### Inheritors
 
+| [EmptyOverload](../-empty-overload/index.html) | `class EmptyOverload : `[`Overload`](./index.html) |
 | [HelpCommandByName](../../io.github.sof3.graphmine.command.impl/-help-command-by-name/index.html) | `class HelpCommandByName : `[`Overload`](./index.html) |
 | [HelpCommandByPage](../../io.github.sof3.graphmine.command.impl/-help-command-by-page/index.html) | `class HelpCommandByPage : `[`Overload`](./index.html) |
 | [SayCommand](../../io.github.sof3.graphmine.command.impl/-say-command/index.html) | `class SayCommand : `[`Overload`](./index.html) |

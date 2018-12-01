@@ -10,5 +10,5 @@ title: Command.<init> - graphmine-core
 
 This class represents a command type. Each instance of Command should represent one registered command.
 
-Subclasses must
+Subclasses must initialize the "name" property.
 

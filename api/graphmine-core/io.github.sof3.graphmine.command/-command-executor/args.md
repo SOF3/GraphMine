@@ -6,4 +6,4 @@ title: CommandExecutor.args - graphmine-core
 
 # args
 
-`abstract val args: `[`A`](index.html#A)
+`val args: `[`A`](index.html#A)

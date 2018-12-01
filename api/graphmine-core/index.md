@@ -12,6 +12,7 @@ title: graphmine-core
 | [io.github.sof3.graphmine.command.args](io.github.sof3.graphmine.command.args/index.html) |  |
 | [io.github.sof3.graphmine.command.impl](io.github.sof3.graphmine.command.impl/index.html) |  |
 | [io.github.sof3.graphmine.config](io.github.sof3.graphmine.config/index.html) |  |
+| [io.github.sof3.graphmine.entity](io.github.sof3.graphmine.entity/index.html) |  |
 | [io.github.sof3.graphmine.feature](io.github.sof3.graphmine.feature/index.html) |  |
 | [io.github.sof3.graphmine.scope](io.github.sof3.graphmine.scope/index.html) |  |
 | [io.github.sof3.graphmine.world](io.github.sof3.graphmine.world/index.html) |  |

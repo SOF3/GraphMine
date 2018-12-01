@@ -6,4 +6,4 @@ title: Command.handlers - graphmine-core
 
 # handlers
 
-`val handlers: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<(`[`CommandExecutor`](../-command-executor/index.html)`<`[`Overload`](../-overload/index.html)`, `[`CommandSender`](../-command-sender.html)`, `[`C`](index.html#C)`>) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`>`
+`val handlers: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<suspend (`[`CommandExecutor`](../-command-executor/index.html)`<`[`Overload`](../-overload/index.html)`, `[`CommandSender`](../-command-sender.html)`, `[`C`](index.html#C)`>) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`>`

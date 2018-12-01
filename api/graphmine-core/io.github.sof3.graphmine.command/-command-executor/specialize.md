@@ -6,4 +6,4 @@ title: CommandExecutor.specialize - graphmine-core
 
 # specialize
 
-`abstract fun <SubA : `[`A`](index.html#A)`, SubS : `[`S`](index.html#S)`> specialize(): `[`CommandExecutor`](index.html)`<`[`SubA`](specialize.html#SubA)`, `[`SubS`](specialize.html#SubS)`, `[`C`](index.html#C)`>`
+`inline fun <reified SubA : `[`A`](index.html#A)`, reified SubS : `[`S`](index.html#S)`> specialize(): `[`CommandExecutor`](index.html)`<`[`SubA`](specialize.html#SubA)`, `[`SubS`](specialize.html#SubS)`, `[`C`](index.html#C)`>?`
