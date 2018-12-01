@@ -28,12 +28,12 @@ data class FormattedStringReader(val string: String) {
 	/**
 	 * Executes a function that may modify the state of this object, but upon completion, the state is reset.
 	 *
-	 * This
+	 * This is semantically equivalent to executing the function on a clone of this object
 	 */
 	inline fun exec(fn: () -> Unit) {
-		val store = pointer
+		val reset = pointer
 		fn()
-		pointer = store
+		pointer = reset
 	}
 
 	/**

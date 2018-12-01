@@ -43,9 +43,9 @@ object CoreLang : LangSpec<CoreLang>() {
 		val generic by group(Generic)
 
 		object Generic : GroupSpec<Generic>() {
-			val notFound by accept<CommandArg>()
+			val notFound by accept<NotFoundArg>()
 
-			data class CommandArg(val command: String)
+			data class NotFoundArg(val command: String)
 
 			val wrongSyntax by accept<WrongSyntaxArg>()
 

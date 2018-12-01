@@ -39,8 +39,10 @@ class Server(
 		 * @return the server config
 		 */
 		val config: CoreConfig,
-		initNano: Long = System.nanoTime()
-) {
+		initNano: Long = System.nanoTime(),
+
+		private val myScope: BaseScope = BaseScope(Server::class)
+): Scope by myScope {
 	/**
 	 * @return the logger used for the server scope. Plugins should use their own logger instead of this one.
 	 */
@@ -50,12 +52,6 @@ class Server(
 	 * @return the default locale of the server.
 	 */
 	val defaultLocale: String get() = config.language
-
-	private val myScope = BaseScope(Server::class)
-	/**
-	 * @return the server scope, which only gets disposed when the server shuts down.
-	 */
-	val scope: Scope by myScope // TODO dispose on shutdown
 
 	/**
 	 * @return the feature graph of the server. "Events" should be handled via the feature graph.
@@ -68,6 +64,8 @@ class Server(
 		info(CoreLang.startup.version(CoreLang.Startup.VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port)))
 
 		info(CoreLang.startup.complete(CoreLang.Startup.CompleteArg(nano = System.nanoTime() - initNano)))
+
+
 	}
 
 	private fun debug(i18n: I18n) = logger.debug(i18n[defaultLocale])

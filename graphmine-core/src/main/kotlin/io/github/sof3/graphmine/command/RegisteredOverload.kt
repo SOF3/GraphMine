@@ -1,6 +1,8 @@
 package io.github.sof3.graphmine.command
 
 import io.github.sof3.graphmine.command.args.CommandArg
+import io.github.sof3.graphmine.i18n.I18n
+import io.github.sof3.graphmine.i18n.I18nable
 import io.github.sof3.graphmine.util.string.FormattedStringReader
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
@@ -23,7 +25,9 @@ import kotlin.reflect.full.createInstance
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class RegisteredOverload(private val klass: KClass<out Overload>) {
+class RegisteredOverload(private val klass: KClass<out Overload>): I18nable {
+	override val i18n: I18n
+		get() = TODO("not implemented")
 	val args: List<CommandArg<*>>
 
 	init {
@@ -31,9 +35,7 @@ class RegisteredOverload(private val klass: KClass<out Overload>) {
 		args = instance.args
 	}
 
-	fun accept(line: String): Overload? {
-		val parser = FormattedStringReader(line)
-
+	fun accept(parser: FormattedStringReader): Overload? {
 		val command = klass.createInstance()
 		for (arg in command.args) {
 			if (!arg.accept(parser)) return null

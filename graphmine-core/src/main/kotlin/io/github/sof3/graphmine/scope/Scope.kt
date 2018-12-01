@@ -1,5 +1,7 @@
 package io.github.sof3.graphmine.scope
 
+import kotlinx.coroutines.CoroutineScope
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -29,7 +31,7 @@ package io.github.sof3.graphmine.scope
  *
  * Plugins may create their own scopes too, e.g. a Hunger Games plugin may create a scope that lasts during the Hunger Games tournament
  */
-interface Scope {
+interface Scope: CoroutineScope {
 	val name: String
 
 	/**

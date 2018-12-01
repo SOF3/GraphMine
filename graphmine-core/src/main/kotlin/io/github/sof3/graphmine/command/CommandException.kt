@@ -3,7 +3,6 @@ package io.github.sof3.graphmine.command
 import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.I18nable
 import io.github.sof3.graphmine.i18n.core.*
-import io.github.sof3.graphmine.i18n.core.CoreLang.Commands.Generic.CommandArg
 import io.github.sof3.graphmine.i18n.core.CoreLang.Commands.Generic.WrongSyntaxArg
 
 /*
@@ -25,10 +24,6 @@ import io.github.sof3.graphmine.i18n.core.CoreLang.Commands.Generic.WrongSyntaxA
  */
 
 abstract class CommandException : Exception(), I18nable
-
-class CommandNotFoundException(name: String) : CommandException(){
-	override val i18n = CoreLang.commands.generic.notFound(CommandArg(name))
-}
 
 class WrongSyntaxException(name: String, syntax: List<I18n>) : CommandException(){
 	override val i18n = CoreLang.commands.generic.wrongSyntax(WrongSyntaxArg(name, syntax))

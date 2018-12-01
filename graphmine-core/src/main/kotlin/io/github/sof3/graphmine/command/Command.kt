@@ -2,6 +2,9 @@ package io.github.sof3.graphmine.command
 
 import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.i18n
+import io.github.sof3.graphmine.scope.Scope
+import io.github.sof3.graphmine.util.string.FormattedStringReader
+import kotlinx.coroutines.launch
 
 /*
  * GraphMine
@@ -26,8 +29,8 @@ import io.github.sof3.graphmine.i18n.i18n
  *
  * Subclasses must initialize the "name" property.
  */
-abstract class Command<C : Any>(fn: Command<C>.() -> Unit) {
-	internal lateinit var c: C
+abstract class Command<C : Scope>(fn: Command<C>.() -> Unit) {
+	internal lateinit var scope: C
 
 	lateinit var name: String
 	var description: I18n = "".i18n
@@ -36,8 +39,24 @@ abstract class Command<C : Any>(fn: Command<C>.() -> Unit) {
 	val overloads = mutableListOf<RegisteredOverload>()
 	val handlers = mutableListOf<suspend (CommandExecutor<Overload, CommandSender, C>) -> Unit>()
 
+	fun dispatch(reader: FormattedStringReader, by: CommandSender, receiver: CommandReceiver) = scope.launch {
+		try {
+			for (overload in overloads) {
+				val arg = overload.accept(reader)
+				if (arg != null) {
+					val executor = CommandExecutor(arg, by, scope, receiver)
+					handlers.forEach { it(executor) }
+					return@launch
+				}
+			}
+			throw WrongSyntaxException(name, overloads.map { it.i18n })
+		} catch (ex: CommandException) {
+			receiver.receiveMessage(ex.i18n)
+		}
+	}
+
 	suspend fun execute(arg: Overload, by: CommandSender, receiver: CommandReceiver) {
-		val executor = CommandExecutor(arg, by, c, receiver)
+		val executor = CommandExecutor(arg, by, scope, receiver)
 		handlers.forEach { it(executor) }
 	}
 
