@@ -6,7 +6,7 @@ title: RegisteredOverload - graphmine-core
 
 # RegisteredOverload
 
-`class RegisteredOverload`
+`class RegisteredOverload : I18nable`
 
 ### Constructors
 
@@ -15,8 +15,9 @@ title: RegisteredOverload - graphmine-core
 ### Properties
 
 | [args](args.html) | `val args: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<*>>` |
+| [i18n](i18n.html) | `val i18n: I18n` |
 
 ### Functions
 
-| [accept](accept.html) | `fun accept(line: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Overload`](../-overload/index.html)`?` |
+| [accept](accept.html) | `fun accept(parser: FormattedStringReader): `[`Overload`](../-overload/index.html)`?` |
 

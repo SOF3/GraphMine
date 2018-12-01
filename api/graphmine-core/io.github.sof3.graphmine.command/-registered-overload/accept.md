@@ -6,4 +6,4 @@ title: RegisteredOverload.accept - graphmine-core
 
 # accept
 
-`fun accept(line: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Overload`](../-overload/index.html)`?`
+`fun accept(parser: FormattedStringReader): `[`Overload`](../-overload/index.html)`?`

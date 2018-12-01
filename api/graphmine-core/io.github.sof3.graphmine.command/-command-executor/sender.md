@@ -7,3 +7,6 @@ title: CommandExecutor.sender - graphmine-core
 # sender
 
 `val sender: `[`S`](index.html#S)
+
+the sender that sent the command
+

@@ -27,7 +27,7 @@ title: alltypes - graphmine-util
 | [io.github.sof3.graphmine.util.KtsLoader](../io.github.sof3.graphmine.util/-kts-loader/index.html) | State object to ensure system properties are set before loading a script |
 | [kotlin.LongArray](../io.github.sof3.graphmine.util/kotlin.-long-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [io.github.sof3.graphmine.util.LongRef](../io.github.sof3.graphmine.util/-long-ref/index.html) |  |
-| [io.github.sof3.graphmine.util.qualifier.Qualifier](../io.github.sof3.graphmine.util.qualifier/-qualifier/index.html) |  |
+| [io.github.sof3.graphmine.util.qualifier.Qualifier](../io.github.sof3.graphmine.util.qualifier/-qualifier/index.html) | Represents a qualified identifier. |
 | [io.github.sof3.graphmine.util.qualifier.QualifierMap](../io.github.sof3.graphmine.util.qualifier/-qualifier-map/index.html) |  |
 | [io.github.sof3.graphmine.util.string.QuotedResult](../io.github.sof3.graphmine.util.string/-quoted-result/index.html) |  |
 | [io.github.sof3.graphmine.util.Ref](../io.github.sof3.graphmine.util/-ref/index.html) |  |

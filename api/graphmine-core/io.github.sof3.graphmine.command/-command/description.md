@@ -7,3 +7,6 @@ title: Command.description - graphmine-core
 # description
 
 `var description: I18n`
+
+The description of the command, shown in action lists like /help.
+

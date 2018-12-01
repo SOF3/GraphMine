@@ -7,3 +7,8 @@ title: CommandException.<init> - graphmine-core
 # &lt;init&gt;
 
 `CommandException()`
+
+Represents any user-friendly errors reported from commands.
+
+Commands are not required to do this. This exception is only here for more convenient control flow.
+

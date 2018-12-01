@@ -14,11 +14,10 @@ title: alltypes - graphmine-core
 | [io.github.sof3.graphmine.client.ClientAttachable](../io.github.sof3.graphmine.client/-client-attachable.html) |  |
 | [io.github.sof3.graphmine.command.Command](../io.github.sof3.graphmine.command/-command/index.html) | This class represents a command type. Each instance of Command should represent one registered command. |
 | [io.github.sof3.graphmine.command.args.CommandArg](../io.github.sof3.graphmine.command.args/-command-arg/index.html) | Superclass of a command argument. |
-| [io.github.sof3.graphmine.command.CommandException](../io.github.sof3.graphmine.command/-command-exception/index.html) |  |
-| [io.github.sof3.graphmine.command.CommandExecutor](../io.github.sof3.graphmine.command/-command-executor/index.html) |  |
-| [io.github.sof3.graphmine.command.CommandMap](../io.github.sof3.graphmine.command/-command-map/index.html) |  |
-| [io.github.sof3.graphmine.command.CommandNotFoundException](../io.github.sof3.graphmine.command/-command-not-found-exception/index.html) |  |
-| [io.github.sof3.graphmine.command.CommandReceiver](../io.github.sof3.graphmine.command/-command-receiver/index.html) |  |
+| [io.github.sof3.graphmine.command.CommandException](../io.github.sof3.graphmine.command/-command-exception/index.html) | Represents any user-friendly errors reported from commands. |
+| [io.github.sof3.graphmine.command.CommandExecutor](../io.github.sof3.graphmine.command/-command-executor/index.html) | The `this` context of command handlers. |
+| [io.github.sof3.graphmine.command.CommandMap](../io.github.sof3.graphmine.command/-command-map/index.html) | Stores a list of commands. This class can also be instantiated at individual commands to provide a sub-command list. |
+| [io.github.sof3.graphmine.command.CommandReceiver](../io.github.sof3.graphmine.command/-command-receiver/index.html) | Accepts output from a command. |
 | [io.github.sof3.graphmine.command.CommandSender](../io.github.sof3.graphmine.command/-command-sender.html) |  |
 | [io.github.sof3.graphmine.config.ConfigEntryDelegate](../io.github.sof3.graphmine.config/-config-entry-delegate/index.html) |  |
 | [io.github.sof3.graphmine.config.ConfigGroupSpec](../io.github.sof3.graphmine.config/-config-group-spec/index.html) |  |
@@ -38,9 +37,6 @@ title: alltypes - graphmine-core
 | [io.github.sof3.graphmine.feature.FeatureGraph](../io.github.sof3.graphmine.feature/-feature-graph/index.html) | The Feature Graph is the main registry of features in the server. It is an undirected multi-graph that allows FeatureEdges (the features themselves) to handle interaction events (FeatureEvent) between FeatureNodes (the objects of features, e.g. entities, blocks, or abstract concepts like commands), or self-loop edges that handle events on a single object (e.g. player join). |
 | [io.github.sof3.graphmine.feature.FeatureNode](../io.github.sof3.graphmine.feature/-feature-node.html) | Represents a concrete or abstract concept that can interact with itself or other FeatureNodes, such as an entity, a block, a client or a command. |
 | [io.github.sof3.graphmine.feature.FeatureNodeInstance](../io.github.sof3.graphmine.feature/-feature-node-instance/index.html) | Represents an instance of FeatureNode. The FeatureNode represents the type in general, while FeatureNodeInstance represents each instance of the type. It is valid for FeatureNodeInstance to be singleton or even same as the FeatureNode. For example, each instance of the Client class represents one client, while the singleton Client.Node companion object represents the client type. |
-| [io.github.sof3.graphmine.command.impl.HelpCommand](../io.github.sof3.graphmine.command.impl/-help-command.html) |  |
-| [io.github.sof3.graphmine.command.impl.HelpCommandByName](../io.github.sof3.graphmine.command.impl/-help-command-by-name/index.html) |  |
-| [io.github.sof3.graphmine.command.impl.HelpCommandByPage](../io.github.sof3.graphmine.command.impl/-help-command-by-page/index.html) |  |
 | [io.github.sof3.graphmine.command.args.IntegerArg](../io.github.sof3.graphmine.command.args/-integer-arg/index.html) |  |
 | [io.github.sof3.graphmine.entity.InternalViewer](../io.github.sof3.graphmine.entity/-internal-viewer/index.html) |  |
 | [io.github.sof3.graphmine.world.Location](../io.github.sof3.graphmine.world/-location/index.html) | Represents a point in the 3D space of a world. |
@@ -50,7 +46,6 @@ title: alltypes - graphmine-core
 | [io.github.sof3.graphmine.command.args.ParseState](../io.github.sof3.graphmine.command.args/-parse-state/index.html) |  |
 | [io.github.sof3.graphmine.command.args.RawTextArg](../io.github.sof3.graphmine.command.args/-raw-text-arg/index.html) |  |
 | [io.github.sof3.graphmine.command.RegisteredOverload](../io.github.sof3.graphmine.command/-registered-overload/index.html) |  |
-| [io.github.sof3.graphmine.command.impl.SayCommand](../io.github.sof3.graphmine.command.impl/-say-command/index.html) |  |
 | [io.github.sof3.graphmine.scope.Scope](../io.github.sof3.graphmine.scope/-scope/index.html) | A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin scopes include: |
 | [io.github.sof3.graphmine.Server](../io.github.sof3.graphmine/-server/index.html) | The Server should be the object that links up different components of the server. |
 | [io.github.sof3.graphmine.config.ServerConfig](../io.github.sof3.graphmine.config/-server-config/index.html) |  |
@@ -64,5 +59,5 @@ title: alltypes - graphmine-core
 | [io.github.sof3.graphmine.world.World](../io.github.sof3.graphmine.world/-world.html) | Each world has its set of 3D space. Usually, this is implemented as one saved map, but plugins may create virtual worlds, remote worlds or anything that features the characteristics as required by the interface. |
 | [io.github.sof3.graphmine.world.WorldPartition](../io.github.sof3.graphmine.world/-world-partition.html) | Represents a partition of a World. World partitioning is controlled by the server based on WorldUser activity. |
 | [io.github.sof3.graphmine.world.WorldUser](../io.github.sof3.graphmine.world/-world-user.html) | Represents a user of a world that holds resources from being freed. |
-| [io.github.sof3.graphmine.command.WrongSyntaxException](../io.github.sof3.graphmine.command/-wrong-syntax-exception/index.html) |  |
+| [io.github.sof3.graphmine.command.WrongSyntaxException](../io.github.sof3.graphmine.command/-wrong-syntax-exception/index.html) | Thrown when a command with wrong syntax is sent. |
 

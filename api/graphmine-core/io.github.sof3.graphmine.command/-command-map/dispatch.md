@@ -7,3 +7,8 @@ title: CommandMap.dispatch - graphmine-core
 # dispatch
 
 `fun dispatch(string: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, by: `[`CommandSender`](../-command-sender.html)`, to: `[`CommandReceiver`](../-command-receiver/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Dispatches a command. This function should only be used when the command name is unknown.
+
+**Parameters**
+

@@ -6,4 +6,14 @@ title: Command.name - graphmine-core
 
 # name
 
-`lateinit var name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`lateinit var name: Qualifier`
+
+The qualified name of the command.
+
+This property is intentionally not made as a delegation as string so as to remind command developers that the
+name needs to be qualified.
+
+**See Also**
+
+[Qualifier](#)
+

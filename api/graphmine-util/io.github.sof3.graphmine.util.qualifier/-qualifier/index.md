@@ -8,9 +8,15 @@ title: Qualifier - graphmine-util
 
 `class Qualifier`
 
+Represents a qualified identifier.
+
+### Parameters
+
+`string` - the dot-delimited qualified identifier
+
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `Qualifier(string: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)` |
+| [&lt;init&gt;](-init-.html) | `Qualifier(string: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)`<br>Represents a qualified identifier. |
 
 ### Properties
 

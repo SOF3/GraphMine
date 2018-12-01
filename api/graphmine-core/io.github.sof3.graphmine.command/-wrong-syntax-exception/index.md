@@ -8,9 +8,19 @@ title: WrongSyntaxException - graphmine-core
 
 `class WrongSyntaxException : `[`CommandException`](../-command-exception/index.html)
 
+Thrown when a command with wrong syntax is sent.
+
+### Parameters
+
+`name` - command name
+
+### Param
+
+`syntax` - list of syntax possible for this command
+
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `WrongSyntaxException(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, syntax: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<I18n>)` |
+| [&lt;init&gt;](-init-.html) | `WrongSyntaxException(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, syntax: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<I18n>)`<br>Thrown when a command with wrong syntax is sent. |
 
 ### Properties
 

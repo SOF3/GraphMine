@@ -6,11 +6,9 @@ title: io.github.sof3.graphmine.command.impl - graphmine-core
 
 ## Package io.github.sof3.graphmine.command.impl
 
+This package implements the default commands in GraphMine. Except for [VersionCommand](-version-command.html) that serves as the example command, all other commands are internal.
+
 ### Types
 
-| [HelpCommand](-help-command.html) | `object HelpCommand : `[`Command`](../io.github.sof3.graphmine.command/-command/index.html)`<`[`Server`](../io.github.sof3.graphmine/-server/index.html)`>` |
-| [HelpCommandByName](-help-command-by-name/index.html) | `class HelpCommandByName : `[`Overload`](../io.github.sof3.graphmine.command/-overload/index.html) |
-| [HelpCommandByPage](-help-command-by-page/index.html) | `class HelpCommandByPage : `[`Overload`](../io.github.sof3.graphmine.command/-overload/index.html) |
-| [SayCommand](-say-command/index.html) | `class SayCommand : `[`Overload`](../io.github.sof3.graphmine.command/-overload/index.html) |
 | [VersionCommand](-version-command.html) | `object VersionCommand : `[`Command`](../io.github.sof3.graphmine.command/-command/index.html)`<`[`Server`](../io.github.sof3.graphmine/-server/index.html)`>` |
 

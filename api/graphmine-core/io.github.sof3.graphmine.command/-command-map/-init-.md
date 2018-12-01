@@ -7,3 +7,6 @@ title: CommandMap.<init> - graphmine-core
 # &lt;init&gt;
 
 `CommandMap()`
+
+Stores a list of commands. This class can also be instantiated at individual commands to provide a sub-command list.
+

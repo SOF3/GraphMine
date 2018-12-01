@@ -6,11 +6,28 @@ title: Command - graphmine-core
 
 # Command
 
-`abstract class Command<C : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`>`
+`abstract class Command<C : `[`Scope`](../../io.github.sof3.graphmine.scope/-scope/index.html)`>`
 
 This class represents a command type. Each instance of Command should represent one registered command.
 
-Subclasses must initialize the "name" property.
+Subclasses must initialize the [name](name.html) property.
+
+``` kotlin
+object VersionCommand : Command<Server>({
+	name = "graphmine.version".qualify()
+	aliases += "v"
+
+	description = CoreLang.commands.version.description(Unit)
+
+	handle<EmptyOverload, CommandSender> {
+		respond(CoreLang.commands.version.response(VersionResponse(VersionInfo.VERSION)))
+	}
+})
+```
+
+### Parameters
+
+`fn` - A lambda to initialize the command.
 
 ### Constructors
 
@@ -18,20 +35,17 @@ Subclasses must initialize the "name" property.
 
 ### Properties
 
-| [aliases](aliases.html) | `var aliases: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
-| [description](description.html) | `var description: I18n` |
-| [handlers](handlers.html) | `val handlers: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<suspend (`[`CommandExecutor`](../-command-executor/index.html)`<`[`Overload`](../-overload/index.html)`, `[`CommandSender`](../-command-sender.html)`, `[`C`](index.html#C)`>) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`>` |
-| [name](name.html) | `lateinit var name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [overloads](overloads.html) | `val overloads: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`RegisteredOverload`](../-registered-overload/index.html)`>` |
+| [aliases](aliases.html) | `var aliases: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The list of aliases |
+| [description](description.html) | `var description: I18n`<br>The description of the command, shown in action lists like /help. |
+| [name](name.html) | `lateinit var name: Qualifier`<br>The qualified name of the command. |
+| [scope](scope.html) | `lateinit var scope: `[`C`](index.html#C) |
 
 ### Functions
 
-| [execute](execute.html) | `suspend fun execute(arg: `[`Overload`](../-overload/index.html)`, by: `[`CommandSender`](../-command-sender.html)`, receiver: `[`CommandReceiver`](../-command-receiver/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [handle](handle.html) | `fun <A : `[`Overload`](../-overload/index.html)`, S : `[`CommandSender`](../-command-sender.html)`> handle(fn: suspend `[`CommandExecutor`](../-command-executor/index.html)`<`[`A`](handle.html#A)`, `[`S`](handle.html#S)`, `[`C`](index.html#C)`>.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [dispatch](dispatch.html) | `fun dispatch(reader: FormattedStringReader, sender: `[`CommandSender`](../-command-sender.html)`, receiver: `[`CommandReceiver`](../-command-receiver/index.html)`): Job`<br>Executes the command. |
+| [handle](handle.html) | `fun <A : `[`Overload`](../-overload/index.html)`, S : `[`CommandSender`](../-command-sender.html)`> handle(fn: suspend `[`CommandExecutor`](../-command-executor/index.html)`<`[`A`](handle.html#A)`, `[`S`](handle.html#S)`, `[`C`](index.html#C)`>.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Adds a handler to the command. |
 
 ### Inheritors
 
-| [Companion](../../io.github.sof3.graphmine.command.impl/-say-command/-companion.html) | `companion object Companion : `[`Command`](./index.html)`<`[`Server`](../../io.github.sof3.graphmine/-server/index.html)`>` |
-| [HelpCommand](../../io.github.sof3.graphmine.command.impl/-help-command.html) | `object HelpCommand : `[`Command`](./index.html)`<`[`Server`](../../io.github.sof3.graphmine/-server/index.html)`>` |
 | [VersionCommand](../../io.github.sof3.graphmine.command.impl/-version-command.html) | `object VersionCommand : `[`Command`](./index.html)`<`[`Server`](../../io.github.sof3.graphmine/-server/index.html)`>` |
 

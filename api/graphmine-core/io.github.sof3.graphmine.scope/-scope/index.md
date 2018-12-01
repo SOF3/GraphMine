@@ -6,7 +6,7 @@ title: Scope - graphmine-core
 
 # Scope
 
-`interface Scope`
+`interface Scope : CoroutineScope`
 
 A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin scopes include:
 
@@ -29,5 +29,6 @@ Plugins may create their own scopes too, e.g. a Hunger Games plugin may create a
 
 ### Inheritors
 
-| [BaseScope](../-base-scope/index.html) | `open class BaseScope : `[`Scope`](./index.html)`, `[`ReadOnlyProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-only-property/index.html)`<`[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?, `[`Scope`](./index.html)`>`<br>Basic implementation of BaseScope |
+| [BaseScope](../-base-scope/index.html) | `open class BaseScope : `[`Scope`](./index.html)<br>Basic implementation of BaseScope |
+| [Server](../../io.github.sof3.graphmine/-server/index.html) | `class Server : `[`Scope`](./index.html)<br>The Server should be the object that links up different components of the server. |
 

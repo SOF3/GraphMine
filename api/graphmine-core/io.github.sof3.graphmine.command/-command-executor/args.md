@@ -7,3 +7,17 @@ title: CommandExecutor.args - graphmine-core
 # args
 
 `val args: `[`A`](index.html#A)
+
+the parsed overload instance
+
+### Property
+
+`args` - the parsed overload instance
+
+### Parameters
+
+`sender` - the sender that sent the command
+
+`receiver` - the object to send command output into
+
+`scope` - the scope that owns the command

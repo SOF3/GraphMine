@@ -8,12 +8,15 @@ title: CommandException - graphmine-core
 
 `abstract class CommandException : `[`Exception`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html)`, I18nable`
 
+Represents any user-friendly errors reported from commands.
+
+Commands are not required to do this. This exception is only here for more convenient control flow.
+
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `CommandException()` |
+| [&lt;init&gt;](-init-.html) | `CommandException()`<br>Represents any user-friendly errors reported from commands. |
 
 ### Inheritors
 
-| [CommandNotFoundException](../-command-not-found-exception/index.html) | `class CommandNotFoundException : `[`CommandException`](./index.html) |
-| [WrongSyntaxException](../-wrong-syntax-exception/index.html) | `class WrongSyntaxException : `[`CommandException`](./index.html) |
+| [WrongSyntaxException](../-wrong-syntax-exception/index.html) | `class WrongSyntaxException : `[`CommandException`](./index.html)<br>Thrown when a command with wrong syntax is sent. |
 

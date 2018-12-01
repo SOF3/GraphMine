@@ -8,6 +8,8 @@ title: CommandReceiver - graphmine-core
 
 `interface CommandReceiver`
 
+Accepts output from a command.
+
 ### Functions
 
 | [receiveMessage](receive-message.html) | `abstract fun receiveMessage(message: I18n): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |

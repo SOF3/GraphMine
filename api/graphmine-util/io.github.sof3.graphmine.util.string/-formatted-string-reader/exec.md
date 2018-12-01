@@ -10,5 +10,5 @@ title: FormattedStringReader.exec - graphmine-util
 
 Executes a function that may modify the state of this object, but upon completion, the state is reset.
 
-This
+This is semantically equivalent to executing the function on a clone of this object
 

@@ -7,3 +7,6 @@ title: Command.aliases - graphmine-core
 # aliases
 
 `var aliases: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`
+
+The list of aliases
+

@@ -10,5 +10,21 @@ title: Command.<init> - graphmine-core
 
 This class represents a command type. Each instance of Command should represent one registered command.
 
-Subclasses must initialize the "name" property.
+Subclasses must initialize the [name](name.html) property.
 
+``` kotlin
+object VersionCommand : Command<Server>({
+	name = "graphmine.version".qualify()
+	aliases += "v"
+
+	description = CoreLang.commands.version.description(Unit)
+
+	handle<EmptyOverload, CommandSender> {
+		respond(CoreLang.commands.version.response(VersionResponse(VersionInfo.VERSION)))
+	}
+})
+```
+
+### Parameters
+
+`fn` - A lambda to initialize the command.
