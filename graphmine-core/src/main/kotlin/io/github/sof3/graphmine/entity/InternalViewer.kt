@@ -18,6 +18,12 @@ package io.github.sof3.graphmine.entity
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Acts like the receiver to the camera signals of an entity
+ */
 interface InternalViewer {
+	/**
+	 * Handles a change in what the entity sees.
+	 */
 	fun receiveEvent(event: EntityViewEvent)
 }

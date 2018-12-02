@@ -25,6 +25,9 @@ import kotlin.reflect.full.createInstance
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * A factory that creates a new instance of a known command overload for each command execution.
+ */
 class RegisteredOverload(private val klass: KClass<out Overload>): I18nable {
 	override val i18n: I18n
 		get() = TODO("not implemented")
@@ -35,10 +38,13 @@ class RegisteredOverload(private val klass: KClass<out Overload>): I18nable {
 		args = instance.args
 	}
 
+	/**
+	 * Accepts a command and tries to parse it.
+	 */
 	fun accept(parser: FormattedStringReader): Overload? {
 		val command = klass.createInstance()
 		for (arg in command.args) {
-			if (!arg.accept(parser)) return null
+			if (!arg.accept(parser)) return null // TODO use parser.exec{}
 		}
 
 		return command

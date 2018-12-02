@@ -21,7 +21,8 @@ import kotlinx.coroutines.CoroutineScope
  */
 
 /**
- * A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin scopes include:
+ * A Scope represents some period of persistence. Features are enabled only during the scope is not disposed. Builtin
+ * scopes include:
  *
  * - Server scope: Until the server is stopped
  * - Player scope: Until the player leaves the server
@@ -30,6 +31,8 @@ import kotlinx.coroutines.CoroutineScope
  * - World partition scope: While the world partition is loaded
  *
  * Plugins may create their own scopes too, e.g. a Hunger Games plugin may create a scope that lasts during the Hunger Games tournament
+ *
+ * A scope is also a coroutine scope. Coroutines may be started from the scope.
  */
 interface Scope: CoroutineScope {
 	val name: String

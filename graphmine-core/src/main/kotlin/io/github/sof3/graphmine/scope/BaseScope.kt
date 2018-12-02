@@ -7,7 +7,7 @@ import kotlin.reflect.KClass
 /**
  * Basic implementation of BaseScope
  */
-open class BaseScope(final override val name: String, final val parent: BaseScope? = null) : Scope {
+open class BaseScope(final override val name: String, val parent: BaseScope? = null) : Scope {
 	constructor(klass: KClass<out Any>, name: String, parent: BaseScope? = null) : this("${klass.qualifiedName}:$name", parent)
 	constructor(klass: KClass<out Any>, parent: BaseScope? = null) : this(klass.qualifiedName!!, parent)
 
@@ -29,6 +29,7 @@ open class BaseScope(final override val name: String, final val parent: BaseScop
 	 */
 	open fun dispose() {
 		isDisposed = true
+
 		disposalHooks.forEach { it() }
 	}
 }

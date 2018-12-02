@@ -18,4 +18,7 @@ package io.github.sof3.graphmine.entity
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Represents one of the appearances of an entity.
+ */
 interface ExternalView

@@ -19,14 +19,29 @@ package io.github.sof3.graphmine.entity
  */
 
 /**
+ * An entity is a mobile object that exists in a world
+ *
  * An entity follows the ICES structure:
  * - a set of Internal viewers that sees what the entity sees
  * - a set of Controllers that controls the behaviour of the entity
  * - a nullable External viewer that exposes the entity to other viewers
  */
 class Entity {
-	var internalViewers = mutableSetOf<InternalViewer>()
-	var controllers = mutableSetOf<EntityController>()
+	/**
+	 * The list of viewers that can view the world from the entity's perspective, i.e. using the entity as a camera
+	 */
+	val internalViewers = mutableSetOf<InternalViewer>()
+	/**
+	 * The list of objects that control the entity's motion and behaviour. They may gain or lose control on the entity,
+	 * or co-work with other controllers to control the entity.
+	 */
+	val controllers = mutableSetOf<EntityController>()
+	/**
+	 * The adapter that determines how this entity looks to other viewers, e.g. which model to look like.
+	 */
 	var externalViewer: ExternalViewer? = null
+	/**
+	 * Stores the entity-specific information. Can be directly written to or read from disk.
+	 */
 	var state: EntityState? = null
 }

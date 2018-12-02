@@ -24,6 +24,9 @@ import io.github.sof3.graphmine.i18n.I18n
  * Accepts output from a command.
  */
 interface CommandReceiver {
+	/**
+	 * Receives a message from the command output and presents it to the client
+	 */
 	fun receiveMessage(message: I18n)
 
 	// TODO add receiver-specific configurations here, similar to how tty detection works on Linux

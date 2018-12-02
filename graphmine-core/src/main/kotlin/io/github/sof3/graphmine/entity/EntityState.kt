@@ -1,5 +1,8 @@
 package io.github.sof3.graphmine.entity
 
+import io.github.sof3.graphmine.world.Location
+import io.github.sof3.graphmine.world.World
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,4 +21,9 @@ package io.github.sof3.graphmine.entity
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface EntityState
+/**
+ * Contains the savable data of an entity
+ */
+open class EntityState(var world: World) {
+	lateinit var location: Location
+}

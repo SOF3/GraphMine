@@ -22,6 +22,15 @@ import kotlin.reflect.KClass
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Defines the parameters of a command.
+ *
+ * Commands that have parameters should create classes extending Overload. The subclass should contain backing
+ * properties delegated to one of the [CommandArg] factory methods like [string], [integer], etc.
+ *
+ * If another module wants to implement its own [CommandArg] types, it can create extension functions on [Overload] that
+ * constructs the CommandArg, calls the [addArg] function and returns the new CommandArg instance.
+ */
 abstract class Overload {
 	internal val args = mutableListOf<CommandArg<*>>()
 
@@ -38,7 +47,7 @@ abstract class Overload {
 
 	fun rawText(): CommandArg<String> = addArg(RawTextArg())
 
-	private fun <T : Any> addArg(arg: CommandArg<T>): CommandArg<T> {
+	fun <T : Any> addArg(arg: CommandArg<T>): CommandArg<T> {
 		args += arg
 		return arg
 	}

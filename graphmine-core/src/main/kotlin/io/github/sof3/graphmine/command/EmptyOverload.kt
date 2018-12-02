@@ -18,4 +18,7 @@ package io.github.sof3.graphmine.command
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * An empty overload, reused for commands that do not require arguments.
+ */
 class EmptyOverload : Overload()

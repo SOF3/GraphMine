@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.command
+package io.github.sof3.graphmine.world
 
 /*
  * GraphMine
@@ -19,6 +19,7 @@ package io.github.sof3.graphmine.command
  */
 
 /**
- * Represents an object that sends the command.
+ * An adapter that intercepts between a world viewer and the actual world.
  */
-interface CommandSender
+interface WorldView {
+}

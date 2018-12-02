@@ -18,4 +18,8 @@ package io.github.sof3.graphmine.entity
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Events that an entity's view changes. This may be due to changes in entity external views, blocks in world views, or
+ * other reasons.
+ */
 interface EntityViewEvent

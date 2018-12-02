@@ -1,5 +1,7 @@
 package io.github.sof3.graphmine.entity
 
+import io.github.sof3.graphmine.world.WorldView
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,6 +20,13 @@ package io.github.sof3.graphmine.entity
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Provides an adapter that determines how this entity looks to other entities.
+ */
 interface ExternalViewer {
-	fun provideView() : ExternalView
+	/**
+	 *
+	 * @param worldView the world view that views the entity
+	 */
+	fun provideView(worldView: WorldView) : ExternalView
 }

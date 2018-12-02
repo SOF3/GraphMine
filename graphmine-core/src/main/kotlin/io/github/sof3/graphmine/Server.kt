@@ -1,7 +1,6 @@
 package io.github.sof3.graphmine
 
 import io.github.sof3.graphmine.config.CoreConfig
-import io.github.sof3.graphmine.feature.FeatureGraph
 import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.core.*
 import io.github.sof3.graphmine.scope.BaseScope
@@ -32,7 +31,9 @@ import org.apache.logging.log4j.Logger
  *
  * To prevent cyclic dependency, instead of passing the Server object around, pass the objects that will actually be used, e.g. the logger, the config, etc.
  *
+ * @property config the server config
  * @param initNano System.nanoTime() when the server start command was created
+ * @param myScope internal value, do not override
  */
 class Server(
 		/**
@@ -42,21 +43,16 @@ class Server(
 		initNano: Long = System.nanoTime(),
 
 		private val myScope: BaseScope = BaseScope(Server::class)
-): Scope by myScope {
+) : Scope by myScope {
 	/**
-	 * @return the logger used for the server scope. Plugins should use their own logger instead of this one.
+	 * the logger used for the server scope. Plugins should use their own logger instead of this one.
 	 */
 	val logger: Logger = LogManager.getLogger(Server::class.java)!!
 
 	/**
-	 * @return the default locale of the server.
+	 * the default locale of the server.
 	 */
 	val defaultLocale: String get() = config.language
-
-	/**
-	 * @return the feature graph of the server. "Events" should be handled via the feature graph.
-	 */
-	val features = FeatureGraph()
 
 	init {
 		loadCoreLang()
