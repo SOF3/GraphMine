@@ -12,22 +12,9 @@ This software is created only to demonstrate some of my understanding of large p
 No project is perfect, but I hope this one is going to *look* better than PocketMine.
 
 ## How to run the project?
-Development jar executables can be found in https://sof3.github.io/latestMaster.jar
+Development jar executables can be found in https://sof3.github.io/GraphMine/latestMaster.jar
 
 Oracle JDK 9 is not supported, but Oracle JDK 8 and OpenJDK 8 are both OK.
-
-## Development setup
-Checkout the project from IntelliJ IDEA directly. The .idea directory will have setup the project code styles, file templates, inspection profiles and gradle project paths.
-
-There are currently 5 subprojects:
-- graphmine-util: Utility code that are not directly related to GraphMine. This may be further broken down in the future.
-- graphmine-i18n: The i18n framework used by GraphMine. This may be made an independent project in the future.
-- graphmine-i18n-core: Declares the i18n strings required by GraphMine in the `main/kotlin` module and implements them in the `main/resources` module
-- graphmine-core: Main GraphMine code. All public classes and functions are stable API.
-- graphmine-cli: An executable project that wraps the core and exposes a user interface through standard I/O (command line interface for terminal users)
-
-There may be a 6th subproject in the future:
-- graphmine-gui: An executable project that wraps the core and exposes a user interface through Java Swing or JavaFX (graphical user interface for non-terminal users)
 
 #### Project dependency graph
 
