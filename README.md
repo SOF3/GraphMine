@@ -21,7 +21,7 @@ Checkout the project from IntelliJ IDEA directly. The .idea directory will have 
 
 There are currently 5 subprojects:
 - graphmine-util: Utility code that are not directly related to GraphMine. This may be further broken down in the future.
-- graphmine-i18n: The i18n framework uesd by GraphMine. This may be made an independent project in the future.
+- graphmine-i18n: The i18n framework used by GraphMine. This may be made an independent project in the future.
 - graphmine-i18n-core: Declares the i18n strings required by GraphMine in the `main/kotlin` module and implements them in the `main/resources` module
 - graphmine-core: Main GraphMine code. All public classes and functions are stable API.
 - graphmine-cli: An executable project that wraps the core and exposes a user interface through standard I/O (command line interface for terminal users)

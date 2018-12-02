@@ -1,18 +1,16 @@
-graphmine-i18n
-===
-
+# Module graphmine-i18n
 This module provides a kotlin-flavoured i18n (internationalization) framework.
 
-### Main Concepts
-#### Locale
+## Main Concepts
+### Locale
 A locale refers to a human language. It does not need to be an ISO-639 language code; the convention should be determined by the user of this module based on its context, as long as it can be represented in a simple `kotlin.String`.
 
-#### i18n
+### i18n
 An i18n object represents a text displayed differently given different locales. In code, it is represented with the `I18n` interface
 
 Logically, i18n is the conversion `(locale: String) -> (humanReadable: String)`
 
-#### Declaration
+### Declaration
 A declaration is the specification that a dynamic i18n is required by a module based on an argument of type `Arg`. This `Arg` type should either be `Unit` or a kotlin `data class`.
 
 Logically, a declaration has the conversions:
@@ -20,15 +18,15 @@ Logically, a declaration has the conversions:
 - `(arg: Arg, locale: String) -> (humanReadable: String)`
 - `(locale: Locale) -> Translation` (in the next section)
 
-#### Translation
+### Translation
 A translation is the specialization of a declaration in a particular locale. In code, it is represented with the lambda function `(arg: Arg) -> (humanReadable: String)`.
 
 Translations may perform any memoryless operations, i.e. given the same `Arg` and the same current timestamp, a translation should always return the same string.
 
-#### Path
+### Path
 A path is the unique identifier of a declaration within a module, composed of one or multiple valid JVM identifier (including those that require the `backtick` syntax in kotlin) strings. In code, a path is represented as an `Array<String>`.
 
-### Usage
+## Usage
 A module may require translations by declaring a LangSpec class:
 
 ```kotlin
@@ -97,3 +95,4 @@ val spec = loadLangScript<MySpecName>(listOf(
 One of the instances of `MySpecName` will be returned (it is undefined which one is returned). Whichever instance it returns, the API is the same: To retrieve the I18nable representation of a message `path.to.decl`, simply call `spec.path.to.decl.i18n()` (or `spec.path.to.decl.i18n(arg)` if it requires an argument).
 
 Note: Although a `LangSpec` object is created for every locale, the `.i18n` accessor works the same in any locale of `LangSpec`, so just take any `LangSpec` returned by the translation scripts.
+

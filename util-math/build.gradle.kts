@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -19,33 +21,20 @@
 plugins {
 	java
 	kotlin("jvm")
-	application
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
 dependencies {
-	implementation(project(":graphmine-core"))
-	implementation(kotlin("stdlib-jdk8"))
-	implementation("commons-cli", "commons-cli", "1.4")
-	implementation("commons-io", "commons-io", "2.6")
+    implementation(kotlin("stdlib-jdk8"))
+	implementation(kotlin("reflect"))
+	api(project(":graphmine-util"))
 	testImplementation(kotlin("test"))
 	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
 
-application {
-	mainClassName = "io.github.sof3.graphmine.cli.MainKt"
-}
-
-val fatJar = task("fatJar", type = Jar::class) {
-	baseName = "${project.name}-fat"
-	manifest {
-		attributes["Implementation-Title"] = "GraphMine"
-		attributes["Implementation-Version"] = version
-		attributes["Main-Class"] = "io.github.sof3.graphmine.cli.MainKt"
-	}
-	from(configurations.runtime.map { if (it.isDirectory) it else zipTree(it) })
-	with(tasks["jar"] as CopySpec)
+tasks.withType<KotlinCompile> {
+	kotlinOptions.freeCompilerArgs += "-XXLanguage:+InlineClasses"
 }

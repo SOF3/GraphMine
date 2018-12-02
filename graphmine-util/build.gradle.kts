@@ -1,8 +1,3 @@
-import java.nio.file.Files
-import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -23,17 +18,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	java
-	kotlin("jvm") version "1.3.0"
-	id("org.jetbrains.dokka")
+	kotlin("jvm")
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
-
-repositories {
-	jcenter()
-	maven(url = "https://dl.bintray.com/spekframework/spek-dev")
-}
 
 dependencies {
 	implementation(kotlin("stdlib-jdk8"))
@@ -42,43 +31,4 @@ dependencies {
 	testImplementation(kotlin("test"))
 	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
-}
-
-configure<JavaPluginConvention> {
-	sourceCompatibility = JavaVersion.VERSION_1_8
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		jvmTarget = "1.8"
-		freeCompilerArgs += "-XXLanguage:+InlineClasses"
-	}
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform {
-		includeEngines("spek2")
-	}
-	testLogging {
-		showStandardStreams = true
-		showExceptions = true
-		showCauses = true
-		showStackTraces = true
-		events(TestLogEvent.FAILED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
-	}
-}
-
-tasks.withType<DokkaTask> {
-	outputFormat = "jekyll"
-	outputDirectory = "$buildDir/javadoc"
-
-	Files.walk(File(project.projectDir, "src/main/kotlin/io/github/sof3/graphmine").toPath())
-			.filter { it.toFile().isDirectory }
-			.map { it.resolve("package.md").toFile() }
-			.filter { it.isFile }
-			.forEach { includes += it.absolutePath }
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions.jvmTarget = "1.8"
 }

@@ -19,12 +19,11 @@ after_script:
 - cd $TRAVIS_BUILD_DIR && ./gradlew codeCoverageReport
 - bash <(curl -s https://codecov.io/bash)
 before_deploy:
-- ./gradlew graphmine-cli:fatJar graphmine-core:dokka graphmine-util:dokka generateDependencyGraph
+- ./gradlew graphmine-cli:fatJar dokka generateDependencyGraph
 - wget -O ../gh-pages.tar.gz https://github.com/SOF3/GraphMine/archive/gh-pages.tar.gz
 - tar xzf ../gh-pages.tar.gz -C ..
 - cd ../GraphMine-gh-pages && rm -r api && mkdir api
-- cp -r $TRAVIS_BUILD_DIR/graphmine-core/build/javadoc/graphmine-core api/graphmine-core
-- cp -r $TRAVIS_BUILD_DIR/graphmine-util/build/javadoc/graphmine-util api/graphmine-util
+- cp -r $TRAVIS_BUILD_DIR/*/build/javadoc/* api
 - cp $TRAVIS_BUILD_DIR/build/reports/dependency-graph/dependency-graph.png depGraph.png
 - cp $TRAVIS_BUILD_DIR/graphmine-cli/build/libs/graphmine-cli-fat-*.jar latestMaster.jar
 deploy:

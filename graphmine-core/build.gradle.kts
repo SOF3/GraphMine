@@ -1,12 +1,8 @@
-import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.jetbrains.dokka.gradle.DokkaTask
 import java.io.File
 import java.io.FileWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Properties
-import java.nio.file.Files
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /*
  * GraphMine
@@ -28,20 +24,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	java
-	kotlin("jvm") version "1.3.0"
-	id("org.jetbrains.dokka")
+	kotlin("jvm")
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
-repositories {
-	jcenter()
-	maven(url = "https://dl.bintray.com/spekframework/spek-dev")
-}
-
 dependencies {
 	api(project(":graphmine-util"))
+	api(project(":util-math"))
 	api(project(":graphmine-i18n"))
 	api(project(":graphmine-i18n-core"))
 	api("org.apache.logging.log4j", "log4j-api", "2.11.1")
@@ -56,40 +47,6 @@ dependencies {
 	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
-
-configure<JavaPluginConvention> {
-	sourceCompatibility = JavaVersion.VERSION_1_8
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		jvmTarget = "1.8"
-	}
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
-	testLogging {
-		showStandardStreams = true
-		events(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
-	}
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions.jvmTarget = "1.8"
-}
-
-tasks.withType<DokkaTask> {
-	outputFormat = "jekyll"
-	outputDirectory = "$buildDir/javadoc"
-
-	Files.walk(File(project.projectDir, "src/main/kotlin/io/github/sof3/graphmine").toPath())
-			.filter { it.toFile().isDirectory }
-			.map { it.resolve("package.md").toFile() }
-			.filter { it.isFile }
-			.forEach { includes += it.absolutePath }
-}
-
 
 open class CreateVersionProperties : DefaultTask() {
 	@TaskAction

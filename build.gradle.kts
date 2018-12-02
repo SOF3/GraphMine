@@ -1,11 +1,15 @@
 import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorExtension
-import org.gradle.internal.impldep.org.testng.reporters.XMLUtils.xml
-import org.gradle.testing.jacoco.tasks.JacocoReport
-import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorPlugin
 import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorExtension.Generator
+import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorPlugin
 import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorTask
 import guru.nidi.graphviz.attribute.Color
 import guru.nidi.graphviz.attribute.Style
+import java.nio.file.Files
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.internal.impldep.org.testng.reporters.XMLUtils.xml
+import org.gradle.testing.jacoco.tasks.JacocoReport
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.dokka.gradle.DokkaTask
 
 /*
  * GraphMine
@@ -31,7 +35,6 @@ version = "1.0.0-SNAPSHOT"
 buildscript {
 	repositories {
 		jcenter()
-		mavenCentral()
 	}
 	dependencies {
 		classpath("org.jetbrains.dokka:dokka-gradle-plugin:0.9.17")
@@ -40,6 +43,8 @@ buildscript {
 }
 
 plugins {
+	java
+	kotlin("jvm") version "1.3.0"
 	jacoco
 	id("com.vanniktech.dependency.graph.generator") version "0.5.0"
 }
@@ -51,8 +56,39 @@ allprojects {
 }
 
 subprojects {
+	apply(plugin = "org.jetbrains.dokka")
+
 	repositories {
-		jcenter()
+		maven(url = "https://dl.bintray.com/spekframework/spek-dev")
+	}
+
+	tasks.withType<KotlinCompile> {
+		kotlinOptions.jvmTarget = "1.8"
+	}
+
+	tasks.withType<Test> {
+		useJUnitPlatform {
+			includeEngines("spek2")
+		}
+		testLogging {
+			showStandardStreams = true
+			showExceptions = true
+			showCauses = true
+			showStackTraces = true
+			events(TestLogEvent.FAILED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
+		}
+	}
+
+	tasks.withType<DokkaTask> {
+		outputFormat = "jekyll"
+		outputDirectory = "$buildDir/javadoc"
+
+		File(project.projectDir, "module.md").takeIf { it.isFile }?.let { includes += it }
+		Files.walk(File(project.projectDir, "src").toPath())
+				.filter { it.toFile().isDirectory }
+				.map { it.resolve("package.md").toFile() }
+				.filter { it.isFile }
+				.forEach { includes += it.absolutePath }
 	}
 }
 

@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -20,26 +18,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	java
-	kotlin("jvm") version "1.3.0"
+	kotlin("jvm")
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
-repositories {
-	jcenter()
-}
-
 dependencies {
-	implementation(project(":graphmine-util"))
+	api(project(":graphmine-util"))
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("script-runtime"))
 	implementation(kotlin("script-util"))
-}
-
-configure<JavaPluginConvention> {
-	sourceCompatibility = JavaVersion.VERSION_1_8
-}
-tasks.withType<KotlinCompile> {
-	kotlinOptions.jvmTarget = "1.8"
 }

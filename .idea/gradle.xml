@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/graphmine-i18n" />
             <option value="$PROJECT_DIR$/graphmine-i18n-core" />
             <option value="$PROJECT_DIR$/graphmine-util" />
+            <option value="$PROJECT_DIR$/util-math" />
           </set>
         </option>
       </GradleProjectSettings>
