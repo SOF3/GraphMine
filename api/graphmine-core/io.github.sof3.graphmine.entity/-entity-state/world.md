@@ -7,3 +7,13 @@ title: EntityState.world - graphmine-core
 # world
 
 `var world: `[`World`](../../io.github.sof3.graphmine.world/-world.html)
+
+the world that the entity belongs to
+
+### Property
+
+`world` - the world that the entity belongs to
+
+### Parameters
+
+`vector` - the entity's initial position

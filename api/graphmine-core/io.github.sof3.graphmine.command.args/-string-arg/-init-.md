@@ -7,3 +7,6 @@ title: StringArg.<init> - graphmine-core
 # &lt;init&gt;
 
 `StringArg()`
+
+Accepts the next value in the line. Multi-word arguments can be quoted by `""` or their spaces escaped by `\` before.
+

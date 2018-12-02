@@ -6,13 +6,16 @@ title: ConfigEntryDelegate - graphmine-core
 
 # ConfigEntryDelegate
 
-`interface ConfigEntryDelegate<T> : `[`ReadWriteProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-write-property/index.html)`<`[`ConfigSpec`](../-config-spec/index.html)`, `[`T`](index.html#T)`>`
+`class ConfigEntryDelegate<T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> : `[`ReadWriteProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-write-property/index.html)`<`[`ConfigSpec`](../-config-spec/index.html)`, `[`T`](index.html#T)`>`
 
-### Properties
+The delegate class to a config entry
 
-| [set](set.html) | `abstract val set: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+**See Also**
 
-### Inheritors
+[ConfigSpec.entry](../-config-spec/entry.html)
 
-| [SimpleConfigEntryDelegate](../-simple-config-entry-delegate/index.html) | `class SimpleConfigEntryDelegate<T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> : `[`ConfigEntryDelegate`](./index.html)`<`[`T`](../-simple-config-entry-delegate/index.html#T)`>` |
+### Functions
+
+| [getValue](get-value.html) | `operator fun getValue(thisRef: `[`ConfigSpec`](../-config-spec/index.html)`, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>): `[`T`](index.html#T) |
+| [setValue](set-value.html) | `operator fun setValue(thisRef: `[`ConfigSpec`](../-config-spec/index.html)`, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>, value: `[`T`](index.html#T)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

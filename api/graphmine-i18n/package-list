@@ -1,0 +1,4 @@
+$dokka.format:jekyll
+$dokka.linkExtension:html
+$dokka.location:io.github.sof3.graphmine.i18n$i18n#kotlin.Stringio.github.sof3.graphmine.i18n/kotlin.-string/i18n.html
+io.github.sof3.graphmine.i18n

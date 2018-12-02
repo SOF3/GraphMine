@@ -13,6 +13,9 @@ This class represents a command type. Each instance of Command should represent 
 Subclasses must initialize the [name](name.html) property.
 
 ``` kotlin
+/**
+ * Implements the /version command
+ */
 object VersionCommand : Command<Server>({
 	name = "graphmine.version".qualify()
 	aliases += "v"
@@ -38,7 +41,7 @@ object VersionCommand : Command<Server>({
 | [aliases](aliases.html) | `var aliases: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The list of aliases |
 | [description](description.html) | `var description: I18n`<br>The description of the command, shown in action lists like /help. |
 | [name](name.html) | `lateinit var name: Qualifier`<br>The qualified name of the command. |
-| [scope](scope.html) | `lateinit var scope: `[`C`](index.html#C) |
+| [scope](scope.html) | `lateinit var scope: `[`C`](index.html#C)<br>The scope that owns the command |
 
 ### Functions
 
@@ -47,5 +50,5 @@ object VersionCommand : Command<Server>({
 
 ### Inheritors
 
-| [VersionCommand](../../io.github.sof3.graphmine.command.impl/-version-command.html) | `object VersionCommand : `[`Command`](./index.html)`<`[`Server`](../../io.github.sof3.graphmine/-server/index.html)`>` |
+| [VersionCommand](../../io.github.sof3.graphmine.command.impl/-version-command.html) | `object VersionCommand : `[`Command`](./index.html)`<`[`Server`](../../io.github.sof3.graphmine/-server/index.html)`>`<br>Implements the /version command |
 

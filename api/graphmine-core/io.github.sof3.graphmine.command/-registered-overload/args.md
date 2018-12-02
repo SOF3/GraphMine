@@ -7,3 +7,6 @@ title: RegisteredOverload.args - graphmine-core
 # args
 
 `val args: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<*>>`
+
+The arguments applicable to this overload
+

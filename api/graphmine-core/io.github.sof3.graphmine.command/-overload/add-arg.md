@@ -7,3 +7,6 @@ title: Overload.addArg - graphmine-core
 # addArg
 
 `fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> addArg(arg: `[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<`[`T`](add-arg.html#T)`>): `[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<`[`T`](add-arg.html#T)`>`
+
+CommandArg factory extension functions must call this function before returning the argument
+

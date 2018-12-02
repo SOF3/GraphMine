@@ -7,3 +7,10 @@ title: CoreConfig.server - graphmine-core
 # server
 
 `val server: `[`ServerConfig`](../-server-config/index.html)
+
+Settings for the server
+
+**Getter**
+
+Settings for the server
+

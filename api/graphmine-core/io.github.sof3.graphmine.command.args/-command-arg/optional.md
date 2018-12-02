@@ -7,3 +7,6 @@ title: CommandArg.optional - graphmine-core
 # optional
 
 `var optional: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+
+Whether the command arg can be skipped
+

@@ -7,3 +7,6 @@ title: ClientArg.<init> - graphmine-core
 # &lt;init&gt;
 
 `ClientArg()`
+
+Accepts a client name
+

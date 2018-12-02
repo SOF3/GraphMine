@@ -9,7 +9,7 @@ title: io.github.sof3.graphmine.entity - graphmine-core
 ### Types
 
 | [Entity](-entity/index.html) | `class Entity`<br>An entity is a mobile object that exists in a world |
-| [EntityController](-entity-controller/index.html) | `interface EntityController` |
+| [EntityController](-entity-controller/index.html) | `interface EntityController`<br>Controls the actions of an entity. |
 | [EntityState](-entity-state/index.html) | `open class EntityState`<br>Contains the savable data of an entity |
 | [EntityViewEvent](-entity-view-event.html) | `interface EntityViewEvent`<br>Events that an entity's view changes. This may be due to changes in entity external views, blocks in world views, or other reasons. |
 | [ExternalView](-external-view.html) | `interface ExternalView`<br>Represents one of the appearances of an entity. |

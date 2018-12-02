@@ -7,3 +7,6 @@ title: Command.scope - graphmine-core
 # scope
 
 `lateinit var scope: `[`C`](index.html#C)
+
+The scope that owns the command
+

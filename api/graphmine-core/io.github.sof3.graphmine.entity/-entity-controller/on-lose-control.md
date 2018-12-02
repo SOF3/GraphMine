@@ -7,3 +7,6 @@ title: EntityController.onLoseControl - graphmine-core
 # onLoseControl
 
 `abstract fun onLoseControl(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Invoked when the controller is removed from the entity
+

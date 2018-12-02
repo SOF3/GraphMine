@@ -16,7 +16,7 @@ A factory that creates a new instance of a known command overload for each comma
 
 ### Properties
 
-| [args](args.html) | `val args: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<*>>` |
+| [args](args.html) | `val args: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<*>>`<br>The arguments applicable to this overload |
 | [i18n](i18n.html) | `val i18n: I18n` |
 
 ### Functions

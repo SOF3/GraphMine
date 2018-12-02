@@ -7,3 +7,14 @@ title: CoreConfig.language - graphmine-core
 # language
 
 `var language: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+
+The default language to use
+
+**Getter**
+
+The default language to use
+
+**Setter**
+
+The default language to use
+

@@ -7,3 +7,6 @@ title: NumberArg.<init> - graphmine-core
 # &lt;init&gt;
 
 `NumberArg()`
+
+Accepts any finite real-numeric arguments.
+

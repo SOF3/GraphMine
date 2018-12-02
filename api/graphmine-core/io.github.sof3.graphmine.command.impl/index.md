@@ -10,5 +10,5 @@ This package implements the default commands in GraphMine. Except for [VersionCo
 
 ### Types
 
-| [VersionCommand](-version-command.html) | `object VersionCommand : `[`Command`](../io.github.sof3.graphmine.command/-command/index.html)`<`[`Server`](../io.github.sof3.graphmine/-server/index.html)`>` |
+| [VersionCommand](-version-command.html) | `object VersionCommand : `[`Command`](../io.github.sof3.graphmine.command/-command/index.html)`<`[`Server`](../io.github.sof3.graphmine/-server/index.html)`>`<br>Implements the /version command |
 

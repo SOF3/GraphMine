@@ -4,6 +4,8 @@ title: graphmine-core
 
 [graphmine-core](./index.html)
 
+Main GraphMine code. All public classes and functions are stable API.
+
 ### Packages
 
 | [io.github.sof3.graphmine](io.github.sof3.graphmine/index.html) |  |

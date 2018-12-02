@@ -7,3 +7,6 @@ title: IntegerArg.<init> - graphmine-core
 # &lt;init&gt;
 
 `IntegerArg()`
+
+Accepts integer arguments.
+

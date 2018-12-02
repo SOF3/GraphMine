@@ -7,3 +7,6 @@ title: EnumArg.<init> - graphmine-core
 # &lt;init&gt;
 
 `EnumArg(enumClass: `[`KClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)`<`[`E`](index.html#E)`>)`
+
+Accepts a value that names one of the constants in the enum class
+

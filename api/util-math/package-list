@@ -1,0 +1,4 @@
+$dokka.format:jekyll
+$dokka.linkExtension:html
+$dokka.location:io.github.sof3.graphmine.util.math$pow10(kotlin.Int)io.github.sof3.graphmine.util.math/kotlin.-int/pow10.html
+io.github.sof3.graphmine.util.math

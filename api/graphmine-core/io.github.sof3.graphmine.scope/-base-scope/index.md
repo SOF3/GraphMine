@@ -18,8 +18,8 @@ Basic implementation of BaseScope
 
 | [coroutineContext](coroutine-context.html) | `open val coroutineContext: `[`CoroutineContext`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/index.html) |
 | [isDisposed](is-disposed.html) | `open var isDisposed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>whether the scope has been disposed |
-| [name](name.html) | `val name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [parent](parent.html) | `val parent: `[`BaseScope`](./index.html)`?` |
+| [name](name.html) | `val name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>the scope name |
+| [parent](parent.html) | `val parent: `[`BaseScope`](./index.html)`?`<br>the parent scope (if any) |
 
 ### Functions
 

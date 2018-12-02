@@ -83,9 +83,7 @@ $dokka.location:io.github.sof3.graphmine.util$mapShortArray(kotlin.IntArray, kot
 $dokka.location:io.github.sof3.graphmine.util$mapShortArray(kotlin.LongArray, kotlin.Function1((kotlin.Long, kotlin.Short)))io.github.sof3.graphmine.util/kotlin.-long-array/map-short-array.html
 $dokka.location:io.github.sof3.graphmine.util$mapShortArray(kotlin.ShortArray, kotlin.Function1((kotlin.Short, )))io.github.sof3.graphmine.util/kotlin.-short-array/map-short-array.html
 $dokka.location:io.github.sof3.graphmine.util$mapToArray(kotlin.Array((io.github.sof3.graphmine.util.mapToArray.T)), kotlin.Function1((io.github.sof3.graphmine.util.mapToArray.T, io.github.sof3.graphmine.util.mapToArray.R)))io.github.sof3.graphmine.util/kotlin.-array/map-to-array.html
-$dokka.location:io.github.sof3.graphmine.util.math$pow10(kotlin.Int)io.github.sof3.graphmine.util.math/kotlin.-int/pow10.html
 $dokka.location:io.github.sof3.graphmine.util.qualifier$qualify(kotlin.String)io.github.sof3.graphmine.util.qualifier/kotlin.-string/qualify.html
 io.github.sof3.graphmine.util
-io.github.sof3.graphmine.util.math
 io.github.sof3.graphmine.util.qualifier
 io.github.sof3.graphmine.util.string

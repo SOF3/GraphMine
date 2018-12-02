@@ -7,3 +7,8 @@ title: Overload.rawText - graphmine-core
 # rawText
 
 `fun rawText(): `[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`
+
+**See Also**
+
+[RawTextArg](../../io.github.sof3.graphmine.command.args/-raw-text-arg/index.html)
+

@@ -10,3 +10,6 @@ title: CommandExecutor.scope - graphmine-core
 
 the scope that owns the command
 
+### Property
+
+`scope` - the scope that owns the command

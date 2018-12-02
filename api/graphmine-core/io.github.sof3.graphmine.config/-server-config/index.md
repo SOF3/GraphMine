@@ -8,20 +8,16 @@ title: ServerConfig - graphmine-core
 
 `class ServerConfig : `[`ConfigGroupSpec`](../-config-group-spec/index.html)`<`[`ServerConfig`](./index.html)`>`
 
+Settings for the server
+
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `ServerConfig()` |
+| [&lt;init&gt;](-init-.html) | `ServerConfig()`<br>Settings for the server |
 
 ### Properties
 
-| [ip](ip.html) | `var ip: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [port](port.html) | `var port: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
-
-### Inherited Properties
-
-| [groupName](../-config-group-spec/group-name.html) | `lateinit var groupName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [parent](../-config-group-spec/parent.html) | `lateinit var parent: `[`ConfigSpec`](../-config-spec/index.html) |
-| [path](../-config-group-spec/path.html) | `open val path: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
+| [ip](ip.html) | `var ip: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>The IP to listen on |
+| [port](port.html) | `var port: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The port to listen on |
 
 ### Inherited Functions
 

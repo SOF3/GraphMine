@@ -7,3 +7,8 @@ title: Overload.integer - graphmine-core
 # integer
 
 `fun integer(): `[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>`
+
+**See Also**
+
+[IntegerArg](../../io.github.sof3.graphmine.command.args/-integer-arg/index.html)
+

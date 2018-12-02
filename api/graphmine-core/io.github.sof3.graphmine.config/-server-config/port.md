@@ -7,3 +7,14 @@ title: ServerConfig.port - graphmine-core
 # port
 
 `var port: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+The port to listen on
+
+**Getter**
+
+The port to listen on
+
+**Setter**
+
+The port to listen on
+

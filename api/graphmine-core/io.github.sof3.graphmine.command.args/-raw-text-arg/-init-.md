@@ -7,3 +7,6 @@ title: RawTextArg.<init> - graphmine-core
 # &lt;init&gt;
 
 `RawTextArg()`
+
+Accepts the rest of the whole line literally
+

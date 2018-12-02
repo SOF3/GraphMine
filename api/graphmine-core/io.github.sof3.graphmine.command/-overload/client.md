@@ -7,3 +7,8 @@ title: Overload.client - graphmine-core
 # client
 
 `fun client(): `[`CommandArg`](../../io.github.sof3.graphmine.command.args/-command-arg/index.html)`<`[`Client`](../../io.github.sof3.graphmine.client/-client/index.html)`>`
+
+**See Also**
+
+[ClientArg](../../io.github.sof3.graphmine.command.args/-client-arg/index.html)
+

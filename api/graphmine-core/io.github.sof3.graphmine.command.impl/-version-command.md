@@ -8,12 +8,14 @@ title: VersionCommand - graphmine-core
 
 `object VersionCommand : `[`Command`](../io.github.sof3.graphmine.command/-command/index.html)`<`[`Server`](../io.github.sof3.graphmine/-server/index.html)`>`
 
+Implements the /version command
+
 ### Inherited Properties
 
 | [aliases](../io.github.sof3.graphmine.command/-command/aliases.html) | `var aliases: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The list of aliases |
 | [description](../io.github.sof3.graphmine.command/-command/description.html) | `var description: I18n`<br>The description of the command, shown in action lists like /help. |
 | [name](../io.github.sof3.graphmine.command/-command/name.html) | `lateinit var name: Qualifier`<br>The qualified name of the command. |
-| [scope](../io.github.sof3.graphmine.command/-command/scope.html) | `lateinit var scope: `[`C`](../io.github.sof3.graphmine.command/-command/index.html#C) |
+| [scope](../io.github.sof3.graphmine.command/-command/scope.html) | `lateinit var scope: `[`C`](../io.github.sof3.graphmine.command/-command/index.html#C)<br>The scope that owns the command |
 
 ### Inherited Functions
 

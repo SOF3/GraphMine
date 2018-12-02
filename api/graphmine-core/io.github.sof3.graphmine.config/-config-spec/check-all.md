@@ -7,3 +7,11 @@ title: ConfigSpec.checkAll - graphmine-core
 # checkAll
 
 `fun checkAll(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Validates the whole config
+
+### Exceptions
+
+`ConfigMissingException` - if a config value is not set
+
+`ConfigValidationException` - if a config value is invalid

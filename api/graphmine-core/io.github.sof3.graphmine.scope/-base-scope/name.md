@@ -10,3 +10,8 @@ title: BaseScope.name - graphmine-core
 
 Overrides [Scope.name](../-scope/name.html)
 
+the scope name
+
+### Property
+
+`name` - the scope name

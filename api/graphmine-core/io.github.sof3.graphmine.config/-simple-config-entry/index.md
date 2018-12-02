@@ -8,7 +8,11 @@ title: SimpleConfigEntry - graphmine-core
 
 `class SimpleConfigEntry<T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`>`
 
+**See Also**
+
+[ConfigSpec.entry](../-config-spec/entry.html)
+
 ### Functions
 
-| [provideDelegate](provide-delegate.html) | `operator fun provideDelegate(thisRef: `[`ConfigSpec`](../-config-spec/index.html)`, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>): `[`SimpleConfigEntryDelegate`](../-simple-config-entry-delegate/index.html)`<`[`T`](index.html#T)`>` |
+| [provideDelegate](provide-delegate.html) | `operator fun provideDelegate(thisRef: `[`ConfigSpec`](../-config-spec/index.html)`, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>): `[`ConfigEntryDelegate`](../-config-entry-delegate/index.html)`<`[`T`](index.html#T)`>` |
 

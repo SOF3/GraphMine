@@ -7,3 +7,6 @@ title: ServerConfig.<init> - graphmine-core
 # &lt;init&gt;
 
 `ServerConfig()`
+
+Settings for the server
+

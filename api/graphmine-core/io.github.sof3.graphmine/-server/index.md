@@ -6,7 +6,7 @@ title: Server - graphmine-core
 
 # Server
 
-`class Server : `[`Scope`](../../io.github.sof3.graphmine.scope/-scope/index.html)
+`class Server : `[`Scope`](../../io.github.sof3.graphmine.scope/-scope/index.html)`, `[`HasLogger`](../-has-logger/index.html)
 
 The Server should be the object that links up different components of the server.
 
@@ -19,6 +19,14 @@ To prevent cyclic dependency, instead of passing the Server object around, pass 
 ### Properties
 
 | [config](config.html) | `val config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html) |
-| [defaultLocale](default-locale.html) | `val defaultLocale: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>the default locale of the server. |
+| [locale](locale.html) | `val locale: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>the default locale of the server. |
 | [logger](logger.html) | `val logger: Logger`<br>the logger used for the server scope. Plugins should use their own logger instead of this one. |
+
+### Inherited Functions
+
+| [debug](../-has-logger/debug.html) | `open fun debug(i18n: I18n): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Logs a DEBUG-level message |
+| [error](../-has-logger/error.html) | `open fun error(i18n: I18n): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Logs a ERROR-level message |
+| [fatal](../-has-logger/fatal.html) | `open fun fatal(i18n: I18n): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Logs a FATAL-level message |
+| [info](../-has-logger/info.html) | `open fun info(i18n: I18n): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Logs a INFO-level message |
+| [warn](../-has-logger/warn.html) | `open fun warn(i18n: I18n): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Logs a WARN-level message |
 

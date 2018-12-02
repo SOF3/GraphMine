@@ -7,3 +7,9 @@ title: BaseScope.parent - graphmine-core
 # parent
 
 `val parent: `[`BaseScope`](index.html)`?`
+
+the parent scope (if any)
+
+### Property
+
+`parent` - the parent scope (if any)

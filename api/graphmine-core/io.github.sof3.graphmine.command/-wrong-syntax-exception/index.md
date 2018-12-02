@@ -14,8 +14,6 @@ Thrown when a command with wrong syntax is sent.
 
 `name` - command name
 
-### Param
-
 `syntax` - list of syntax possible for this command
 
 ### Constructors

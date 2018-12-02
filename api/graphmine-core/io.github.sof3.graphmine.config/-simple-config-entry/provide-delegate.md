@@ -6,4 +6,4 @@ title: SimpleConfigEntry.provideDelegate - graphmine-core
 
 # provideDelegate
 
-`operator fun provideDelegate(thisRef: `[`ConfigSpec`](../-config-spec/index.html)`, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>): `[`SimpleConfigEntryDelegate`](../-simple-config-entry-delegate/index.html)`<`[`T`](index.html#T)`>`
+`operator fun provideDelegate(thisRef: `[`ConfigSpec`](../-config-spec/index.html)`, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>): `[`ConfigEntryDelegate`](../-config-entry-delegate/index.html)`<`[`T`](index.html#T)`>`

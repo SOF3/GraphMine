@@ -7,3 +7,6 @@ title: ConfigSpec.GroupDelegate.provideDelegate - graphmine-core
 # provideDelegate
 
 `operator fun provideDelegate(thisRef: `[`ConfigSpec`](../index.html)`, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>): Ref<`[`G`](index.html#G)`>`
+
+Provides delegation to the backing group.
+

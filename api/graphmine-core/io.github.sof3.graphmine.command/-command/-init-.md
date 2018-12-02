@@ -13,6 +13,9 @@ This class represents a command type. Each instance of Command should represent 
 Subclasses must initialize the [name](name.html) property.
 
 ``` kotlin
+/**
+ * Implements the /version command
+ */
 object VersionCommand : Command<Server>({
 	name = "graphmine.version".qualify()
 	aliases += "v"

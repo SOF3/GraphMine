@@ -6,7 +6,7 @@ title: EntityState.<init> - graphmine-core
 
 # &lt;init&gt;
 
-`EntityState(world: `[`World`](../../io.github.sof3.graphmine.world/-world.html)`)`
+`EntityState(world: `[`World`](../../io.github.sof3.graphmine.world/-world.html)`, vector: Vector3)`
 
 Contains the savable data of an entity
 

@@ -7,3 +7,6 @@ title: ConfigSpec.<init> - graphmine-core
 # &lt;init&gt;
 
 `ConfigSpec()`
+
+Superclass for type specifications of .kts config files
+

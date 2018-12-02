@@ -33,5 +33,5 @@ A scope is also a coroutine scope. Coroutines may be started from the scope.
 ### Inheritors
 
 | [BaseScope](../-base-scope/index.html) | `open class BaseScope : `[`Scope`](./index.html)<br>Basic implementation of BaseScope |
-| [Server](../../io.github.sof3.graphmine/-server/index.html) | `class Server : `[`Scope`](./index.html)<br>The Server should be the object that links up different components of the server. |
+| [Server](../../io.github.sof3.graphmine/-server/index.html) | `class Server : `[`Scope`](./index.html)`, `[`HasLogger`](../../io.github.sof3.graphmine/-has-logger/index.html)<br>The Server should be the object that links up different components of the server. |
 

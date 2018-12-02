@@ -6,4 +6,15 @@ title: ConfigSpec.GroupDelegate.<init> - graphmine-core
 
 # &lt;init&gt;
 
-`GroupDelegate(g: `[`G`](index.html#G)`)`
+`GroupDelegate(group: `[`G`](index.html#G)`)`
+
+Used in property delegation. Config groups are included in the parent group by property delegation.
+
+### Parameters
+
+`G` - the actual group spec class
+
+**See Also**
+
+[ConfigSpec.group](../group.html)
+

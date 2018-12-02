@@ -7,3 +7,6 @@ title: EntityController.onGainControl - graphmine-core
 # onGainControl
 
 `abstract fun onGainControl(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Invoked when the controller is added to the entity
+

@@ -7,3 +7,6 @@ title: CommandArg.value - graphmine-core
 # value
 
 `lateinit var value: `[`T`](index.html#T)
+
+The received value of the argument
+

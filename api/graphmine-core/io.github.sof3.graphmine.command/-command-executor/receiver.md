@@ -10,3 +10,6 @@ title: CommandExecutor.receiver - graphmine-core
 
 the object to send command output into
 
+### Property
+
+`receiver` - the object to send command output into

@@ -10,3 +10,6 @@ title: CommandExecutor.sender - graphmine-core
 
 the sender that sent the command
 
+### Property
+
+`sender` - the sender that sent the command
