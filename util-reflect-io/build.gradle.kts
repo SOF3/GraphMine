@@ -19,22 +19,18 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
  */
 
 plugins {
-	java
-	kotlin("jvm")
+    java
+    kotlin("jvm")
 }
 
 group = "io.github.sof3.graphmine"
 version = "1.0.0-SNAPSHOT"
 
 dependencies {
-	implementation(kotlin("stdlib-jdk8"))
-	implementation(kotlin("reflect"))
-	api(project(":graphmine-util"))
-	testImplementation(kotlin("test"))
-	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
-	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions.freeCompilerArgs += "-XXLanguage:+InlineClasses"
+    api(project(":graphmine-util"))
+    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
+    testImplementation(kotlin("test"))
+    testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
+    testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")
 }
