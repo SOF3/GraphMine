@@ -16,4 +16,5 @@ title: io.github.sof3.graphmine.world - graphmine-core
 | [World](-world.html) | `interface World`<br>Each world has its set of 3D space. Usually, this is implemented as one saved map, but plugins may create virtual worlds, remote worlds or anything that features the characteristics as required by the interface. |
 | [WorldPartition](-world-partition.html) | `interface WorldPartition`<br>Represents a partition of a World. World partitioning is controlled by the server based on WorldUser activity. |
 | [WorldUser](-world-user.html) | `interface WorldUser`<br>Represents a user of a world that holds resources from being freed. |
+| [WorldView](-world-view.html) | `interface WorldView`<br>An adapter that intercepts between a world viewer and the actual world. |
 

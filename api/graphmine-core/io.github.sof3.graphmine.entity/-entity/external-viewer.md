@@ -7,3 +7,6 @@ title: Entity.externalViewer - graphmine-core
 # externalViewer
 
 `var externalViewer: `[`ExternalViewer`](../-external-viewer/index.html)`?`
+
+The adapter that determines how this entity looks to other viewers, e.g. which model to look like.
+

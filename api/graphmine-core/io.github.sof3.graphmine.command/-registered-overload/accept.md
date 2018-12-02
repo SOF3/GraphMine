@@ -7,3 +7,6 @@ title: RegisteredOverload.accept - graphmine-core
 # accept
 
 `fun accept(parser: FormattedStringReader): `[`Overload`](../-overload/index.html)`?`
+
+Accepts a command and tries to parse it.
+

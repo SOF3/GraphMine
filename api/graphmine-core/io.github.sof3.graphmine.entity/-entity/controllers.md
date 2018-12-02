@@ -6,4 +6,8 @@ title: Entity.controllers - graphmine-core
 
 # controllers
 
-`var controllers: `[`MutableSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html)`<`[`EntityController`](../-entity-controller/index.html)`>`
+`val controllers: `[`MutableSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html)`<`[`EntityController`](../-entity-controller/index.html)`>`
+
+The list of objects that control the entity's motion and behaviour. They may gain or lose control on the entity,
+or co-work with other controllers to control the entity.
+

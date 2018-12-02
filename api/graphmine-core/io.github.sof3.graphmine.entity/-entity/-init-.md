@@ -8,6 +8,8 @@ title: Entity.<init> - graphmine-core
 
 `Entity()`
 
+An entity is a mobile object that exists in a world
+
 An entity follows the ICES structure:
 
 * a set of Internal viewers that sees what the entity sees

@@ -7,3 +7,6 @@ title: ExternalView - graphmine-core
 # ExternalView
 
 `interface ExternalView`
+
+Represents one of the appearances of an entity.
+

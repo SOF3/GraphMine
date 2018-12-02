@@ -6,4 +6,7 @@ title: Entity.state - graphmine-core
 
 # state
 
-`var state: `[`EntityState`](../-entity-state.html)`?`
+`var state: `[`EntityState`](../-entity-state/index.html)`?`
+
+Stores the entity-specific information. Can be directly written to or read from disk.
+

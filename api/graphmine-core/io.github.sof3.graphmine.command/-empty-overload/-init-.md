@@ -7,3 +7,6 @@ title: EmptyOverload.<init> - graphmine-core
 # &lt;init&gt;
 
 `EmptyOverload()`
+
+An empty overload, reused for commands that do not require arguments.
+

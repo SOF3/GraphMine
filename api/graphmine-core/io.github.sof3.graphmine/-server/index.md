@@ -12,10 +12,6 @@ The Server should be the object that links up different components of the server
 
 To prevent cyclic dependency, instead of passing the Server object around, pass the objects that will actually be used, e.g. the logger, the config, etc.
 
-### Parameters
-
-`initNano` - System.nanoTime() when the server start command was created
-
 ### Constructors
 
 | [&lt;init&gt;](-init-.html) | `Server(config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)`, initNano: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)` = System.nanoTime(), myScope: `[`BaseScope`](../../io.github.sof3.graphmine.scope/-base-scope/index.html)` = BaseScope(Server::class))`<br>The Server should be the object that links up different components of the server. |
@@ -23,7 +19,6 @@ To prevent cyclic dependency, instead of passing the Server object around, pass 
 ### Properties
 
 | [config](config.html) | `val config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html) |
-| [defaultLocale](default-locale.html) | `val defaultLocale: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [features](features.html) | `val features: `[`FeatureGraph`](../../io.github.sof3.graphmine.feature/-feature-graph/index.html) |
-| [logger](logger.html) | `val logger: Logger` |
+| [defaultLocale](default-locale.html) | `val defaultLocale: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>the default locale of the server. |
+| [logger](logger.html) | `val logger: Logger`<br>the logger used for the server scope. Plugins should use their own logger instead of this one. |
 

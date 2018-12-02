@@ -7,3 +7,7 @@ title: EntityViewEvent - graphmine-core
 # EntityViewEvent
 
 `interface EntityViewEvent`
+
+Events that an entity's view changes. This may be due to changes in entity external views, blocks in world views, or
+other reasons.
+

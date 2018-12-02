@@ -8,6 +8,5 @@ title: Server.defaultLocale - graphmine-core
 
 `val defaultLocale: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
 
-**Return**
 the default locale of the server.
 

@@ -14,10 +14,10 @@ This package contains the API for declaring commands.
 | [CommandExecutor](-command-executor/index.html) | `class CommandExecutor<A : `[`Overload`](-overload/index.html)`, S : `[`CommandSender`](-command-sender.html)`, C : `[`Scope`](../io.github.sof3.graphmine.scope/-scope/index.html)`>`<br>The `this` context of command handlers. |
 | [CommandMap](-command-map/index.html) | `class CommandMap`<br>Stores a list of commands. This class can also be instantiated at individual commands to provide a sub-command list. |
 | [CommandReceiver](-command-receiver/index.html) | `interface CommandReceiver`<br>Accepts output from a command. |
-| [CommandSender](-command-sender.html) | `interface CommandSender` |
-| [EmptyOverload](-empty-overload/index.html) | `class EmptyOverload : `[`Overload`](-overload/index.html) |
-| [Overload](-overload/index.html) | `abstract class Overload` |
-| [RegisteredOverload](-registered-overload/index.html) | `class RegisteredOverload : I18nable` |
+| [CommandSender](-command-sender.html) | `interface CommandSender`<br>Represents an object that sends the command. |
+| [EmptyOverload](-empty-overload/index.html) | `class EmptyOverload : `[`Overload`](-overload/index.html)<br>An empty overload, reused for commands that do not require arguments. |
+| [Overload](-overload/index.html) | `abstract class Overload`<br>Defines the parameters of a command. |
+| [RegisteredOverload](-registered-overload/index.html) | `class RegisteredOverload : I18nable`<br>A factory that creates a new instance of a known command overload for each command execution. |
 
 ### Exceptions
 

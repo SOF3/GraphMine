@@ -12,6 +12,3 @@ The Server should be the object that links up different components of the server
 
 To prevent cyclic dependency, instead of passing the Server object around, pass the objects that will actually be used, e.g. the logger, the config, etc.
 
-### Parameters
-
-`initNano` - System.nanoTime() when the server start command was created

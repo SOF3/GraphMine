@@ -8,9 +8,11 @@ title: RegisteredOverload - graphmine-core
 
 `class RegisteredOverload : I18nable`
 
+A factory that creates a new instance of a known command overload for each command execution.
+
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `RegisteredOverload(klass: `[`KClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)`<out `[`Overload`](../-overload/index.html)`>)` |
+| [&lt;init&gt;](-init-.html) | `RegisteredOverload(klass: `[`KClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)`<out `[`Overload`](../-overload/index.html)`>)`<br>A factory that creates a new instance of a known command overload for each command execution. |
 
 ### Properties
 
@@ -19,5 +21,5 @@ title: RegisteredOverload - graphmine-core
 
 ### Functions
 
-| [accept](accept.html) | `fun accept(parser: FormattedStringReader): `[`Overload`](../-overload/index.html)`?` |
+| [accept](accept.html) | `fun accept(parser: FormattedStringReader): `[`Overload`](../-overload/index.html)`?`<br>Accepts a command and tries to parse it. |
 

@@ -6,4 +6,8 @@ title: ExternalViewer.provideView - graphmine-core
 
 # provideView
 
-`abstract fun provideView(): `[`ExternalView`](../-external-view.html)
+`abstract fun provideView(worldView: `[`WorldView`](../../io.github.sof3.graphmine.world/-world-view.html)`): `[`ExternalView`](../-external-view.html)
+
+### Parameters
+
+`worldView` - the world view that views the entity

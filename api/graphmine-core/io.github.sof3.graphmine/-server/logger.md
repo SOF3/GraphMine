@@ -8,6 +8,5 @@ title: Server.logger - graphmine-core
 
 `val logger: Logger`
 
-**Return**
 the logger used for the server scope. Plugins should use their own logger instead of this one.
 

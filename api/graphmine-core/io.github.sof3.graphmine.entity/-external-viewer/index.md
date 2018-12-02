@@ -8,7 +8,9 @@ title: ExternalViewer - graphmine-core
 
 `interface ExternalViewer`
 
+Provides an adapter that determines how this entity looks to other entities.
+
 ### Functions
 
-| [provideView](provide-view.html) | `abstract fun provideView(): `[`ExternalView`](../-external-view.html) |
+| [provideView](provide-view.html) | `abstract fun provideView(worldView: `[`WorldView`](../../io.github.sof3.graphmine.world/-world-view.html)`): `[`ExternalView`](../-external-view.html) |
 

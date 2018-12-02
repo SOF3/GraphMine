@@ -7,3 +7,6 @@ title: CommandSender - graphmine-core
 # CommandSender
 
 `interface CommandSender`
+
+Represents an object that sends the command.
+
