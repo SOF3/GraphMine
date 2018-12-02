@@ -1,4 +1,7 @@
-package io.github.sof3.graphmine.config
+package io.github.sof3.graphmine
+
+import io.github.sof3.graphmine.i18n.I18n
+import org.apache.logging.log4j.Logger
 
 /*
  * GraphMine
@@ -19,36 +22,36 @@ package io.github.sof3.graphmine.config
  */
 
 /**
- * Model for the server config.yml
+ * This interface only exists to avoid the boilerplate of calling the logger.
  */
-class CoreConfig(fn: CoreConfig.() -> Unit) : ConfigSpec() {
+interface HasLogger {
 	/**
-	 * The default language to use
+	 * The logger for this object
 	 */
-	var language by entry("en_US")
+	val logger: Logger
+	/**
+	 * @return the default locale to use
+	 */
+	val locale: String
 
 	/**
-	 * Settings for the server
+	 * Logs a DEBUG-level message
 	 */
-	val server by group(ServerConfig())
-
-	init {
-		apply(fn)
-	}
-}
-
-/**
- * Settings for the server
- */
-class ServerConfig : ConfigGroupSpec<ServerConfig>() {
+	fun debug(i18n: I18n) = logger.debug(i18n[locale])
 	/**
-	 * The IP to listen on
-	 *
-	 * Keep this as `0.0.0.0` unless the server has multiple networks.
+	 * Logs a ERROR-level message
 	 */
-	var ip by entry("0.0.0.0")
+	fun error(i18n: I18n) = logger.error(i18n[locale])
 	/**
-	 * The port to listen on
+	 * Logs a FATAL-level message
 	 */
-	var port by entry(19132) { if (it !in 0..65535) "Port must be between 0 and 65535" else null }
+	fun fatal(i18n: I18n) = logger.fatal(i18n[locale])
+	/**
+	 * Logs a INFO-level message
+	 */
+	fun info(i18n: I18n) = logger.info(i18n[locale])
+	/**
+	 * Logs a WARN-level message
+	 */
+	fun warn(i18n: I18n) = logger.warn(i18n[locale])
 }

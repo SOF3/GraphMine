@@ -31,9 +31,9 @@ import io.github.sof3.graphmine.scope.Scope
  * @param C the [scope][Scope] of the command execution.
  *
  * @property args the parsed overload instance
- * @param sender the sender that sent the command
- * @param receiver the object to send command output into
- * @param scope the scope that owns the command
+ * @property sender the sender that sent the command
+ * @property receiver the object to send command output into
+ * @property scope the scope that owns the command
  */
 class CommandExecutor<A : Overload, S : CommandSender, C : Scope> internal constructor(
 		val args: A,

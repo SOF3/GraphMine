@@ -28,11 +28,20 @@ import kotlin.reflect.KProperty
  * Superclass of a command argument.
  */
 abstract class CommandArg<T : Any> : DelegateProvider<Overload, T> {
+	/**
+	 * Reads the next value in the parser into the value for the argument.
+	 * @return whether the value is valid for this argument
+	 */
 	fun accept(parser: FormattedStringReader): Boolean {
 		value = parse(parser) ?: return false
 		return true
 	}
 
+	/**
+	 * Reads the next value in the parser into the value for the argument
+	 *
+	 * @return the parsed value, or `null` if it is missing or cannot be parsed
+	 */
 	abstract fun parse(parser: FormattedStringReader): T?
 
 
@@ -40,22 +49,27 @@ abstract class CommandArg<T : Any> : DelegateProvider<Overload, T> {
 		override fun getValue(thisRef: Overload, property: KProperty<*>) = value
 	}
 
+	/**
+	 * Whether the command arg can be skipped
+	 */
 	var optional = false
+	/**
+	 * Sets the default value of the command. Implicitly sets [optional] to `true` (even if the set value is `null`)
+	 */
 	var default: T? = null
 		set(value) {
 			field = value
 			optional = true
 		}
 
+	/**
+	 * Sets the default value of the command. Implicitly sets [optional] to `true` (even if the set value is `null`)
+	 */
 	fun default(value: T) = apply { default = value }
 
+	/**
+	 * The received value of the argument
+	 */
 	lateinit var value: T
 		protected set
-}
-
-data class ParseResult<T>(val state: ParseState, val value: T? = null)
-
-enum class ParseState {
-	OK,
-	NO_VALUE
 }

@@ -33,8 +33,8 @@ abstract class CommandException : Exception(), I18nable
 /**
  * Thrown when a command with wrong syntax is sent.
  * @param name command name
- * @Param syntax list of syntax possible for this command
+ * @param syntax list of syntax possible for this command
  */
-class WrongSyntaxException(name: String, syntax: List<I18n>) : CommandException(){
-	override val i18n = CoreLang.commands.generic.wrongSyntax(WrongSyntaxArg(name, syntax))
+class WrongSyntaxException(private val name: String, private val syntax: List<I18n>) : CommandException(){
+	override val i18n get() = CoreLang.commands.generic.wrongSyntax(WrongSyntaxArg(name, syntax))
 }

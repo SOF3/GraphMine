@@ -1,6 +1,6 @@
 package io.github.sof3.graphmine.entity
 
-import io.github.sof3.graphmine.world.Location
+import io.github.sof3.graphmine.util.math.Vector3
 import io.github.sof3.graphmine.world.World
 
 /*
@@ -23,7 +23,11 @@ import io.github.sof3.graphmine.world.World
 
 /**
  * Contains the savable data of an entity
+ * @property world the world that the entity belongs to
+ * @param vector the entity's initial position
+ * @property vector the position of the entity
  */
-open class EntityState(var world: World) {
-	lateinit var location: Location
-}
+open class EntityState(
+		var world: World,
+		var vector: Vector3
+)

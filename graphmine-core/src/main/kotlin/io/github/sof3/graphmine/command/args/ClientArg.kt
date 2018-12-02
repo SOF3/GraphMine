@@ -21,6 +21,9 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Accepts a client name
+ */
 class ClientArg : CommandArg<Client>() {
 	override fun parse(parser: FormattedStringReader): Client? {
 		TODO("not implemented")

@@ -27,6 +27,9 @@ import io.github.sof3.graphmine.util.qualifier.qualify
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Implements the /version command
+ */
 object VersionCommand : Command<Server>({
 	name = "graphmine.version".qualify()
 	aliases += "v"

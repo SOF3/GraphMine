@@ -31,6 +31,10 @@ import kotlin.reflect.full.createInstance
 class RegisteredOverload(private val klass: KClass<out Overload>): I18nable {
 	override val i18n: I18n
 		get() = TODO("not implemented")
+
+	/**
+	 * The arguments applicable to this overload
+	 */
 	val args: List<CommandArg<*>>
 
 	init {

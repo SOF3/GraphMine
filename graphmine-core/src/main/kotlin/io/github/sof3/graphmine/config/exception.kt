@@ -1,6 +1,4 @@
-package io.github.sof3.graphmine.command.args
-
-import io.github.sof3.graphmine.util.string.FormattedStringReader
+package io.github.sof3.graphmine.config
 
 /*
  * GraphMine
@@ -21,23 +19,19 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
  */
 
 /**
- * Accepts integer arguments.
+ * Thrown when a config has some problems
+ * @param message the detailed exception message
  */
-class IntegerArg : CommandArg<Int>() {
-	override fun parse(parser: FormattedStringReader) = try {
-		parser.nextDelimiter()?.content?.toInt()
-	} catch (e: NumberFormatException) {
-		null
-	}
-}
+open class ConfigException(message: String) : RuntimeException(message)
 
 /**
- * Accepts any finite real-numeric arguments.
+ * Thrown when a required entry is missing from a config
+ * @param message the detailed exception message
  */
-class NumberArg : CommandArg<Double>() {
-	override fun parse(parser: FormattedStringReader) = try {
-		parser.nextDelimiter()?.content?.toDouble()
-	} catch (e: NumberFormatException) {
-		null
-	}
-}
+open class ConfigMissingException(message: String) : ConfigException(message)
+
+/**
+ * Thrown when an entry from a config is invalid
+ * @param message the detailed exception message
+ */
+open class ConfigValidationException(message: String) : ConfigException(message)

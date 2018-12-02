@@ -18,8 +18,19 @@ package io.github.sof3.graphmine.entity
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Controls the actions of an entity.
+ *
+ * Each instance of EntityController should only be applied on one entity.
+ */
 interface EntityController {
+	/**
+	 * Invoked when the controller is added to the entity
+	 */
 	fun onGainControl()
 
+	/**
+	 * Invoked when the controller is removed from the entity
+	 */
 	fun onLoseControl()
 }

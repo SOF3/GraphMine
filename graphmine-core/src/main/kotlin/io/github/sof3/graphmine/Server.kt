@@ -1,12 +1,10 @@
 package io.github.sof3.graphmine
 
 import io.github.sof3.graphmine.config.CoreConfig
-import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.core.*
 import io.github.sof3.graphmine.scope.BaseScope
 import io.github.sof3.graphmine.scope.Scope
 import org.apache.logging.log4j.LogManager
-import org.apache.logging.log4j.Logger
 
 /*
  * GraphMine
@@ -43,18 +41,20 @@ class Server(
 		initNano: Long = System.nanoTime(),
 
 		private val myScope: BaseScope = BaseScope(Server::class)
-) : Scope by myScope {
+) : Scope by myScope, HasLogger {
 	/**
 	 * the logger used for the server scope. Plugins should use their own logger instead of this one.
 	 */
-	val logger: Logger = LogManager.getLogger(Server::class.java)!!
+	override val logger = LogManager.getLogger(Server::class.java)!!
 
 	/**
 	 * the default locale of the server.
 	 */
-	val defaultLocale: String get() = config.language
+	override val locale get() = config.language
 
 	init {
+		config.checkAll()
+
 		loadCoreLang()
 
 		info(CoreLang.startup.version(CoreLang.Startup.VersionArg(version = VersionInfo.VERSION, ip = config.server.ip, port = config.server.port)))
@@ -63,10 +63,4 @@ class Server(
 
 
 	}
-
-	private fun debug(i18n: I18n) = logger.debug(i18n[defaultLocale])
-	private fun error(i18n: I18n) = logger.error(i18n[defaultLocale])
-	private fun fatal(i18n: I18n) = logger.fatal(i18n[defaultLocale])
-	private fun info(i18n: I18n) = logger.info(i18n[defaultLocale])
-	private fun warn(i18n: I18n) = logger.warn(i18n[defaultLocale])
 }

@@ -20,10 +20,16 @@ import io.github.sof3.graphmine.util.string.FormattedStringReader
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Accepts the next value in the line. Multi-word arguments can be quoted by `""` or their spaces escaped by `\` before.
+ */
 class StringArg : CommandArg<String>() {
 	override fun parse(parser: FormattedStringReader) = parser.nextQuoted()?.inner
 }
 
+/**
+ * Accepts the rest of the whole line literally
+ */
 class RawTextArg : CommandArg<String>() {
 	override fun parse(parser: FormattedStringReader) = parser.remaining
 }

@@ -21,12 +21,49 @@ import kotlin.reflect.KClass
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Accepts a value that names one of the constants in the enum class
+ */
 class EnumArg<E : Enum<E>>(private val enumClass: KClass<E>) : CommandArg<E>() {
+	/**
+	 * Match enum constant names case-insensitively.
+	 *
+	 * This may cause problems if multiple enum constants have the same name with different cases. (However this is not
+	 * encouraged in Java coding style anyway)
+	 */
+	var ignoreCase = true
+
+	/**
+	 * The policy for comparing symbols in enum names
+	 */
+	var symbolPolicy = SymbolPolicy.ANY
+
 	override fun parse(parser: FormattedStringReader): E? {
 		val name = parser.nextDelimiter()?.content ?: return null
-		for (e in enumClass.java.enumConstants!!) {
-			if (e.name == name) return e
+		val given = symbolPolicy.fn(name)
+		for (enum in enumClass.java.enumConstants!!) {
+			val actual = symbolPolicy.fn(enum.name)
+			if (actual.equals(given, ignoreCase)) return enum
 		}
 		return null
+	}
+
+	/**
+	 * The policy to use for comparing symbols in enum names
+	 */
+	enum class SymbolPolicy(internal val fn: (String) -> String) {
+		/**
+		 * Compares names as-is
+		 */
+		AS_IS({ it }),
+		/**
+		 * Any strings of one or more non-alphanumeric symbols are considered the same, and leading and trailing symbols are always
+		 * ignored
+		 */
+		ANY({ it.replace(Regex("[^A-Za-z0-9]+"), "_").trim('_') }),
+		/**
+		 * Any non-alphanumeric symbols are ignored
+		 */
+		IGNORE({ it.replace(Regex("[^A-Za-z0-9]+"), "") }),
 	}
 }

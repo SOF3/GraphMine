@@ -35,6 +35,9 @@ import kotlinx.coroutines.launch
  * @sample io.github.sof3.graphmine.command.impl.VersionCommand
  */
 abstract class Command<C : Scope>(fn: Command<C>.() -> Unit) {
+	/**
+	 * The scope that owns the command
+	 */
 	lateinit var scope: C
 		internal set
 

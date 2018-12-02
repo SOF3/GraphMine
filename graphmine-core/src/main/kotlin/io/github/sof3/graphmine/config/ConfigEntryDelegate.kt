@@ -1,6 +1,7 @@
 package io.github.sof3.graphmine.config
 
 import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 
 /*
  * GraphMine
@@ -20,6 +21,28 @@ import kotlin.properties.ReadWriteProperty
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-interface ConfigEntryDelegate<T> : ReadWriteProperty<ConfigSpec, T> {
-	val set: Boolean
+/**
+ * The delegate class to a config entry
+ * @see ConfigSpec.entry
+ */
+class ConfigEntryDelegate<T : Any> internal constructor(internal var validator: (T) -> String?) : ReadWriteProperty<ConfigSpec, T> {
+	internal lateinit var name: () -> String
+	internal var set = false
+	internal var value: T? = null
+
+	/**
+	 * Validates the config value.
+	 *
+	 * This method assumes that the value is sufficiently set.
+	 */
+	internal fun validate() = validator(value!!)
+
+	override operator fun getValue(thisRef: ConfigSpec, property: KProperty<*>) = value!!
+
+	override operator fun setValue(thisRef: ConfigSpec, property: KProperty<*>, value: T) {
+		set = true
+		val err = validator(value)
+		if (err != null) throw IllegalArgumentException("Config entry ${name()} is missing")
+		this.value = value
+	}
 }

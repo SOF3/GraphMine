@@ -20,27 +20,15 @@ import kotlin.reflect.KProperty
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @see ConfigSpec.entry
+ */
 class SimpleConfigEntry<T : Any> internal constructor(validator: (T) -> String?) {
-	internal val delegate = SimpleConfigEntryDelegate(validator)
+	internal val delegate = ConfigEntryDelegate(validator)
 
-	operator fun provideDelegate(thisRef: ConfigSpec, property: KProperty<*>): SimpleConfigEntryDelegate<T> {
+	operator fun provideDelegate(thisRef: ConfigSpec, property: KProperty<*>): ConfigEntryDelegate<T> {
 		thisRef.entries[property.name] = delegate
 		delegate.name = { (thisRef.path + property.name).joinToString(".") }
 		return delegate
-	}
-}
-
-class SimpleConfigEntryDelegate<T : Any> internal constructor(internal var validator: (T) -> String?) : ConfigEntryDelegate<T> {
-	lateinit var name: () -> String
-	override var set = false
-	internal var value: T? = null
-
-	override operator fun getValue(thisRef: ConfigSpec, property: KProperty<*>) = value!!
-
-	override operator fun setValue(thisRef: ConfigSpec, property: KProperty<*>, value: T) {
-		set = true
-		val err = validator(value)
-		if (err != null) throw IllegalArgumentException("Config entry ${name()} is missing")
-		this.value = value
 	}
 }

@@ -18,12 +18,22 @@ package io.github.sof3.graphmine.config
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Superclass of type specifications of groups in a [ConfigSpec]
+ *
+ * @see ConfigSpec.group
+ */
 abstract class ConfigGroupSpec<Self : ConfigGroupSpec<Self>> : ConfigSpec() {
-	lateinit var parent: ConfigSpec
-	lateinit var groupName: String
+	internal lateinit var parent: ConfigSpec
+	internal lateinit var groupName: String
 
+	override val entries: MutableMap<String, ConfigEntryDelegate<*>>
+		get() = parent.entries
 	override val path get() = parent.path + groupName
 
+	/**
+	 * @see Any.run
+	 */
 	@Suppress("UNCHECKED_CAST")
 	operator fun invoke(fn: Self.() -> Unit) = (this as Self).run(fn)
 }

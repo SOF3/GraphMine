@@ -18,6 +18,12 @@ package io.github.sof3.graphmine.i18n
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * An object that can be expressed i18nly
+ */
 interface I18nable {
+	/**
+	 * the i18nized expression of the object
+	 */
 	val i18n: I18n
 }

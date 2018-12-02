@@ -34,19 +34,44 @@ import kotlin.reflect.KClass
 abstract class Overload {
 	internal val args = mutableListOf<CommandArg<*>>()
 
+	/**
+	 * @see StringArg
+	 */
 	fun string(): CommandArg<String> = addArg(StringArg())
 
+	/**
+	 * @see IntegerArg
+	 */
 	fun integer(): CommandArg<Int> = addArg(IntegerArg())
 
+	/**
+	 * @see NumberArg
+	 */
 	fun number(): CommandArg<Double> = addArg(NumberArg())
 
+	/**
+	 * @see ClientArg
+	 */
 	fun client(): CommandArg<Client> = addArg(ClientArg())
 
+	/**
+	 * @see EnumArg
+	 */
 	inline fun <reified E : Enum<E>> enum() = enum(E::class)
+
+	/**
+	 * @see EnumArg
+	 */
 	fun <E : Enum<E>> enum(enumClass: KClass<E>): CommandArg<E> = addArg(EnumArg(enumClass))
 
+	/**
+	 * @see RawTextArg
+	 */
 	fun rawText(): CommandArg<String> = addArg(RawTextArg())
 
+	/**
+	 * CommandArg factory extension functions must call this function before returning the argument
+	 */
 	fun <T : Any> addArg(arg: CommandArg<T>): CommandArg<T> {
 		args += arg
 		return arg
