@@ -16,7 +16,7 @@ cache:
 script:
 - ./gradlew check
 after_script:
-- ./gradlew codeCoverageReport
+- cd $TRAVIS_BUILD_DIR && ./gradlew codeCoverageReport
 - bash <(curl -s https://codecov.io/bash)
 before_deploy:
 - ./gradlew graphmine-cli:fatJar graphmine-core:dokka graphmine-util:dokka generateDependencyGraph
