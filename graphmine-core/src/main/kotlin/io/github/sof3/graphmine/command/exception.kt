@@ -26,15 +26,21 @@ import io.github.sof3.graphmine.i18n.core.CoreLang.Commands.Generic.WrongSyntaxA
 /**
  * Represents any user-friendly errors reported from commands.
  *
- * Commands are not required to do this. This exception is only here for more convenient control flow.
+ * Commands are not required to use this exception. It is only here for more convenient control flow (e.g. can throw
+ * exception directly instead of calling response() then return)
  */
-abstract class CommandException : Exception(), I18nable
+abstract class CommandException : Exception(), I18nable {
+	/**
+	 * A user-friendly [I18n] describing the problem
+	 */
+	abstract override val i18n: I18n
+}
 
 /**
  * Thrown when a command with wrong syntax is sent.
  * @param name command name
  * @param syntax list of syntax possible for this command
  */
-class WrongSyntaxException(private val name: String, private val syntax: List<I18n>) : CommandException(){
+class WrongSyntaxException(private val name: String, private val syntax: List<I18n>) : CommandException() {
 	override val i18n get() = CoreLang.commands.generic.wrongSyntax(WrongSyntaxArg(name, syntax))
 }

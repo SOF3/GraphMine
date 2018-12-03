@@ -29,6 +29,10 @@ import java.text.DateFormat
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * The main entry function for the CLI program.
+ * @param args command-line arguments
+ */
 fun main(args: Array<String>) {
 	val options = Options().apply {
 		addOption("v", "version", false, "GraphMine version")

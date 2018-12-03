@@ -18,6 +18,9 @@ package io.github.sof3.graphmine.util
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Executes [fn] if [this] is not null
+ */
 inline fun <T> T?.notNull(fn: (T) -> Unit) {
 	if (this != null) fn(this)
 }

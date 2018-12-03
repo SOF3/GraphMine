@@ -1,7 +1,7 @@
-package io.github.sof3.graphmine.util
+package io.github.sof3.graphmine.util.math
 
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
+import kotlin.annotation.AnnotationRetention.BINARY
+import kotlin.annotation.AnnotationTarget.*
 
 /*
  * GraphMine
@@ -22,11 +22,18 @@ import kotlin.reflect.KProperty
  */
 
 /**
- * An interface to help completing the `provideDelegate` operator function for `var` property delegation.
+ * Applied on a [Vector3] or [IntVector3] to indicate that it represents a positional vector, e.g. the position of an
+ * object
  */
-interface VarDelegateProvider<in R, T> {
-	/**
-	 * Provide the [ReadWriteProperty] for delegation. Could use [Ref] if no special logic is required.
-	 */
-	operator fun provideDelegate(thisRef: R, property: KProperty<*>): ReadWriteProperty<R, T>
-}
+@Target(PROPERTY, LOCAL_VARIABLE, VALUE_PARAMETER, FUNCTION)
+@Retention(BINARY)
+@MustBeDocumented
+annotation class Positional
+/**
+ * Applied on a [Vector3] or [IntVector3] to indicate that it represents a relative vector, e.g. the distance between
+ * two vectors
+ */
+@Target(PROPERTY, LOCAL_VARIABLE, VALUE_PARAMETER, FUNCTION)
+@Retention(BINARY)
+@MustBeDocumented
+annotation class Relative

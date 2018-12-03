@@ -1,7 +1,4 @@
-package io.github.sof3.graphmine.util
-
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
+package io.github.sof3.graphmine.util.qualifier
 
 /*
  * GraphMine
@@ -22,11 +19,8 @@ import kotlin.reflect.KProperty
  */
 
 /**
- * An interface to help completing the `provideDelegate` operator function for `var` property delegation.
+ * Thrown when there is a qualifier clash
+ * @property values a map of [Qualifier]s to their respective values. The value type of the map can be safely assumed to be
+ * the type T in the [QualifierMap] that throws the exception.
  */
-interface VarDelegateProvider<in R, T> {
-	/**
-	 * Provide the [ReadWriteProperty] for delegation. Could use [Ref] if no special logic is required.
-	 */
-	operator fun provideDelegate(thisRef: R, property: KProperty<*>): ReadWriteProperty<R, T>
-}
+class QualifierClashException(val values: Map<Qualifier, *>) : Exception()

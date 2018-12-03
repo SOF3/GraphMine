@@ -18,8 +18,7 @@ package io.github.sof3.graphmine.util.math
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-fun Int.pow10(): Double {
-	var r = 1.0
-	for (i in 0 until this) r *= 10
-	return r
-}
+/**
+ * Calculates 10 raised to the power of this
+ */
+fun Int.pow10() = Math.pow(10.0, toDouble())

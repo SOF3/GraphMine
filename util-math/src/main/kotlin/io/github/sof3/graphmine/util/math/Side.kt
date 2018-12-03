@@ -20,38 +20,59 @@ import io.github.sof3.graphmine.util.DEADCODE
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-inline class Side(val ord: Int) {
+/**
+ * Represents one of the 6 directions in a 3D space.
+ *
+ * @property id the ID of the direction
+ */
+class Side private constructor(val id: Int) {
+	/**
+	 * Contains the default sides
+	 */
 	companion object Sides {
-		val DOWN get() = Side(0)
-		val UP get() = Side(1)
-		val NORTH get() = Side(2)
-		val SOUTH get() = Side(3)
-		val WEST get() = Side(4)
-		val EAST get() = Side(5)
+		/** The DOWN side */
+		val DOWN = Side(0)
+		/** The UP side */
+		val UP = Side(1)
+		/** The NORTH side */
+		val NORTH = Side(2)
+		/** The SOUTH side */
+		val SOUTH = Side(3)
+		/** The WEST side */
+		val WEST = Side(4)
+		/** The EAST side */
+		val EAST = Side(5)
 
+		/** A list of all sides */
 		val ALL = (0..5).map { Side(it) }
+
+		/** Access a side by ID */
+		operator fun get(id: Int) = ALL[id]
 	}
 
-	val intVector
-		get() = when (ord) {
-			0 -> IntVector3(0, -1, 0)
-			1 -> IntVector3(0, 1, 0)
-			2 -> IntVector3(0, 0, -1)
-			3 -> IntVector3(0, 0, 1)
-			4 -> IntVector3(-1, 0, 0)
-			5 -> IntVector3(1, 0, 0)
-			else -> DEADCODE
-		}
+	/**
+	 * Expresses the side as an [IntVector3]
+	 */
+	val intVector = when (id) {
+		0 -> IntVector3(0, -1, 0)
+		1 -> IntVector3(0, 1, 0)
+		2 -> IntVector3(0, 0, -1)
+		3 -> IntVector3(0, 0, 1)
+		4 -> IntVector3(-1, 0, 0)
+		5 -> IntVector3(1, 0, 0)
+		else -> DEADCODE
+	}
 
-	val vector
-		get() = when (ord) {
-			0 -> Vector3(0.0, -1.0, 0.0)
-			1 -> Vector3(0.0, 1.0, 0.0)
-			2 -> Vector3(0.0, 0.0, -1.0)
-			3 -> Vector3(0.0, 0.0, 1.0)
-			4 -> Vector3(-1.0, 0.0, 0.0)
-			5 -> Vector3(1.0, 0.0, 0.0)
-			else -> DEADCODE
-		}
-
+	/**
+	 * Expresses the side as a [Vector3]
+	 */
+	val vector = when (id) {
+		0 -> Vector3(0.0, -1.0, 0.0)
+		1 -> Vector3(0.0, 1.0, 0.0)
+		2 -> Vector3(0.0, 0.0, -1.0)
+		3 -> Vector3(0.0, 0.0, 1.0)
+		4 -> Vector3(-1.0, 0.0, 0.0)
+		5 -> Vector3(1.0, 0.0, 0.0)
+		else -> DEADCODE
+	}
 }

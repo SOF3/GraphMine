@@ -18,87 +18,491 @@ package io.github.sof3.graphmine.util
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-inline fun ByteArray.mapByteArray(fn: (Byte) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun ByteArray.mapCharArray(fn: (Byte) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun ByteArray.mapShortArray(fn: (Byte) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun ByteArray.mapIntArray(fn: (Byte) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun ByteArray.mapLongArray(fn: (Byte) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun ByteArray.mapFloatArray(fn: (Byte) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun ByteArray.mapDoubleArray(fn: (Byte) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun ByteArray.mapBooleanArray(fn: (Byte) -> Boolean) = BooleanArray(size) { fn(this[it]) }
-inline fun CharArray.mapByteArray(fn: (Char) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun CharArray.mapCharArray(fn: (Char) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun CharArray.mapShortArray(fn: (Char) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun CharArray.mapIntArray(fn: (Char) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun CharArray.mapLongArray(fn: (Char) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun CharArray.mapFloatArray(fn: (Char) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun CharArray.mapDoubleArray(fn: (Char) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun CharArray.mapBooleanArray(fn: (Char) -> Boolean) = BooleanArray(size) { fn(this[it]) }
-inline fun ShortArray.mapByteArray(fn: (Short) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun ShortArray.mapCharArray(fn: (Short) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun ShortArray.mapShortArray(fn: (Short) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun ShortArray.mapIntArray(fn: (Short) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun ShortArray.mapLongArray(fn: (Short) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun ShortArray.mapFloatArray(fn: (Short) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun ShortArray.mapDoubleArray(fn: (Short) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun ShortArray.mapBooleanArray(fn: (Short) -> Boolean) = BooleanArray(size) { fn(this[it]) }
-inline fun IntArray.mapByteArray(fn: (Int) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun IntArray.mapCharArray(fn: (Int) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun IntArray.mapShortArray(fn: (Int) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun IntArray.mapIntArray(fn: (Int) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun IntArray.mapLongArray(fn: (Int) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun IntArray.mapFloatArray(fn: (Int) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun IntArray.mapDoubleArray(fn: (Int) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun IntArray.mapBooleanArray(fn: (Int) -> Boolean) = BooleanArray(size) { fn(this[it]) }
-inline fun LongArray.mapByteArray(fn: (Long) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun LongArray.mapCharArray(fn: (Long) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun LongArray.mapShortArray(fn: (Long) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun LongArray.mapIntArray(fn: (Long) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun LongArray.mapLongArray(fn: (Long) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun LongArray.mapFloatArray(fn: (Long) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun LongArray.mapDoubleArray(fn: (Long) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun LongArray.mapBooleanArray(fn: (Long) -> Boolean) = BooleanArray(size) { fn(this[it]) }
-inline fun FloatArray.mapByteArray(fn: (Float) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun FloatArray.mapCharArray(fn: (Float) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun FloatArray.mapShortArray(fn: (Float) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun FloatArray.mapIntArray(fn: (Float) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun FloatArray.mapLongArray(fn: (Float) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun FloatArray.mapFloatArray(fn: (Float) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun FloatArray.mapDoubleArray(fn: (Float) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun FloatArray.mapBooleanArray(fn: (Float) -> Boolean) = BooleanArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapByteArray(fn: (Double) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapCharArray(fn: (Double) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapShortArray(fn: (Double) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapIntArray(fn: (Double) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapLongArray(fn: (Double) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapFloatArray(fn: (Double) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapDoubleArray(fn: (Double) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun DoubleArray.mapBooleanArray(fn: (Double) -> Boolean) = BooleanArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapByteArray(fn: (Boolean) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapCharArray(fn: (Boolean) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapShortArray(fn: (Boolean) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapIntArray(fn: (Boolean) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapLongArray(fn: (Boolean) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapFloatArray(fn: (Boolean) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapDoubleArray(fn: (Boolean) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun BooleanArray.mapBooleanArray(fn: (Boolean) -> Boolean) = BooleanArray(size) { fn(this[it]) }
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapByteArray(transform: (Byte) -> Byte) = ByteArray(size) { transform(this[it]) }
 
-inline fun <reified R> ByteArray.mapArray(fn: (Byte) -> R) = Array(size) { fn(this[it]) }
-inline fun <reified R> CharArray.mapArray(fn: (Char) -> R) = Array(size) { fn(this[it]) }
-inline fun <reified R> ShortArray.mapArray(fn: (Short) -> R) = Array(size) { fn(this[it]) }
-inline fun <reified R> IntArray.mapArray(fn: (Int) -> R) = Array(size) { fn(this[it]) }
-inline fun <reified R> LongArray.mapArray(fn: (Long) -> R) = Array(size) { fn(this[it]) }
-inline fun <reified R> FloatArray.mapArray(fn: (Float) -> R) = Array(size) { fn(this[it]) }
-inline fun <reified R> DoubleArray.mapArray(fn: (Double) -> R) = Array(size) { fn(this[it]) }
-inline fun <reified R> BooleanArray.mapArray(fn: (Boolean) -> R) = Array(size) { fn(this[it]) }
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapCharArray(transform: (Byte) -> Char) = CharArray(size) { transform(this[it]) }
 
-inline fun <T> Array<T>.mapByteArray(fn: (T) -> Byte) = ByteArray(size) { fn(this[it]) }
-inline fun <T> Array<T>.mapCharArray(fn: (T) -> Char) = CharArray(size) { fn(this[it]) }
-inline fun <T> Array<T>.mapShortArray(fn: (T) -> Short) = ShortArray(size) { fn(this[it]) }
-inline fun <T> Array<T>.mapIntArray(fn: (T) -> Int) = IntArray(size) { fn(this[it]) }
-inline fun <T> Array<T>.mapLongArray(fn: (T) -> Long) = LongArray(size) { fn(this[it]) }
-inline fun <T> Array<T>.mapFloatArray(fn: (T) -> Float) = FloatArray(size) { fn(this[it]) }
-inline fun <T> Array<T>.mapDoubleArray(fn: (T) -> Double) = DoubleArray(size) { fn(this[it]) }
-inline fun <T> Array<T>.mapBooleanArray(fn: (T) -> Boolean) = BooleanArray(size) { fn(this[it]) }
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapShortArray(transform: (Byte) -> Short) = ShortArray(size) { transform(this[it]) }
 
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapIntArray(transform: (Byte) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapLongArray(transform: (Byte) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapFloatArray(transform: (Byte) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapDoubleArray(transform: (Byte) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ByteArray.mapBooleanArray(transform: (Byte) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapByteArray(transform: (Char) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapCharArray(transform: (Char) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapShortArray(transform: (Char) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapIntArray(transform: (Char) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapLongArray(transform: (Char) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapFloatArray(transform: (Char) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapDoubleArray(transform: (Char) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun CharArray.mapBooleanArray(transform: (Char) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapByteArray(transform: (Short) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapCharArray(transform: (Short) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapShortArray(transform: (Short) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapIntArray(transform: (Short) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapLongArray(transform: (Short) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapFloatArray(transform: (Short) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapDoubleArray(transform: (Short) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun ShortArray.mapBooleanArray(transform: (Short) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapByteArray(transform: (Int) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapCharArray(transform: (Int) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapShortArray(transform: (Int) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapIntArray(transform: (Int) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapLongArray(transform: (Int) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapFloatArray(transform: (Int) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapDoubleArray(transform: (Int) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun IntArray.mapBooleanArray(transform: (Int) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapByteArray(transform: (Long) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapCharArray(transform: (Long) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapShortArray(transform: (Long) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapIntArray(transform: (Long) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapLongArray(transform: (Long) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapFloatArray(transform: (Long) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapDoubleArray(transform: (Long) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun LongArray.mapBooleanArray(transform: (Long) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapByteArray(transform: (Float) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapCharArray(transform: (Float) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapShortArray(transform: (Float) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapIntArray(transform: (Float) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapLongArray(transform: (Float) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapFloatArray(transform: (Float) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapDoubleArray(transform: (Float) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun FloatArray.mapBooleanArray(transform: (Float) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapByteArray(transform: (Double) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapCharArray(transform: (Double) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapShortArray(transform: (Double) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapIntArray(transform: (Double) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapLongArray(transform: (Double) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapFloatArray(transform: (Double) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapDoubleArray(transform: (Double) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun DoubleArray.mapBooleanArray(transform: (Double) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapByteArray(transform: (Boolean) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapCharArray(transform: (Boolean) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapShortArray(transform: (Boolean) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapIntArray(transform: (Boolean) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapLongArray(transform: (Boolean) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapFloatArray(transform: (Boolean) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapDoubleArray(transform: (Boolean) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun BooleanArray.mapBooleanArray(transform: (Boolean) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> ByteArray.mapArray(transform: (Byte) -> R) = Array(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> CharArray.mapArray(transform: (Char) -> R) = Array(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> ShortArray.mapArray(transform: (Short) -> R) = Array(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> IntArray.mapArray(transform: (Int) -> R) = Array(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> LongArray.mapArray(transform: (Long) -> R) = Array(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> FloatArray.mapArray(transform: (Float) -> R) = Array(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> DoubleArray.mapArray(transform: (Double) -> R) = Array(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <reified R> BooleanArray.mapArray(transform: (Boolean) -> R) = Array(size) { transform(this[it]) }
+
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Byte) = ByteArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Char) = CharArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Short) = ShortArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Int) = IntArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Long) = LongArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Float) = FloatArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Double) = DoubleArray(size) { transform(this[it]) }
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
+inline fun <T> Array<T>.mapArray(transform: (T) -> Boolean) = BooleanArray(size) { transform(this[it]) }
+
+
+/**
+ * Returns an array containing the results of applying the given [transform] function to each element in the
+ * original array
+ */
 inline fun <T, reified R> Array<T>.mapToArray(fn: (T) -> R) = Array(size) { fn(this[it]) }

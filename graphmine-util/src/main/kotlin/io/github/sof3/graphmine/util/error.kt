@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package io.github.sof3.graphmine.util
 
 /*
@@ -18,6 +20,15 @@ package io.github.sof3.graphmine.util
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Always throws [AssertionError] stating that control flow should never reach this point. Useful in `when` blocks when
+ * Kotlin is unable to detect that the conditions are exhaustive
+ */
 inline val DEADCODE: Nothing get() = DEADCODE()
 
-fun DEADCODE(message: String = "Control flow error"): Nothing = throw AssertionError(message)
+/**
+ * Always throws [AssertionError] stating that control flow should never reach this point. Useful in `when` blocks when
+ * Kotlin is unable to detect that the conditions are exhaustive
+ * @param message a string to use as the error message
+ */
+inline fun DEADCODE(message: String = "Control flow error"): Nothing = throw AssertionError(message)

@@ -1,5 +1,7 @@
 package io.github.sof3.graphmine.util.qualifier
 
+import java.util.*
+
 /*
  * GraphMine
  * Copyright (C) 2018 SOFe
@@ -18,14 +20,39 @@ package io.github.sof3.graphmine.util.qualifier
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * A thread-safe store for qualified entries allowing search by qualified name
+ */
 class QualifierMap<T> {
-	private val map = hashMapOf<String, T>()
+	private val map = hashMapOf<String, MutableMap<Qualifier, T>>()
 
+	/**
+	 * Adds a qualified entry to the map
+	 * @param qualifier the qualified name
+	 * @param value the value to add
+	 */
 	operator fun set(qualifier: Qualifier, value: T) {
-		for (slice in qualifier.permutations) {
-			map[slice.joinToString(".")] = value
+		qualifier.forEachPermutation { slice ->
+			val key = slice.joinToString(".")
+			lateinit var map: MutableMap<Qualifier, T>
+			synchronized(this.map) {
+				if (key !in this.map) this.map[key] = hashMapOf()
+				map = this.map[key]!!
+			}
+			synchronized(map) { map[qualifier] = value }
 		}
 	}
 
-	operator fun get(key: String) = map[key]
+	/**
+	 * Gets an entry using a qualified key
+	 * @param key any qualified key
+	 */
+	operator fun get(key: String): T? {
+		val map = synchronized(map) { map[key] } ?: return null
+		val clone: Map<Qualifier, T> = synchronized(map){
+			if(map.size == 1) return map.iterator().next().value
+			Collections.unmodifiableMap(map)
+		}
+		throw QualifierClashException(clone)
+	}
 }

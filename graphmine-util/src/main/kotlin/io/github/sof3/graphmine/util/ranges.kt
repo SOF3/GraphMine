@@ -18,6 +18,22 @@ package io.github.sof3.graphmine.util
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-operator fun CharSequence.get(start: Int, end: Int) = this.substring(start, end)
+/**
+ * Syntactic sugar for [CharSequence.substring] so that it looks like `string[start:end]` in Python
+ */
+operator fun CharSequence.get(start: Int, end: Int) = substring(start, end)
 
+/**
+ * Syntactic sugar for [CharSequence.substring] so that it looks like `list[start:end]` in Python
+ */
+operator fun <T> List<T>.get(start: Int, end: Int) = slice(start until end - 1)
+
+/**
+ * A more intuitive way of checking if an offset is in bounds of a string
+ */
 fun String.hasOffset(offset: Int) = offset in 0 until length
+
+/**
+ * A more intuitive way of checking if an offset is in bounds of a list
+ */
+fun List<*>.hasOffset(offset: Int) = offset in 0 until size

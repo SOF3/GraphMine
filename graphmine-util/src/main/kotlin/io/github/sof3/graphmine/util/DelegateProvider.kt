@@ -21,6 +21,12 @@ import kotlin.reflect.KProperty
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * An interface to help completing the `provideDelegate` operator function for `val` property delegation.
+ */
 interface DelegateProvider<in R, out T> {
+	/**
+	 * Provide the [ReadOnlyProperty] for delegation. Could use [Ref] if no special logic is required.
+	 */
 	operator fun provideDelegate(thisRef: R, property: KProperty<*>): ReadOnlyProperty<R, T>
 }
