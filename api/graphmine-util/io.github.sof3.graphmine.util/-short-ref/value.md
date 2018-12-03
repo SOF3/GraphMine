@@ -7,3 +7,9 @@ title: ShortRef.value - graphmine-util
 # value
 
 `var value: `[`Short`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

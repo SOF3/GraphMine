@@ -7,3 +7,6 @@ title: IntVector3.lengthSquared - util-math
 # lengthSquared
 
 `val lengthSquared: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+Calculates the squared length of this vector
+

@@ -10,5 +10,6 @@ title: CommandException.<init> - graphmine-core
 
 Represents any user-friendly errors reported from commands.
 
-Commands are not required to do this. This exception is only here for more convenient control flow.
+Commands are not required to use this exception. It is only here for more convenient control flow (e.g. can throw
+exception directly instead of calling response() then return)
 

@@ -7,3 +7,6 @@ title: Side.intVector - util-math
 # intVector
 
 `val intVector: `[`IntVector3`](../-int-vector3/index.html)
+
+Expresses the side as an [IntVector3](../-int-vector3/index.html)
+

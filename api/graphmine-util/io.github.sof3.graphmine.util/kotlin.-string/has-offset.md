@@ -7,3 +7,6 @@ title: hasOffset - graphmine-util
 # hasOffset
 
 `fun `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.hasOffset(offset: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+
+A more intuitive way of checking if an offset is in bounds of a string
+

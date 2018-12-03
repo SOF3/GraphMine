@@ -7,3 +7,6 @@ title: IntVector3.toDouble - util-math
 # toDouble
 
 `fun toDouble(): `[`Vector3`](../-vector3/index.html)
+
+Converts to a [Vector3](../-vector3/index.html) with approximately equivalent positions
+

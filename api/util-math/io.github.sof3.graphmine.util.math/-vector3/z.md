@@ -7,3 +7,6 @@ title: Vector3.z - util-math
 # z
 
 `val z: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+The *z*-component value, which is in the direction of *x*&times;*y*
+

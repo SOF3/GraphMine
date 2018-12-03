@@ -7,3 +7,6 @@ title: IntVector3.y - util-math
 # y
 
 `val y: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+The *y*-component value, which is orthogonal to *x*
+

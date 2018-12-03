@@ -7,3 +7,9 @@ title: IntVector3Range.min - util-math
 # min
 
 `val min: `[`IntVector3`](../-int-vector3/index.html)
+
+the minimum possible point in the region
+
+### Property
+
+`min` - the minimum possible point in the region

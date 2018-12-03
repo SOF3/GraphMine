@@ -7,3 +7,6 @@ title: pow10 - util-math
 # pow10
 
 `fun `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`.pow10(): `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+Calculates 10 raised to the power of this
+

@@ -7,3 +7,7 @@ title: IntVector3.unaryPlus - util-math
 # unaryPlus
 
 `operator fun unaryPlus(): `[`IntVector3`](index.html)
+
+**Return**
+this vector
+

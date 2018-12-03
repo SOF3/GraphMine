@@ -7,3 +7,6 @@ title: ByteRef.setValue - graphmine-util
 # setValue
 
 `operator fun setValue(thisRef: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>, value: `[`Byte`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Used for delegation to the backing [value](set-value.html#io.github.sof3.graphmine.util.ByteRef$setValue(kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Byte)/value)
+

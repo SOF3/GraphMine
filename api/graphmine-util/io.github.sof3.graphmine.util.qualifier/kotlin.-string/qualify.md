@@ -7,3 +7,9 @@ title: qualify - graphmine-util
 # qualify
 
 `fun `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.qualify(): `[`Qualifier`](../-qualifier/index.html)
+
+Converts a dot-delimited string to a qualifier
+
+**Receiver**
+a dot-delimited string
+

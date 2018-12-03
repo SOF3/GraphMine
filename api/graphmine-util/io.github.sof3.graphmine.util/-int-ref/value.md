@@ -7,3 +7,9 @@ title: IntRef.value - graphmine-util
 # value
 
 `var value: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

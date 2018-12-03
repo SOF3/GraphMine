@@ -22,5 +22,5 @@ Thrown when a command with wrong syntax is sent.
 
 ### Properties
 
-| [i18n](i18n.html) | `val i18n: I18n` |
+| [i18n](i18n.html) | `val i18n: I18n`<br>A user-friendly [I18n](#) describing the problem |
 

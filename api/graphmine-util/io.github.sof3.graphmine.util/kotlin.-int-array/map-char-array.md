@@ -6,4 +6,8 @@ title: mapCharArray - graphmine-util
 
 # mapCharArray
 
-`inline fun `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)`.mapCharArray(fn: (`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`) -> `[`Char`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)`): `[`CharArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-array/index.html)
+`inline fun `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)`.mapCharArray(transform: (`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`) -> `[`Char`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)`): `[`CharArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-array/index.html)
+
+Returns an array containing the results of applying the given [transform](map-char-array.html#io.github.sof3.graphmine.util$mapCharArray(kotlin.IntArray, kotlin.Function1((kotlin.Int, kotlin.Char)))/transform) function to each element in the
+original array
+

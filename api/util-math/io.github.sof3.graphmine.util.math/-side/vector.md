@@ -7,3 +7,6 @@ title: Side.vector - util-math
 # vector
 
 `val vector: `[`Vector3`](../-vector3/index.html)
+
+Expresses the side as a [Vector3](../-vector3/index.html)
+

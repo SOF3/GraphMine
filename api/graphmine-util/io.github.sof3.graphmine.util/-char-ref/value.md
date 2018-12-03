@@ -7,3 +7,9 @@ title: CharRef.value - graphmine-util
 # value
 
 `var value: `[`Char`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

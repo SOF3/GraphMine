@@ -7,3 +7,6 @@ title: Qualifier.equals - graphmine-util
 # equals
 
 `fun equals(other: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+
+Checks if two identifiers are fully equal based on the contents of [parts](parts.html)
+

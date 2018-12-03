@@ -7,3 +7,6 @@ title: Vector3.ceil - util-math
 # ceil
 
 `fun ceil(): `[`IntVector3`](../-int-vector3/index.html)
+
+Rounds up this vector to an [IntVector3](../-int-vector3/index.html)
+

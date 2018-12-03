@@ -6,4 +6,8 @@ title: mapLongArray - graphmine-util
 
 # mapLongArray
 
-`inline fun `[`DoubleArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double-array/index.html)`.mapLongArray(fn: (`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`) -> `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`): `[`LongArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long-array/index.html)
+`inline fun `[`DoubleArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double-array/index.html)`.mapLongArray(transform: (`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`) -> `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`): `[`LongArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long-array/index.html)
+
+Returns an array containing the results of applying the given [transform](map-long-array.html#io.github.sof3.graphmine.util$mapLongArray(kotlin.DoubleArray, kotlin.Function1((kotlin.Double, kotlin.Long)))/transform) function to each element in the
+original array
+

@@ -7,3 +7,6 @@ title: IntVector3.z - util-math
 # z
 
 `val z: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+The *z*-component value, which is in the direction of *x*&times;*y*
+

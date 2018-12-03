@@ -7,3 +7,7 @@ title: DoubleRef.<init> - graphmine-util
 # &lt;init&gt;
 
 `DoubleRef(value: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`)`
+
+Useful for passing by reference or as return value in delegation providers [DelegateProvider](../-delegate-provider/index.html) and
+[VarDelegateProvider](../-var-delegate-provider/index.html)
+

@@ -7,3 +7,9 @@ title: ByteRef.value - graphmine-util
 # value
 
 `var value: `[`Byte`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

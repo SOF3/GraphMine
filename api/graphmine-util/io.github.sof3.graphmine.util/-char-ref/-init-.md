@@ -7,3 +7,7 @@ title: CharRef.<init> - graphmine-util
 # &lt;init&gt;
 
 `CharRef(value: `[`Char`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)`)`
+
+Useful for passing by reference or as return value in delegation providers [DelegateProvider](../-delegate-provider/index.html) and
+[VarDelegateProvider](../-var-delegate-provider/index.html)
+

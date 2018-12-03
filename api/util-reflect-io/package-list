@@ -1,0 +1,4 @@
+$dokka.format:jekyll
+$dokka.linkExtension:html
+
+io.github.sof3.graphmine.util.reflectio

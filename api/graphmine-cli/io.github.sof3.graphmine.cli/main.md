@@ -7,3 +7,9 @@ title: main - graphmine-cli
 # main
 
 `fun main(args: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+The main entry function for the CLI program.
+
+### Parameters
+
+`args` - command-line arguments

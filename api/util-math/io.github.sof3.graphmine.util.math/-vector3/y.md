@@ -7,3 +7,6 @@ title: Vector3.y - util-math
 # y
 
 `val y: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+The *y*-component value, which is orthogonal to *x*
+

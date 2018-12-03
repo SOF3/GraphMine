@@ -7,3 +7,9 @@ title: FloatRef.value - graphmine-util
 # value
 
 `var value: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

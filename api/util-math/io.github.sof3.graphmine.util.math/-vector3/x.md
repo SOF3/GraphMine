@@ -7,3 +7,6 @@ title: Vector3.x - util-math
 # x
 
 `val x: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+The *x*-component value
+

@@ -6,4 +6,8 @@ title: mapIntArray - graphmine-util
 
 # mapIntArray
 
-`inline fun `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)`.mapIntArray(fn: (`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`) -> `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)
+`inline fun `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)`.mapIntArray(transform: (`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`) -> `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)
+
+Returns an array containing the results of applying the given [transform](map-int-array.html#io.github.sof3.graphmine.util$mapIntArray(kotlin.IntArray, kotlin.Function1((kotlin.Int, )))/transform) function to each element in the
+original array
+

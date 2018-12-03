@@ -7,3 +7,9 @@ title: LongRef.value - graphmine-util
 # value
 
 `var value: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

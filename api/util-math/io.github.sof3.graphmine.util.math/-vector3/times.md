@@ -6,4 +6,7 @@ title: Vector3.times - util-math
 
 # times
 
-`operator fun times(f: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`): `[`Vector3`](index.html)
+`operator fun times(scalar: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`): `[`Vector3`](index.html)
+
+Multiplies the components of `this` by [scalar](times.html#io.github.sof3.graphmine.util.math.Vector3$times(kotlin.Double)/scalar)
+

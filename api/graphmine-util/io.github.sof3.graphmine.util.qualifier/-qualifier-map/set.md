@@ -7,3 +7,11 @@ title: QualifierMap.set - graphmine-util
 # set
 
 `operator fun set(qualifier: `[`Qualifier`](../-qualifier/index.html)`, value: `[`T`](index.html#T)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Adds a qualified entry to the map
+
+### Parameters
+
+`qualifier` - the qualified name
+
+`value` - the value to add

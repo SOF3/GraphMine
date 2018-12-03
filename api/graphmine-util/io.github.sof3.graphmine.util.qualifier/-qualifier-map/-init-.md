@@ -7,3 +7,6 @@ title: QualifierMap.<init> - graphmine-util
 # &lt;init&gt;
 
 `QualifierMap()`
+
+A thread-safe store for qualified entries allowing search by qualified name
+

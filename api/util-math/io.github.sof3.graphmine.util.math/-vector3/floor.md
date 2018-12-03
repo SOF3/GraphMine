@@ -7,3 +7,6 @@ title: Vector3.floor - util-math
 # floor
 
 `fun floor(): `[`IntVector3`](../-int-vector3/index.html)
+
+Rounds down this vector to an [IntVector3](../-int-vector3/index.html)
+

@@ -7,3 +7,6 @@ title: Side.UP - util-math
 # UP
 
 `val UP: `[`Side`](index.html)
+
+The UP side
+

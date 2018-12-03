@@ -7,3 +7,9 @@ title: QualifierMap.get - graphmine-util
 # get
 
 `operator fun get(key: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`T`](index.html#T)`?`
+
+Gets an entry using a qualified key
+
+### Parameters
+
+`key` - any qualified key

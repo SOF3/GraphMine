@@ -7,3 +7,6 @@ title: Qualifier.hashCode - graphmine-util
 # hashCode
 
 `fun hashCode(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+Returns the lazily-evaluated hash code of the qualifier only based on the contents of [parts](parts.html)
+

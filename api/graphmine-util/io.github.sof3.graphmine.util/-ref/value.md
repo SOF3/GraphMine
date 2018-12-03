@@ -7,3 +7,9 @@ title: Ref.value - graphmine-util
 # value
 
 `var value: `[`T`](index.html#T)
+
+the backing value
+
+### Property
+
+`value` - the backing value

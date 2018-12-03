@@ -7,3 +7,8 @@ title: IntVector3.length - util-math
 # length
 
 `val length: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+Calculates the length (a.k.a. norm or modulus) of this vector.
+
+Use [lengthSquared](length-squared.html) if only comparison is needed for less computation.
+

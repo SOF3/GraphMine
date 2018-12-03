@@ -7,3 +7,9 @@ title: IntVector3Range.max - util-math
 # max
 
 `val max: `[`IntVector3`](../-int-vector3/index.html)
+
+the maximum possible point in the region
+
+### Property
+
+`max` - the maximum possible point in the region

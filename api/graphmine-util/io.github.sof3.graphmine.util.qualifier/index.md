@@ -36,7 +36,11 @@ and unlikely), so the user types the full package name of the PortKey plugin to 
 ### Types
 
 | [Qualifier](-qualifier/index.html) | `class Qualifier`<br>Represents a qualified identifier. |
-| [QualifierMap](-qualifier-map/index.html) | `class QualifierMap<T>` |
+| [QualifierMap](-qualifier-map/index.html) | `class QualifierMap<T>`<br>A thread-safe store for qualified entries allowing search by qualified name |
+
+### Exceptions
+
+| [QualifierClashException](-qualifier-clash-exception/index.html) | `class QualifierClashException : `[`Exception`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html)<br>Thrown when there is a qualifier clash |
 
 ### Extensions for External Classes
 

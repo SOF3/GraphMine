@@ -7,3 +7,7 @@ title: LongRef.<init> - graphmine-util
 # &lt;init&gt;
 
 `LongRef(value: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`)`
+
+Useful for passing by reference or as return value in delegation providers [DelegateProvider](../-delegate-provider/index.html) and
+[VarDelegateProvider](../-var-delegate-provider/index.html)
+

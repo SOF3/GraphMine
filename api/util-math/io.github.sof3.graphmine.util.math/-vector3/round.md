@@ -7,4 +7,10 @@ title: Vector3.round - util-math
 # round
 
 `fun round(): `[`IntVector3`](../-int-vector3/index.html)
+
+Rounds this vector to an [IntVector3](../-int-vector3/index.html)
+
 `fun round(dp: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Vector3`](index.html)
+
+Rounds this vector to [dp](round.html#io.github.sof3.graphmine.util.math.Vector3$round(kotlin.Int)/dp) decimal places
+

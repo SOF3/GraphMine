@@ -7,3 +7,9 @@ title: BooleanRef.value - graphmine-util
 # value
 
 `var value: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

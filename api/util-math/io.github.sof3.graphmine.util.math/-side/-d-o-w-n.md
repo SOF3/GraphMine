@@ -7,3 +7,6 @@ title: Side.DOWN - util-math
 # DOWN
 
 `val DOWN: `[`Side`](index.html)
+
+The DOWN side
+

@@ -7,3 +7,6 @@ title: Side.NORTH - util-math
 # NORTH
 
 `val NORTH: `[`Side`](index.html)
+
+The NORTH side
+

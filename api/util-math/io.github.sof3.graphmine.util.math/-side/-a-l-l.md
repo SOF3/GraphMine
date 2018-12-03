@@ -7,3 +7,6 @@ title: Side.ALL - util-math
 # ALL
 
 `val ALL: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`Side`](index.html)`>`
+
+A list of all sides
+

@@ -7,3 +7,9 @@ title: IntVector3Range.IterationOrder.c - util-math
 # c
 
 `val c: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+the third axis to iterate over (increments every time, resets after reaching [max](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max.html))
+
+### Property
+
+`c` - the third axis to iterate over (increments every time, resets after reaching [max](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max.html))

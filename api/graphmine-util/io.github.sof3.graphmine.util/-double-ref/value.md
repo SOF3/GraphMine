@@ -7,3 +7,9 @@ title: DoubleRef.value - graphmine-util
 # value
 
 `var value: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+the backing value
+
+### Property
+
+`value` - the backing value

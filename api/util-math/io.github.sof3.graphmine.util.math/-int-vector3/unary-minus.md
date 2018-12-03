@@ -7,3 +7,7 @@ title: IntVector3.unaryMinus - util-math
 # unaryMinus
 
 `operator fun unaryMinus(): `[`IntVector3`](index.html)
+
+**Return**
+this vector in the opposite direction and same length
+

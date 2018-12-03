@@ -7,3 +7,7 @@ title: IntRef.<init> - graphmine-util
 # &lt;init&gt;
 
 `IntRef(value: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`)`
+
+Useful for passing by reference or as return value in delegation providers [DelegateProvider](../-delegate-provider/index.html) and
+[VarDelegateProvider](../-var-delegate-provider/index.html)
+

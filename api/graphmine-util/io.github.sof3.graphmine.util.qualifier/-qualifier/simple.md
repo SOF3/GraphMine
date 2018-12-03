@@ -7,3 +7,6 @@ title: Qualifier.simple - graphmine-util
 # simple
 
 `val simple: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+
+The last part of the qualifier, which is also the most frequently used one
+

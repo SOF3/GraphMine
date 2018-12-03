@@ -6,5 +6,5 @@ title: io.github.sof3.graphmine.util.qualifier.kotlin.String - graphmine-util
 
 ### Extensions for kotlin.String
 
-| [qualify](qualify.html) | `fun `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.qualify(): `[`Qualifier`](../-qualifier/index.html) |
+| [qualify](qualify.html) | `fun `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.qualify(): `[`Qualifier`](../-qualifier/index.html)<br>Converts a dot-delimited string to a qualifier |
 

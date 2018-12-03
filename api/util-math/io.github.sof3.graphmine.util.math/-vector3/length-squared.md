@@ -7,3 +7,6 @@ title: Vector3.lengthSquared - util-math
 # lengthSquared
 
 `val lengthSquared: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+Calculates the squared length of this vector
+

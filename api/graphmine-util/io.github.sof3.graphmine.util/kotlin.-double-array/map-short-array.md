@@ -6,4 +6,8 @@ title: mapShortArray - graphmine-util
 
 # mapShortArray
 
-`inline fun `[`DoubleArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double-array/index.html)`.mapShortArray(fn: (`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`) -> `[`Short`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html)`): `[`ShortArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short-array/index.html)
+`inline fun `[`DoubleArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double-array/index.html)`.mapShortArray(transform: (`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`) -> `[`Short`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html)`): `[`ShortArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short-array/index.html)
+
+Returns an array containing the results of applying the given [transform](map-short-array.html#io.github.sof3.graphmine.util$mapShortArray(kotlin.DoubleArray, kotlin.Function1((kotlin.Double, kotlin.Short)))/transform) function to each element in the
+original array
+

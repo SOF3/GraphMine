@@ -6,5 +6,5 @@ title: io.github.sof3.graphmine.util.math.kotlin.Int - util-math
 
 ### Extensions for kotlin.Int
 
-| [pow10](pow10.html) | `fun `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`.pow10(): `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html) |
+| [pow10](pow10.html) | `fun `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`.pow10(): `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)<br>Calculates 10 raised to the power of this |
 

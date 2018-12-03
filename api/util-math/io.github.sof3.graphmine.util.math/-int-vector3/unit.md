@@ -7,3 +7,7 @@ title: IntVector3.unit - util-math
 # unit
 
 `val unit: `[`Vector3`](../-vector3/index.html)
+
+**Return**
+a unit vector (length = 1) in the same direction as this vector
+

@@ -7,3 +7,6 @@ title: IntVector3.x - util-math
 # x
 
 `val x: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+The *x*-component value
+

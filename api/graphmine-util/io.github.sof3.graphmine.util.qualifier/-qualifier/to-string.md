@@ -7,3 +7,6 @@ title: Qualifier.toString - graphmine-util
 # toString
 
 `fun toString(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+
+Returns the dot-delimited representation of the qualifier
+

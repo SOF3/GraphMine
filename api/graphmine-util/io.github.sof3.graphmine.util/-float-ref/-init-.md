@@ -7,3 +7,7 @@ title: FloatRef.<init> - graphmine-util
 # &lt;init&gt;
 
 `FloatRef(value: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)`)`
+
+Useful for passing by reference or as return value in delegation providers [DelegateProvider](../-delegate-provider/index.html) and
+[VarDelegateProvider](../-var-delegate-provider/index.html)
+

@@ -7,3 +7,7 @@ title: IntVector3.abs - util-math
 # abs
 
 `fun abs(): `[`IntVector3`](index.html)
+
+**Return**
+this vector with all components flipped if negative
+
