@@ -27,8 +27,6 @@ abstract class ConfigGroupSpec<Self : ConfigGroupSpec<Self>> : ConfigSpec() {
 	internal lateinit var parent: ConfigSpec
 	internal lateinit var groupName: String
 
-	override val entries: MutableMap<String, ConfigEntryDelegate<*>>
-		get() = parent.entries
 	override val path get() = parent.path + groupName
 
 	/**

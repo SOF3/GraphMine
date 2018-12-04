@@ -2,13 +2,18 @@ package io.github.sof3.graphmine.cli
 
 import io.github.sof3.graphmine.Server
 import io.github.sof3.graphmine.VersionInfo
+import io.github.sof3.graphmine.command.TerminalSignal
+import io.github.sof3.graphmine.util.BooleanRef
 import io.github.sof3.graphmine.util.KtsLoader
 import org.apache.commons.cli.DefaultParser
 import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
 import org.apache.commons.io.IOUtils
+import reactor.core.publisher.Flux
+import reactor.core.scheduler.Schedulers
 import java.io.File
 import java.io.FileOutputStream
+import java.io.IOException
 import java.text.DateFormat
 
 /*
@@ -29,11 +34,14 @@ import java.text.DateFormat
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+lateinit var argv: Array<String>
+
 /**
  * The main entry function for the CLI program.
  * @param args command-line arguments
  */
 fun main(args: Array<String>) {
+	argv = args
 	val options = Options().apply {
 		addOption("v", "version", false, "GraphMine version")
 		addOption("h", "help", false, "Overload line description")
@@ -63,8 +71,37 @@ fun main(args: Array<String>) {
 		FileOutputStream(configFile).use { IOUtils.copy(default, it) }
 	}
 
-	Server(
+	val (signalFlux, shutdown) = createStdinFlux()
+
+	val server = Server(
+			dataDir = dataDir,
 			config = KtsLoader.load(configFile),
+			signalFlux = signalFlux,
 			initNano = initNano
 	)
+	server.shutdownHandlers += shutdown
+}
+
+fun createStdinFlux(): Pair<Flux<TerminalSignal>, () -> Unit> {
+	var closing by BooleanRef(false)
+
+	val flux = Flux.create<TerminalSignal> { sink ->
+		println("Starting stdin")
+
+		Runtime.getRuntime().addShutdownHook(Thread { sink.next(TerminalSignal.Int) })
+
+		try {
+			while (!closing) {
+				val line = readLine() ?: break
+				sink.next(TerminalSignal.Cmd(line))
+			}
+		} catch (e: IOException) {
+		}
+		if (!closing) sink.next(TerminalSignal.Eod)
+	}.subscribeOn(Schedulers.newSingle("stdin"))
+
+	return Pair(flux) {
+		System.`in`.close()
+		closing = true
+	}
 }

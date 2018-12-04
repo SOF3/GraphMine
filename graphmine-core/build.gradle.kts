@@ -35,14 +35,21 @@ dependencies {
 	api(project(":util-math"))
 	api(project(":graphmine-i18n"))
 	api(project(":graphmine-i18n-core"))
+	
 	api("org.apache.logging.log4j", "log4j-api", "2.11.1")
 	runtimeOnly("org.apache.logging.log4j", "log4j-core", "2.11.1")
+
+	api(kotlin("stdlib-jdk8"))
+	api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1")
+	api(kotlin("reflect"))
+
+	api("io.projectreactor:reactor-core:3.2.3.RELEASE")
+
+	implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.7")
+	implementation("com.fasterxml.jackson.dataformat", "jackson-dataformat-yaml", "2.9.7")
+	implementation("com.fasterxml.jackson.core", "jackson-databind", "2.9.4")
 	implementation("com.fasterxml.jackson.core", "jackson-annotations", "2.9.7")
-	implementation(kotlin("stdlib-jdk8"))
-	implementation(kotlin("reflect"))
-	api("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.7")
-	api("com.fasterxml.jackson.dataformat", "jackson-dataformat-yaml", "2.9.7")
-	api("com.fasterxml.jackson.core", "jackson-databind", "2.9.4")
+
 	testImplementation(kotlin("test"))
 	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")

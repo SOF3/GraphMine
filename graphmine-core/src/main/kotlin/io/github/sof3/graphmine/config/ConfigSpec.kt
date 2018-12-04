@@ -26,7 +26,7 @@ import kotlin.reflect.KProperty
  * Superclass for type specifications of .kts config files
  */
 abstract class ConfigSpec {
-	internal open val entries = mutableMapOf<String, ConfigEntryDelegate<*>>()
+	internal open var entries = mutableMapOf<String, ConfigEntryDelegate<*>>()
 	internal val groups = mutableMapOf<String, ConfigGroupSpec<*>>()
 	internal open val path = emptyList<String>()
 
@@ -71,8 +71,10 @@ abstract class ConfigSpec {
 	 * @return the delegate that can be included by property delegation
 	 * @sample CoreConfig.server
 	 */
-	protected fun <G : ConfigGroupSpec<G>> group(group: G) = GroupDelegate(group.apply {
-		parent = this@ConfigSpec
+	protected fun <G : ConfigGroupSpec<G>> group(group: G) = GroupDelegate(group.also {
+		group.parent = this
+		entries.putAll(group.entries)
+		group.entries = entries
 	})
 
 	/**
