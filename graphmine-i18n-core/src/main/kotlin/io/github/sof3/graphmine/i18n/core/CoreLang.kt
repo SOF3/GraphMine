@@ -3,6 +3,7 @@ package io.github.sof3.graphmine.i18n.core
 import io.github.sof3.graphmine.i18n.GroupSpec
 import io.github.sof3.graphmine.i18n.I18n
 import io.github.sof3.graphmine.i18n.LangSpec
+import java.io.File
 
 /*
  * GraphMine
@@ -28,6 +29,10 @@ object CoreLang : LangSpec<CoreLang>() {
 	val startup by group(Startup)
 
 	object Startup : GroupSpec<Startup>() {
+		val locked by accept<LockedArg>()
+
+		data class LockedArg(val file: File)
+
 		val version by accept<VersionArg>()
 
 		data class VersionArg(val version: String, val ip: String, val port: Int)

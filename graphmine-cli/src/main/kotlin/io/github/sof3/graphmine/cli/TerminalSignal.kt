@@ -1,4 +1,4 @@
-package io.github.sof3.graphmine.command
+package io.github.sof3.graphmine.cli
 
 /**
  * Any signals received from the abstract console are expressed as a [TerminalSignal].

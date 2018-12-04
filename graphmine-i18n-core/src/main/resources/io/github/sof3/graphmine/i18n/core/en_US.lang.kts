@@ -22,6 +22,7 @@ import kotlin.math.round
 CoreLang("en_US") {
 	serverName { "GraphMine" }
 	startup {
+		locked { "Another server is already running in the data directory $file" }
 		version { "Starting GraphMine version $version on $ip:$port" }
 		complete { "Startup completed in ${round(nano / 1e+6) / 1e+3}s" }
 	}

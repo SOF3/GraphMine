@@ -2,13 +2,15 @@ package io.github.sof3.graphmine.cli
 
 import io.github.sof3.graphmine.Server
 import io.github.sof3.graphmine.VersionInfo
-import io.github.sof3.graphmine.command.TerminalSignal
+import io.github.sof3.graphmine.config.CoreConfig
 import io.github.sof3.graphmine.util.BooleanRef
 import io.github.sof3.graphmine.util.KtsLoader
+import org.apache.commons.cli.CommandLine
 import org.apache.commons.cli.DefaultParser
 import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
 import org.apache.commons.io.IOUtils
+import org.apache.logging.log4j.LogManager
 import reactor.core.publisher.Flux
 import reactor.core.scheduler.Schedulers
 import java.io.File
@@ -34,60 +36,81 @@ import java.text.DateFormat
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-lateinit var argv: Array<String>
+internal lateinit var options: Options
+internal lateinit var cmd: CommandLine
+internal val logger = LogManager.getLogger()!!
 
-/**
- * The main entry function for the CLI program.
- * @param args command-line arguments
- */
-fun main(args: Array<String>) {
-	argv = args
-	val options = Options().apply {
+internal fun main(args: Array<String>) {
+	options = Options().apply {
 		addOption("v", "version", false, "GraphMine version")
 		addOption("h", "help", false, "Overload line description")
-		addOption("c", "config", true, "Path to config.kts")
+		addOption("d", "data", true, "Path to data directory")
 	}
-	val cmd = DefaultParser().parse(options, args)
+	cmd = DefaultParser().parse(options, args)
 
-	if (cmd.hasOption("h")) {
-		HelpFormatter().printHelp("graphmine", options)
-		return
-	}
+	if (metaArgs()) return
 
-	if (cmd.hasOption("v")) {
-		println("GraphMine v${VersionInfo.VERSION}, built on ${DateFormat.getDateTimeInstance().format(VersionInfo.BUILD_DATE)}")
-		return
-	}
-
-	println("Loading...")
 	val initNano = System.nanoTime()
 
-	val dataDir = File("data")
+	logger.debug("Setting up data directory...")
+	val (dataDir, config) = setupDataDir()
+
+	val server = Server(
+			dataDir = dataDir,
+			config = config,
+			initNano = initNano
+	)
+
+	logger.debug("Initializing stdin")
+	val (signalFlux, shutdown) = createStdinFlux()
+	signalFlux.subscribe {
+		when (it) {
+			is TerminalSignal.Cmd -> {
+				val name = it.line.substringBefore(" ")
+				server.commandMap.dispatch(it.line, ConsoleSender, ConsoleReceiver("Command:$name", server.locale))
+			}
+			TerminalSignal.Eod -> server.shutdown()
+			TerminalSignal.Int -> server.shutdown()
+		}
+	}
+	server.shutdownHandlers += shutdown
+}
+
+private fun metaArgs() = when {
+	cmd.hasOption("h") -> {
+		HelpFormatter().printHelp("graphmine", options)
+		true
+	}
+	cmd.hasOption("v") -> {
+		println("GraphMine v${VersionInfo.VERSION}, built on ${DateFormat.getDateTimeInstance().format(VersionInfo.BUILD_DATE)}")
+		true
+	}
+	else -> false
+}
+
+private fun setupDataDir(): Pair<File, CoreConfig> {
+	val dataDir = File(cmd.getOptionValue("data", "data"))
 	if (!dataDir.exists()) dataDir.mkdirs()
 
-	val configFile = File(cmd.getOptionValue("c", "data/config.kts"))
+	val configFile = File(dataDir, "config.kts")
 	if (!configFile.exists()) {
+		logger.debug("Copying default config.kts")
 		val default = object {}.javaClass.classLoader.getResourceAsStream("config.kts")
 		FileOutputStream(configFile).use { IOUtils.copy(default, it) }
 	}
 
-	val (signalFlux, shutdown) = createStdinFlux()
-
-	val server = Server(
-			dataDir = dataDir,
-			config = KtsLoader.load(configFile),
-			signalFlux = signalFlux,
-			initNano = initNano
-	)
-	server.shutdownHandlers += shutdown
+	logger.debug("Loading CoreConfig classes")
+	CoreConfig {}
+	logger.debug("Loading config.kts")
+	val config = KtsLoader.load<CoreConfig>(configFile)
+	logger.debug("Loaded config.kts")
+	return dataDir to config
 }
 
-fun createStdinFlux(): Pair<Flux<TerminalSignal>, () -> Unit> {
+private fun createStdinFlux(): Pair<Flux<TerminalSignal>, () -> Unit> {
 	var closing by BooleanRef(false)
 
 	val flux = Flux.create<TerminalSignal> { sink ->
-		println("Starting stdin")
-
 		Runtime.getRuntime().addShutdownHook(Thread { sink.next(TerminalSignal.Int) })
 
 		try {

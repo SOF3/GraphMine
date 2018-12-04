@@ -6,7 +6,7 @@ Configuration:
     Console:
       name: stdout
       PatternLayout:
-        Pattern: "%d{MMM dd HH:mm:ss} [%thread] %level %logger - %msg%n"
+        Pattern: "%date{HH:mm:ss.SSS} %logger{2}@%thread %level %msg%n"
     RollingFile:
       name: file
       fileName: logs/server.log

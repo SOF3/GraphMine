@@ -1,4 +1,8 @@
-package io.github.sof3.graphmine.util
+package io.github.sof3.graphmine.cli
+
+import io.github.sof3.graphmine.command.CommandReceiver
+import io.github.sof3.graphmine.i18n.I18n
+import org.apache.logging.log4j.LogManager
 
 /*
  * GraphMine
@@ -18,22 +22,8 @@ package io.github.sof3.graphmine.util
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Syntactic sugar for [CharSequence.substring] so that it looks like `string[start:end]` in Python
- */
-operator fun CharSequence.get(start: Int, end: Int) = substring(start, end)
-
-/**
- * Syntactic sugar for [CharSequence.substring] so that it looks like `list[start:end]` in Python
- */
-operator fun <T> List<T>.get(start: Int, end: Int) = slice(start until end)
-
-/**
- * A more intuitive way of checking if an offset is in bounds of a string
- */
-fun String.hasOffset(offset: Int) = offset in 0 until length
-
-/**
- * A more intuitive way of checking if an offset is in bounds of a list
- */
-fun List<*>.hasOffset(offset: Int) = offset in 0 until size
+internal class ConsoleReceiver(private val prefix: String, private val locale: String) : CommandReceiver{
+	override fun receiveMessage(message: I18n) {
+		LogManager.getLogger(prefix).info(message[locale])
+	}
+}

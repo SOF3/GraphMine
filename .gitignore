@@ -2,7 +2,7 @@
 /logs/
 /graphmine-cli/data/
 /graphmine-cli/logs/
-/graphmine-*/out
+/*/out
 .idea/*
 !.idea/fileTemplates
 !.idea/inspectionProfiles
