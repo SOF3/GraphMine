@@ -25,3 +25,7 @@ Model for the server config.yml
 | [entry](../-config-spec/entry.html) | `fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> entry(validator: (`[`T`](../-config-spec/entry.html#T)`) -> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = { null }): `[`SimpleConfigEntry`](../-simple-config-entry/index.html)`<`[`T`](../-config-spec/entry.html#T)`>`<br>Declares a required entry`fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> entry(default: `[`T`](../-config-spec/entry.html#T)`, validator: (`[`T`](../-config-spec/entry.html#T)`) -> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = { null }): `[`SimpleConfigEntry`](../-simple-config-entry/index.html)`<`[`T`](../-config-spec/entry.html#T)`>`<br>Declares an entry with a default value |
 | [group](../-config-spec/group.html) | `fun <G : `[`ConfigGroupSpec`](../-config-group-spec/index.html)`<`[`G`](../-config-spec/group.html#G)`>> group(group: `[`G`](../-config-spec/group.html#G)`): `[`GroupDelegate`](../-config-spec/-group-delegate/index.html)`<`[`G`](../-config-spec/group.html#G)`>`<br>Config groups should be included by delegation to this call |
 
+### Companion Object Properties
+
+| [VERSION](-v-e-r-s-i-o-n.html) | `const val VERSION: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+

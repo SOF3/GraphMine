@@ -14,6 +14,8 @@ This module provides general-purpose that cannot be classified. Most of them are
 | [kotlin.CharArray](../io.github.sof3.graphmine.util/kotlin.-char-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [io.github.sof3.graphmine.util.CharRef](../io.github.sof3.graphmine.util/-char-ref/index.html) | Useful for passing by reference or as return value in delegation providers [DelegateProvider](../io.github.sof3.graphmine.util/-delegate-provider/index.html) and [VarDelegateProvider](../io.github.sof3.graphmine.util/-var-delegate-provider/index.html) |
 | [kotlin.CharSequence](../io.github.sof3.graphmine.util/kotlin.-char-sequence/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
+| [java.io.DataInputStream](../io.github.sof3.graphmine.util/java.io.-data-input-stream/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
+| [java.io.DataOutputStream](../io.github.sof3.graphmine.util/java.io.-data-output-stream/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [io.github.sof3.graphmine.util.DelegateProvider](../io.github.sof3.graphmine.util/-delegate-provider/index.html) | An interface to help completing the `provideDelegate` operator function for `val` property delegation. |
 | [io.github.sof3.graphmine.util.string.DelimiterResult](../io.github.sof3.graphmine.util.string/-delimiter-result/index.html) |  |
 | [kotlin.DoubleArray](../io.github.sof3.graphmine.util/kotlin.-double-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
@@ -23,6 +25,7 @@ This module provides general-purpose that cannot be classified. Most of them are
 | [io.github.sof3.graphmine.util.string.FormattedStringReader](../io.github.sof3.graphmine.util.string/-formatted-string-reader/index.html) |  |
 | [kotlin.IntArray](../io.github.sof3.graphmine.util/kotlin.-int-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [io.github.sof3.graphmine.util.IntRef](../io.github.sof3.graphmine.util/-int-ref/index.html) | Useful for passing by reference or as return value in delegation providers [DelegateProvider](../io.github.sof3.graphmine.util/-delegate-provider/index.html) and [VarDelegateProvider](../io.github.sof3.graphmine.util/-var-delegate-provider/index.html) |
+| [io.github.sof3.graphmine.util.KtsBin](../io.github.sof3.graphmine.util/-kts-bin/index.html) |  |
 | [io.github.sof3.graphmine.util.KtsLoader](../io.github.sof3.graphmine.util/-kts-loader/index.html) | State object to ensure system properties are set before loading a script |
 | [kotlin.collections.List](../io.github.sof3.graphmine.util/kotlin.collections.-list/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
 | [kotlin.LongArray](../io.github.sof3.graphmine.util/kotlin.-long-array/index.html) (extensions in package io.github.sof3.graphmine.util) |  |
