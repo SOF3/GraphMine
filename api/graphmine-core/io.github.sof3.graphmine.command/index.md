@@ -18,7 +18,6 @@ This package contains the API for declaring commands.
 | [EmptyOverload](-empty-overload/index.html) | `class EmptyOverload : `[`Overload`](-overload/index.html)<br>An empty overload, reused for commands that do not require arguments. |
 | [Overload](-overload/index.html) | `abstract class Overload`<br>Defines the parameters of a command. |
 | [RegisteredOverload](-registered-overload/index.html) | `class RegisteredOverload : I18nable`<br>A factory that creates a new instance of a known command overload for each command execution. |
-| [TerminalSignal](-terminal-signal/index.html) | `sealed class TerminalSignal`<br>Any signals received from the abstract console are expressed as a [TerminalSignal](-terminal-signal/index.html). |
 
 ### Exceptions
 

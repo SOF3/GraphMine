@@ -27,4 +27,4 @@ sent to the server's corresponding handlers.
 
 ### Index
 
-[All Types](alltypes.html)
+[All Types](alltypes/index.html)

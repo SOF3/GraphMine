@@ -1,8 +1,8 @@
 ---
-title: TerminalSignal - graphmine-core
+title: TerminalSignal - graphmine-cli
 ---
 
-[graphmine-core](../../index.html) / [io.github.sof3.graphmine.command](../index.html) / [TerminalSignal](./index.html)
+[graphmine-cli](../../index.html) / [io.github.sof3.graphmine.cli](../index.html) / [TerminalSignal](./index.html)
 
 # TerminalSignal
 

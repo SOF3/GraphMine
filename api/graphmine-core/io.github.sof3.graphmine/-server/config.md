@@ -13,3 +13,9 @@ the server config
 ### Property
 
 `config` - the server config
+
+### Parameters
+
+`initNano` - System.nanoTime() when the server start command was created
+
+`scope` - internal value, do not override

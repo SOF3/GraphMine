@@ -6,12 +6,7 @@ title: io.github.sof3.graphmine.cli - graphmine-cli
 
 ## Package io.github.sof3.graphmine.cli
 
-### Properties
+### Types
 
-| [argv](argv.html) | `lateinit var argv: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
-
-### Functions
-
-| [createStdinFlux](create-stdin-flux.html) | `fun createStdinFlux(): `[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html)`<Flux<TerminalSignal>, () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`>` |
-| [main](main.html) | `fun main(args: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>The main entry function for the CLI program. |
+| [TerminalSignal](-terminal-signal/index.html) | `sealed class TerminalSignal`<br>Any signals received from the abstract console are expressed as a [TerminalSignal](-terminal-signal/index.html). |
 
