@@ -14,13 +14,22 @@ To prevent cyclic dependency, instead of passing the Server object around, pass 
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `Server(config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)`, initNano: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)` = System.nanoTime(), myScope: `[`BaseScope`](../../io.github.sof3.graphmine.scope/-base-scope/index.html)` = BaseScope(Server::class))`<br>The Server should be the object that links up different components of the server. |
+| [&lt;init&gt;](-init-.html) | `Server(dataDir: `[`File`](http://docs.oracle.com/javase/6/docs/api/java/io/File.html)`, config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)`, signalFlux: Flux<`[`TerminalSignal`](../../io.github.sof3.graphmine.command/-terminal-signal/index.html)`>, initNano: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)` = System.nanoTime(), scope: `[`BaseScope`](../../io.github.sof3.graphmine.scope/-base-scope/index.html)` = BaseScope(Server::class))`<br>The Server should be the object that links up different components of the server. |
 
 ### Properties
 
-| [config](config.html) | `val config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html) |
+| [commandMap](command-map.html) | `val commandMap: `[`CommandMap`](../../io.github.sof3.graphmine.command/-command-map/index.html)<br>Stores the list of server-wide commands |
+| [config](config.html) | `val config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)<br>the server config |
+| [dataDir](data-dir.html) | `val dataDir: `[`File`](http://docs.oracle.com/javase/6/docs/api/java/io/File.html)<br>the server data directory |
 | [locale](locale.html) | `val locale: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>the default locale of the server. |
 | [logger](logger.html) | `val logger: Logger`<br>the logger used for the server scope. Plugins should use their own logger instead of this one. |
+| [shutdownHandlers](shutdown-handlers.html) | `val shutdownHandlers: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`>`<br>List of [Runnable](http://docs.oracle.com/javase/6/docs/api/java/lang/Runnable.html)s that are called when the server shuts down |
+| [signalFlux](signal-flux.html) | `val signalFlux: Flux<`[`TerminalSignal`](../../io.github.sof3.graphmine.command/-terminal-signal/index.html)`>`<br>a [Flux](#) providing terminal signals |
+
+### Functions
+
+| [handleSignal](handle-signal.html) | `fun handleSignal(signal: `[`TerminalSignal`](../../io.github.sof3.graphmine.command/-terminal-signal/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Handles a terminal signal |
+| [shutdown](shutdown.html) | `fun shutdown(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inherited Functions
 

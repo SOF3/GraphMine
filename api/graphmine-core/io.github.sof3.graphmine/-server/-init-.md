@@ -6,7 +6,7 @@ title: Server.<init> - graphmine-core
 
 # &lt;init&gt;
 
-`Server(config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)`, initNano: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)` = System.nanoTime(), myScope: `[`BaseScope`](../../io.github.sof3.graphmine.scope/-base-scope/index.html)` = BaseScope(Server::class))`
+`Server(dataDir: `[`File`](http://docs.oracle.com/javase/6/docs/api/java/io/File.html)`, config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)`, signalFlux: Flux<`[`TerminalSignal`](../../io.github.sof3.graphmine.command/-terminal-signal/index.html)`>, initNano: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)` = System.nanoTime(), scope: `[`BaseScope`](../../io.github.sof3.graphmine.scope/-base-scope/index.html)` = BaseScope(Server::class))`
 
 The Server should be the object that links up different components of the server.
 

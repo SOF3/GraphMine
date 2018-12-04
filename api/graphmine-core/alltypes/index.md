@@ -57,6 +57,7 @@ Main GraphMine code. All public classes and functions are stable API.
 | [io.github.sof3.graphmine.feature.SingleFeatureEdge](../io.github.sof3.graphmine.feature/-single-feature-edge/index.html) | Convenience implementation of self-looping FeatureEdge |
 | [io.github.sof3.graphmine.feature.SingleFeatureHandler](../io.github.sof3.graphmine.feature/-single-feature-handler/index.html) |  |
 | [io.github.sof3.graphmine.command.args.StringArg](../io.github.sof3.graphmine.command.args/-string-arg/index.html) | Accepts the next value in the line. Multi-word arguments can be quoted by `""` or their spaces escaped by `\` before. |
+| [io.github.sof3.graphmine.command.TerminalSignal](../io.github.sof3.graphmine.command/-terminal-signal/index.html) | Any signals received from the abstract console are expressed as a [TerminalSignal](../io.github.sof3.graphmine.command/-terminal-signal/index.html). |
 | [io.github.sof3.graphmine.command.impl.VersionCommand](../io.github.sof3.graphmine.command.impl/-version-command.html) | Implements the /version command |
 | [io.github.sof3.graphmine.VersionInfo](../io.github.sof3.graphmine/-version-info/index.html) | Holds the static version information for this build |
 | [io.github.sof3.graphmine.world.World](../io.github.sof3.graphmine.world/-world.html) | Each world has its set of 3D space. Usually, this is implemented as one saved map, but plugins may create virtual worlds, remote worlds or anything that features the characteristics as required by the interface. |

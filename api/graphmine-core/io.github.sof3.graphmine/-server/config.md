@@ -8,6 +8,8 @@ title: Server.config - graphmine-core
 
 `val config: `[`CoreConfig`](../../io.github.sof3.graphmine.config/-core-config/index.html)
 
-**Return**
 the server config
 
+### Property
+
+`config` - the server config
