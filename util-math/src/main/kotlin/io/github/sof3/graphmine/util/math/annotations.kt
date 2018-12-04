@@ -29,6 +29,7 @@ import kotlin.annotation.AnnotationTarget.*
 @Retention(BINARY)
 @MustBeDocumented
 annotation class Positional
+
 /**
  * Applied on a [Vector3] or [IntVector3] to indicate that it represents a relative vector, e.g. the distance between
  * two vectors

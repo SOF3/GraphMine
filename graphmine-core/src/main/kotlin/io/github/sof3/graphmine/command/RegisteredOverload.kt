@@ -28,7 +28,7 @@ import kotlin.reflect.full.createInstance
 /**
  * A factory that creates a new instance of a known command overload for each command execution.
  */
-class RegisteredOverload(private val klass: KClass<out Overload>): I18nable {
+class RegisteredOverload(private val klass: KClass<out Overload>) : I18nable {
 	override val i18n: I18n
 		get() = TODO("not implemented")
 

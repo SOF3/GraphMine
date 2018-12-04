@@ -49,8 +49,8 @@ class QualifierMap<T> {
 	 */
 	operator fun get(key: String): T? {
 		val map = synchronized(map) { map[key] } ?: return null
-		val clone: Map<Qualifier, T> = synchronized(map){
-			if(map.size == 1) return map.iterator().next().value
+		val clone: Map<Qualifier, T> = synchronized(map) {
+			if (map.size == 1) return map.iterator().next().value
 			Collections.unmodifiableMap(map)
 		}
 		throw QualifierClashException(clone)

@@ -25,7 +25,7 @@ typealias Translation<T> = T.() -> String
 
 class Declaration<Arg : Any>(private val spec: () -> LangSpec<*>, private val pathGet: () -> List<String>) : ReadOnlyProperty<LangSpec<*>, Declaration<Arg>> {
 	val translations = linkedMapOf<String, Translation<Arg>>()
-	val path by lazy{ pathGet() }
+	val path by lazy { pathGet() }
 	val pathJoined by lazy { path.joinToString(".") }
 
 	/**

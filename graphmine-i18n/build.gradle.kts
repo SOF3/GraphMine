@@ -27,6 +27,4 @@ version = "1.0.0-SNAPSHOT"
 dependencies {
 	api(project(":graphmine-util"))
 	implementation(kotlin("stdlib-jdk8"))
-	implementation(kotlin("script-runtime"))
-	implementation(kotlin("script-util"))
 }

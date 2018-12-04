@@ -22,7 +22,7 @@ import org.apache.logging.log4j.LogManager
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-internal class ConsoleReceiver(private val prefix: String, private val locale: String) : CommandReceiver{
+internal class ConsoleReceiver(private val prefix: String, private val locale: String) : CommandReceiver {
 	override fun receiveMessage(message: I18n) {
 		LogManager.getLogger(prefix).info(message[locale])
 	}

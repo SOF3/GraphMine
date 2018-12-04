@@ -28,5 +28,5 @@ interface ExternalViewer {
 	 *
 	 * @param worldView the world view that views the entity
 	 */
-	fun provideView(worldView: WorldView) : ExternalView
+	fun provideView(worldView: WorldView): ExternalView
 }

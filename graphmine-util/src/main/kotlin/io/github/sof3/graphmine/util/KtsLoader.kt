@@ -1,8 +1,10 @@
 package io.github.sof3.graphmine.util
 
-import java.io.File
-import java.io.FileReader
-import java.io.Reader
+import org.apache.commons.io.IOUtils
+import org.apache.commons.io.input.TeeInputStream
+import java.io.*
+import java.security.DigestOutputStream
+import java.security.MessageDigest
 import javax.script.ScriptEngineManager
 
 /*
@@ -32,12 +34,49 @@ object KtsLoader {
 	}
 
 	/**
-	 * Loads a script from a file
+	 * Loads a .kts file, optionally from cache and stores to cache
 	 *
-	 * @param R the expected return type from the script
-	 * @return the value in the script
+	 * @param T the type
 	 */
-	inline fun <reified R> load(file: File): R = load(FileReader(file))
+	inline fun <reified T : KtsBin<T, F>, F : KtsBin.Factory<T, F>> loadSerializable(factory: F, fis: InputStream, path: String, cacheDir: File, rVersion: Int): T {
+		cacheDir.mkdirs()
+		val cacheFile = File(cacheDir, "kts-" + path.hashCode().toString(16))
+
+		val digestBuf = ByteArrayOutputStream()
+		val digest = DigestOutputStream(digestBuf, MessageDigest.getInstance("MD5")!!)
+		val tee = TeeInputStream(fis, digest)
+
+		val raw = ByteArrayOutputStream()
+		tee.use { IOUtils.copy(tee, raw) }
+
+		val md5 = digestBuf.toByteArray()!!
+		assert(md5.size == 16)
+		val load = loadCache(md5, cacheFile, rVersion) { factory.read(it) }
+		if (load != null) return load
+		val loaded = load<T>(StringReader(String(raw.toByteArray())))
+		writeCache(cacheFile, md5, rVersion, loaded)
+		return loaded
+	}
+
+	fun <T> loadCache(md5: ByteArray, cacheFile: File, rVersion: Int, read: (DataInputStream) -> T): T? {
+		if (!cacheFile.isFile) return null
+		return DataInputStream(FileInputStream(cacheFile)).use {
+			val buffer = ByteArray(16)
+			it.read(buffer)
+			if (!buffer.contentEquals(md5)) return null
+			val version = it.readInt()
+			if (version != rVersion) return null
+			read(it)
+		}
+	}
+
+	fun writeCache(cacheFile: File, md5: ByteArray, rVersion: Int, value: KtsBin<*, *>) {
+		return DataOutputStream(FileOutputStream(cacheFile)).use {
+			it.write(md5)
+			it.writeInt(rVersion)
+			value.write(it)
+		}
+	}
 
 	/**
 	 * Loads a script from a reader

@@ -34,7 +34,7 @@ import kotlinx.coroutines.CoroutineScope
  *
  * A scope is also a coroutine scope. Coroutines may be started from the scope.
  */
-interface Scope: CoroutineScope {
+interface Scope : CoroutineScope {
 	val name: String
 
 	/**

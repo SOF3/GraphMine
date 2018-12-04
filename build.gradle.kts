@@ -4,6 +4,7 @@ import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorPlugin
 import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorTask
 import guru.nidi.graphviz.attribute.Color
 import guru.nidi.graphviz.attribute.Style
+import guru.nidi.graphviz.model.MutableNode
 import java.nio.file.Files
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.gradle.internal.impldep.org.testng.reporters.XMLUtils.xml
@@ -92,14 +93,22 @@ subprojects {
 	}
 }
 
+fun colorNode(node: MutableNode, name: String): MutableNode {
+	val rgb = name.hashCode()
+	node.add(Style.FILLED, Color.rgb(rgb))
+	val R = rgb shr 16 and 0xFF
+	val G = rgb shr 8 and 0xFF
+	val B = rgb and 0xFF
+	val light = 0.299 * R + 0.587 * G + 0.114 * B
+	if (light <= 152.0) {
+		node.add("fontcolor", "#ffffff")
+	}
+	return node
+}
+
 val graphMineDepGraphGenerator = Generator(
-		dependencyNode = { node, dependency ->
-			if (dependency.moduleGroup.startsWith("io.github.sof3.graphmine"))
-				node.add(Style.FILLED, Color.rgb("#cbff2b"))
-			if (dependency.moduleGroup.startsWith("org.jetbrains.kotlin"))
-				node.add(Style.FILLED, Color.rgb("#f2831e"))
-			else node
-		}
+		dependencyNode = { node, dependency -> colorNode(node, dependency.moduleGroup) },
+		projectNode = { node, project -> colorNode(node, project.group.toString()) }
 )
 
 configure<DependencyGraphGeneratorExtension> {

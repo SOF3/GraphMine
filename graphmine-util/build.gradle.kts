@@ -27,7 +27,12 @@ version = "1.0.0-SNAPSHOT"
 dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation(kotlin("reflect"))
+
+	implementation("commons-io:commons-io:2.6")
+
 	runtimeOnly(kotlin("compiler-embeddable"))
+	runtimeOnly(kotlin("script-util"))
+
 	testImplementation(kotlin("test"))
 	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.0-alpha.2")
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.0-alpha.2")

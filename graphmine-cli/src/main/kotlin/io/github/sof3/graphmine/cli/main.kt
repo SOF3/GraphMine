@@ -15,6 +15,7 @@ import reactor.core.publisher.Flux
 import reactor.core.scheduler.Schedulers
 import java.io.File
 import java.io.FileOutputStream
+import java.io.FileReader
 import java.io.IOException
 import java.text.DateFormat
 
@@ -101,9 +102,9 @@ private fun setupDataDir(): Pair<File, CoreConfig> {
 
 	logger.debug("Loading CoreConfig classes")
 	CoreConfig {}
-	logger.debug("Loading config.kts")
-	val config = KtsLoader.load<CoreConfig>(configFile)
-	logger.debug("Loaded config.kts")
+	logger.debug("Loading ${configFile.canonicalPath}")
+	val config = KtsLoader.load<CoreConfig>(FileReader(configFile))
+	logger.debug("Loaded ${configFile.canonicalPath}")
 	return dataDir to config
 }
 

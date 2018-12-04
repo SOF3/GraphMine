@@ -158,6 +158,7 @@ inline class Vector3(internal val values: DoubleArray) {
 
 	/** @return this vector moved towards the side [side] by one unit */
 	fun side(side: Side) = this + side.vector
+
 	/** @return this vector moved towards the side [side] by [steps] units */
 	fun side(side: Side, steps: Double) = this + side.vector * steps
 

@@ -1,4 +1,7 @@
-package io.github.sof3.graphmine.config
+package io.github.sof3.graphmine.util
+
+import java.io.DataInputStream
+import java.io.DataOutputStream
 
 /*
  * GraphMine
@@ -18,41 +21,10 @@ package io.github.sof3.graphmine.config
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Model for the server config.yml
- */
-class CoreConfig(fn: CoreConfig.() -> Unit) : ConfigSpec() {
-	companion object {
-		const val VERSION = 1
+interface KtsBin<T : KtsBin<T, F>, F : KtsBin.Factory<T, F>> {
+	fun write(dis: DataOutputStream)
+
+	interface Factory<T : KtsBin<T, F>, F : Factory<T, F>> {
+		fun read(dis: DataInputStream): T
 	}
-
-	/**
-	 * The default language to use
-	 */
-	var language by entry("en_US")
-
-	/**
-	 * Settings for the server
-	 */
-	val server by group(ServerConfig())
-
-	init {
-		apply(fn)
-	}
-}
-
-/**
- * Settings for the server
- */
-class ServerConfig : ConfigGroupSpec<ServerConfig>() {
-	/**
-	 * The IP to listen on
-	 *
-	 * Keep this as `0.0.0.0` unless the server has multiple networks.
-	 */
-	var ip by entry("0.0.0.0")
-	/**
-	 * The port to listen on
-	 */
-	var port by entry(19132) { if (it !in 0..65535) "Port must be between 0 and 65535" else null }
 }

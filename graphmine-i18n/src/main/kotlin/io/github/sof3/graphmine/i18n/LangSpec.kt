@@ -48,7 +48,7 @@ abstract class LangSpec<Self : LangSpec<Self>> {
 	 */
 	fun <Arg : Any> accept() = object : DelegateProvider<Self, Declaration<Arg>> {
 		override fun provideDelegate(thisRef: Self, property: KProperty<*>): ReadOnlyProperty<Self, Declaration<Arg>> {
-			val declaration = Declaration<Arg>({rootSpec}, {path + property.name})
+			val declaration = Declaration<Arg>({ rootSpec }, { path + property.name })
 			declarations[property.name] = declaration
 			return declaration
 		}

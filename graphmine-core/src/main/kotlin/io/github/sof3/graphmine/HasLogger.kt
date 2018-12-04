@@ -38,18 +38,22 @@ interface HasLogger {
 	 * Logs a DEBUG-level message
 	 */
 	fun debug(i18n: I18n) = logger.debug(i18n[locale])
+
 	/**
 	 * Logs a ERROR-level message
 	 */
 	fun error(i18n: I18n) = logger.error(i18n[locale])
+
 	/**
 	 * Logs a FATAL-level message
 	 */
 	fun fatal(i18n: I18n) = logger.fatal(i18n[locale])
+
 	/**
 	 * Logs a INFO-level message
 	 */
 	fun info(i18n: I18n) = logger.info(i18n[locale])
+
 	/**
 	 * Logs a WARN-level message
 	 */

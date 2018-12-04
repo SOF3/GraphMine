@@ -27,6 +27,8 @@ interface I18n {
 
 inline fun <reified T : LangSpec<T>> loadLangScript(locales: Iterable<String>) {
 	for (locale in locales) {
-		KtsLoader.load<T>(InputStreamReader(T::class.java.getResourceAsStream("$locale.lang.kts")))
+		val url = T::class.java.getResource("$locale.lang.kts")!!
+
+		KtsLoader.load<T>(InputStreamReader(url.openStream()!!)) // no caching for singletons :(
 	}
 }
